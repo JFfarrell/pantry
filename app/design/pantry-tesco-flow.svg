@@ -1,0 +1,477 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1840" height="2060" viewBox="0 0 1840 2060" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1840" height="2060" rx="0" fill="#E8E4DA" data-name="Canvas"/>
+<g id="Title" data-name="Title">
+<text x="80" y="66" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="Pantry — Tesco basket, deep-link flow">Pantry — Tesco basket, deep-link flow</text>
+<text x="80" y="94" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#444842" text-anchor="start" data-name="Manual add, one item at a time. No DOM a">Manual add, one item at a time. No DOM automation: the only dependency is the search URL.</text>
+</g>
+<g id="01-Shopping-list" data-name="01 Shopping list">
+<text x="80" y="136" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="01  Shopping list">01  Shopping list</text>
+<rect x="80" y="150" width="360" height="760" rx="20" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="80" y="938" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="The launch point. Quantities are already">The launch point. Quantities are already aggregated across every</text>
+<text x="80" y="955" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="recipe in the week, which is exactly wha">recipe in the week, which is exactly what you need in front of you</text>
+<text x="80" y="972" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="while choosing pack sizes.">while choosing pack sizes.</text>
+<text x="98" y="170" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="start" data-name="9:41">9:41</text>
+<rect x="394" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.5"/>
+<rect x="404" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.7"/>
+<rect x="414" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.9"/>
+<text x="98" y="211" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Week of 7 Sept">Week of 7 Sept</text>
+<text x="98" y="256" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="start" data-name="18 of 24 left">18 of 24 left</text>
+<rect x="98" y="268" width="324" height="6" rx="3" fill="#E0E5DC"/>
+<rect x="98" y="268" width="81" height="6" rx="3" fill="#2F5D3A"/>
+<rect x="96" y="290" width="182" height="42" rx="21" fill="#2F5D3A"/>
+<text x="187" y="316" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle" data-name="Fill Tesco basket">Fill Tesco basket</text>
+<rect x="288" y="290" width="100" height="42" rx="21" fill="none" stroke="#2F5D3A" stroke-width="1"/>
+<text x="338" y="316" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#2F5D3A" text-anchor="middle" data-name="Copy">Copy</text>
+<rect x="96" y="346" width="328" height="42" rx="8" fill="#FFFFFF" stroke="#DDD8CE" stroke-width="1"/>
+<text x="110" y="372" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="Add something else">Add something else</text>
+<text x="98" y="426" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#2F5D3A" text-anchor="start" data-name="Fruit &amp; veg">Fruit &amp; veg</text>
+<rect x="98" y="442" width="18" height="18" rx="4" fill="none" stroke="#8A8F86" stroke-width="1.5"/>
+<text x="128" y="451" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="chopped tomatoes">chopped tomatoes</text>
+<text x="422" y="451" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="600 g">600 g</text>
+<rect x="98" y="476" width="18" height="18" rx="4" fill="none" stroke="#8A8F86" stroke-width="1.5"/>
+<text x="128" y="485" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="onions">onions</text>
+<text x="422" y="485" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="3">3</text>
+<rect x="98" y="510" width="18" height="18" rx="4" fill="#2F5D3A"/>
+<path d="M 102 519 l 3.5 3.5 l 6.5 -7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="128" y="519" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#8A8F86" text-anchor="start" data-name="garlic">garlic</text>
+<line x1="128" y1="515" x2="169.4" y2="515" stroke="#8A8F86" stroke-width="1"/>
+<text x="422" y="519" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="1 bulb">1 bulb</text>
+<rect x="98" y="544" width="18" height="18" rx="4" fill="none" stroke="#8A8F86" stroke-width="1.5"/>
+<text x="128" y="553" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="flat-leaf parsley">flat-leaf parsley</text>
+<text x="422" y="553" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="1 bunch">1 bunch</text>
+<text x="98" y="592" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#2F5D3A" text-anchor="start" data-name="Meat &amp; fish">Meat &amp; fish</text>
+<rect x="98" y="608" width="18" height="18" rx="4" fill="none" stroke="#8A8F86" stroke-width="1.5"/>
+<text x="128" y="617" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="chicken breast">chicken breast</text>
+<text x="422" y="617" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="900 g">900 g</text>
+<rect x="98" y="642" width="18" height="18" rx="4" fill="#2F5D3A"/>
+<path d="M 102 651 l 3.5 3.5 l 6.5 -7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="128" y="651" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#8A8F86" text-anchor="start" data-name="smoked bacon">smoked bacon</text>
+<line x1="128" y1="647" x2="210.8" y2="647" stroke="#8A8F86" stroke-width="1"/>
+<text x="422" y="651" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="6 rashers">6 rashers</text>
+<text x="98" y="690" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#2F5D3A" text-anchor="start" data-name="Store cupboard">Store cupboard</text>
+<rect x="98" y="706" width="18" height="18" rx="4" fill="none" stroke="#8A8F86" stroke-width="1.5"/>
+<text x="128" y="715" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="olive oil">olive oil</text>
+<text x="422" y="715" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="as needed">as needed</text>
+<rect x="81" y="848" width="358" height="61" rx="20" fill="#FBF8F3"/>
+<rect x="81" y="848" width="358" height="41" rx="0" fill="#FBF8F3"/>
+<line x1="81" y1="848" x2="439" y2="848" stroke="#DDD8CE" stroke-width="1"/>
+<rect x="117" y="865" width="16" height="12" rx="2" fill="#8A8F86" opacity="0.85"/>
+<text x="125" y="896" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="middle" data-name="Recipes">Recipes</text>
+<rect x="207" y="865" width="16" height="12" rx="2" fill="#8A8F86" opacity="0.85"/>
+<text x="215" y="896" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="middle" data-name="Plan">Plan</text>
+<rect x="279" y="858" width="52" height="26" rx="13" fill="#CDE6D2"/>
+<rect x="297" y="865" width="16" height="12" rx="2" fill="#2F5D3A" opacity="0.85"/>
+<text x="305" y="896" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#2F5D3A" text-anchor="middle" data-name="Shopping">Shopping</text>
+<rect x="387" y="865" width="16" height="12" rx="2" fill="#8A8F86" opacity="0.85"/>
+<text x="395" y="896" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="middle" data-name="Import">Import</text>
+</g>
+<g id="02-First-run--not-signed-in" data-name="02 First run, not signed in">
+<text x="520" y="136" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="02  First run">02  First run</text>
+<rect x="520" y="150" width="360" height="760" rx="20" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="520" y="938" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="You sign in on Tesco's own page; the app">You sign in on Tesco's own page; the app never sees the credentials.</text>
+<text x="520" y="955" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="Cookies persist, so this screen appears ">Cookies persist, so this screen appears once and later runs open</text>
+<text x="520" y="972" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="straight onto item 1. Start stays disabl">straight onto item 1. Start stays disabled until the page settles.</text>
+<text x="538" y="170" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="start" data-name="9:41">9:41</text>
+<rect x="834" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.5"/>
+<rect x="844" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.7"/>
+<rect x="854" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.9"/>
+<path d="M 548 200 L 538 206 L 548 212" fill="none" stroke="#1B1C19" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="538" y1="206" x2="552" y2="206" stroke="#1B1C19" stroke-width="1.8"/>
+<text x="566" y="211" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Fill Tesco basket">Fill Tesco basket</text>
+<text x="862" y="211" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#444842" text-anchor="end" data-name="24 items">24 items</text>
+<rect x="521" y="234" width="358" height="560" rx="0" fill="#FFFFFF"/>
+<rect x="521" y="234" width="358" height="30" rx="0" fill="#F1F1F1"/>
+<text x="534" y="253" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="tesco.com/groceries/en-GB">tesco.com/groceries/en-GB</text>
+<line x1="521" y1="264" x2="879" y2="264" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="560" y="324" width="280" height="1" rx="0" fill="#E4E4E4"/>
+<text x="700" y="314" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#1B1C19" text-anchor="middle" data-name="Sign in to your Tesco account">Sign in to your Tesco account</text>
+<rect x="560" y="344" width="280" height="40" rx="6" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1.5"/>
+<text x="572" y="369" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="Email">Email</text>
+<rect x="560" y="402" width="280" height="40" rx="6" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1.5"/>
+<text x="572" y="427" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="Password">Password</text>
+<rect x="560" y="466" width="280" height="40" rx="20" fill="#1B5E9E"/>
+<text x="700" y="491" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle" data-name="Sign in">Sign in</text>
+<rect x="521" y="794" width="358" height="115" rx="20" fill="#FBF8F3"/>
+<rect x="521" y="794" width="358" height="95" rx="0" fill="#FBF8F3"/>
+<line x1="521" y1="794" x2="879" y2="794" stroke="#DDD8CE" stroke-width="1.5"/>
+<text x="538" y="824" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Sign in above, then start">Sign in above, then start</text>
+<text x="538" y="844" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="24 items to add. Nothing is ordered for ">24 items to add. Nothing is ordered for you.</text>
+<rect x="536" y="856" width="328" height="48" rx="24" fill="#2F5D3A"/>
+<text x="700" y="885" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle" data-name="Start with chopped tomatoes">Start with chopped tomatoes</text>
+</g>
+<g id="03-Item-in-progress" data-name="03 Item in progress">
+<text x="960" y="136" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="03  Item in progress  ★">03  Item in progress  ★</text>
+<rect x="960" y="150" width="360" height="760" rx="20" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="960" y="938" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="The hero state. Two taps per item: Add i">The hero state. Two taps per item: Add inside Tesco's page (their</text>
+<text x="960" y="955" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="stepper, so two tins is their control), ">stepper, so two tins is their control), then Added here to advance.</text>
+<text x="960" y="972" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="Quantity sits on the right because it is">Quantity sits on the right because it is what you are shopping to.</text>
+<text x="960" y="989" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="Dotted underline on the name signals it ">Dotted underline on the name signals it is editable -- see 05.</text>
+<text x="978" y="170" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="start" data-name="9:41">9:41</text>
+<rect x="1274" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.5"/>
+<rect x="1284" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.7"/>
+<rect x="1294" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.9"/>
+<path d="M 988 200 L 978 206 L 988 212" fill="none" stroke="#1B1C19" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="978" y1="206" x2="992" y2="206" stroke="#1B1C19" stroke-width="1.8"/>
+<text x="1006" y="211" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Fill Tesco basket">Fill Tesco basket</text>
+<text x="1302" y="211" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#444842" text-anchor="end" data-name="7 of 24">7 of 24</text>
+<rect x="961" y="234" width="358" height="536" rx="0" fill="#FFFFFF"/>
+<rect x="961" y="234" width="358" height="30" rx="0" fill="#F1F1F1"/>
+<text x="974" y="253" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="tesco.com/groceries/en-GB/search?query=c">tesco.com/groceries/en-GB/search?query=chopped+tomatoes</text>
+<line x1="961" y1="264" x2="1319" y2="264" stroke="#E4E4E4" stroke-width="1"/>
+<text x="974" y="286" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#444842" text-anchor="start" data-name="Results for &quot;chopped tomatoes&quot;">Results for "chopped tomatoes"</text>
+<rect x="974" y="302" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="984" y="310" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="1048" y="326" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Tesco Chopped Tomatoes">Tesco Chopped Tomatoes</text>
+<text x="1048" y="342" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="400g">400g</text>
+<text x="1048" y="358" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="45p">45p</text>
+<rect x="1238" y="322" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="1266" y="342" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="974" y="380" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="984" y="388" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="1048" y="404" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Tesco Italian Chopped Toma">Tesco Italian Chopped Toma</text>
+<text x="1048" y="420" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="400g">400g</text>
+<text x="1048" y="436" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="85p">85p</text>
+<rect x="1238" y="400" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="1266" y="420" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="974" y="458" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="984" y="466" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="1048" y="482" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Napolina Chopped Tomatoes">Napolina Chopped Tomatoes</text>
+<text x="1048" y="498" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="390g">390g</text>
+<text x="1048" y="514" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="£1.10">£1.10</text>
+<rect x="1238" y="478" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="1266" y="498" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="961" y="770" width="358" height="139" rx="20" fill="#FBF8F3"/>
+<rect x="961" y="770" width="358" height="119" rx="0" fill="#FBF8F3"/>
+<line x1="961" y1="770" x2="1319" y2="770" stroke="#DDD8CE" stroke-width="1.5"/>
+<rect x="976" y="788" width="232" height="4" rx="2" fill="#E0E5DC"/>
+<rect x="976" y="788" width="67.6667" height="4" rx="2" fill="#2F5D3A"/>
+<text x="1304" y="793" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="end" data-name="7 of 24">7 of 24</text>
+<path d="M 983 815 L 978 820 L 983 825" fill="none" stroke="#444842" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1000" y="825" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="chopped tomatoes">chopped tomatoes</text>
+<line x1="1000" y1="830" x2="1121.6" y2="830" stroke="#8A8F86" stroke-width="1" stroke-dasharray="2 3"/>
+<text x="1304" y="825" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#444842" text-anchor="end" data-name="600 g">600 g</text>
+<rect x="976" y="846" width="108" height="48" rx="24" fill="none" stroke="#2F5D3A" stroke-width="1"/>
+<text x="1030" y="875" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#2F5D3A" text-anchor="middle" data-name="Skip">Skip</text>
+<rect x="1096" y="846" width="208" height="48" rx="24" fill="#2F5D3A"/>
+<text x="1200" y="875" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle" data-name="Added  ✓">Added  ✓</text>
+</g>
+<g id="04-Advancing-to-next-item" data-name="04 Advancing to next item">
+<text x="1400" y="136" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="04  Advancing">04  Advancing</text>
+<rect x="1400" y="150" width="360" height="760" rx="20" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1400" y="938" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="Added is disabled while the next search ">Added is disabled while the next search loads, so an impatient</text>
+<text x="1400" y="955" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="double-tap cannot skip an item silently.">double-tap cannot skip an item silently. It re-enables on</text>
+<text x="1400" y="972" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="onPageFinished, a signal the activity al">onPageFinished, a signal the activity already has.</text>
+<text x="1418" y="170" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="start" data-name="9:41">9:41</text>
+<rect x="1714" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.5"/>
+<rect x="1724" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.7"/>
+<rect x="1734" y="162" width="6" height="9" rx="1" fill="#444842" opacity="0.9"/>
+<path d="M 1428 200 L 1418 206 L 1428 212" fill="none" stroke="#1B1C19" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="1418" y1="206" x2="1432" y2="206" stroke="#1B1C19" stroke-width="1.8"/>
+<text x="1446" y="211" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Fill Tesco basket">Fill Tesco basket</text>
+<text x="1742" y="211" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#444842" text-anchor="end" data-name="8 of 24">8 of 24</text>
+<rect x="1401" y="234" width="358" height="536" rx="0" fill="#FFFFFF"/>
+<rect x="1401" y="234" width="358" height="30" rx="0" fill="#F1F1F1"/>
+<text x="1414" y="253" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="tesco.com/groceries/en-GB/search?query=o">tesco.com/groceries/en-GB/search?query=onions</text>
+<line x1="1401" y1="264" x2="1759" y2="264" stroke="#E4E4E4" stroke-width="1"/>
+<path d="M 1580 340 A 14 14 0 1 1 1566 354" fill="none" stroke="#8A8F86" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1580" y="394" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#8A8F86" text-anchor="middle" data-name="Loading results...">Loading results...</text>
+<rect x="1414" y="434" width="56" height="56" rx="6" fill="#F1F1F1"/>
+<rect x="1484" y="442" width="150" height="10" rx="5" fill="#F1F1F1"/>
+<rect x="1484" y="460" width="96" height="10" rx="5" fill="#F1F1F1"/>
+<rect x="1414" y="508" width="56" height="56" rx="6" fill="#F1F1F1"/>
+<rect x="1484" y="516" width="150" height="10" rx="5" fill="#F1F1F1"/>
+<rect x="1484" y="534" width="96" height="10" rx="5" fill="#F1F1F1"/>
+<rect x="1414" y="582" width="56" height="56" rx="6" fill="#F1F1F1"/>
+<rect x="1484" y="590" width="150" height="10" rx="5" fill="#F1F1F1"/>
+<rect x="1484" y="608" width="96" height="10" rx="5" fill="#F1F1F1"/>
+<rect x="1401" y="770" width="358" height="139" rx="20" fill="#FBF8F3"/>
+<rect x="1401" y="770" width="358" height="119" rx="0" fill="#FBF8F3"/>
+<line x1="1401" y1="770" x2="1759" y2="770" stroke="#DDD8CE" stroke-width="1.5"/>
+<rect x="1416" y="788" width="232" height="4" rx="2" fill="#E0E5DC"/>
+<rect x="1416" y="788" width="77.3333" height="4" rx="2" fill="#2F5D3A"/>
+<text x="1744" y="793" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="end" data-name="8 of 24">8 of 24</text>
+<path d="M 1423 815 L 1418 820 L 1423 825" fill="none" stroke="#444842" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1440" y="825" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="onions">onions</text>
+<line x1="1440" y1="830" x2="1485.6" y2="830" stroke="#8A8F86" stroke-width="1" stroke-dasharray="2 3"/>
+<text x="1744" y="825" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#444842" text-anchor="end" data-name="3">3</text>
+<rect x="1416" y="846" width="108" height="48" rx="24" fill="none" stroke="#2F5D3A" stroke-width="1"/>
+<text x="1470" y="875" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#2F5D3A" text-anchor="middle" data-name="Skip">Skip</text>
+<rect x="1536" y="846" width="208" height="48" rx="24" fill="#E0E5DC"/>
+<text x="1640" y="875" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#8A8F86" text-anchor="middle" data-name="Loading...">Loading...</text>
+</g>
+<g id="05-Editing-the-search-term" data-name="05 Editing the search term">
+<text x="80" y="1086" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="05  Editing the term">05  Editing the term</text>
+<rect x="80" y="1100" width="360" height="760" rx="20" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="80" y="1888" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="The parser turns &quot;2 garlic cloves&quot; into ">The parser turns "2 garlic cloves" into "garlic", which searches</text>
+<text x="80" y="1905" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="fine, but some lines come out awkward. T">fine, but some lines come out awkward. Tapping the name lets you</text>
+<text x="80" y="1922" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="retype without losing your place in the ">retype without losing your place in the queue.</text>
+<text x="98" y="1120" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="start" data-name="9:41">9:41</text>
+<rect x="394" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.5"/>
+<rect x="404" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.7"/>
+<rect x="414" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.9"/>
+<path d="M 108 1150 L 98 1156 L 108 1162" fill="none" stroke="#1B1C19" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="98" y1="1156" x2="112" y2="1156" stroke="#1B1C19" stroke-width="1.8"/>
+<text x="126" y="1161" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Fill Tesco basket">Fill Tesco basket</text>
+<text x="422" y="1161" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#444842" text-anchor="end" data-name="9 of 24">9 of 24</text>
+<rect x="81" y="1184" width="358" height="340" rx="0" fill="#FFFFFF"/>
+<rect x="81" y="1184" width="358" height="30" rx="0" fill="#F1F1F1"/>
+<text x="94" y="1203" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="tesco.com/groceries/en-GB/search?query=g">tesco.com/groceries/en-GB/search?query=garlic</text>
+<line x1="81" y1="1214" x2="439" y2="1214" stroke="#E4E4E4" stroke-width="1"/>
+<text x="94" y="1236" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#444842" text-anchor="start" data-name="Results for &quot;garlic&quot;">Results for "garlic"</text>
+<rect x="94" y="1252" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="104" y="1260" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="168" y="1276" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Tesco Chopped Tomatoes">Tesco Chopped Tomatoes</text>
+<text x="168" y="1292" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="400g">400g</text>
+<text x="168" y="1308" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="45p">45p</text>
+<rect x="358" y="1272" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="386" y="1292" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="94" y="1330" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="104" y="1338" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="168" y="1354" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Tesco Italian Chopped Toma">Tesco Italian Chopped Toma</text>
+<text x="168" y="1370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="400g">400g</text>
+<text x="168" y="1386" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="85p">85p</text>
+<rect x="358" y="1350" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="386" y="1370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="94" y="1408" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="104" y="1416" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="168" y="1432" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Napolina Chopped Tomatoes">Napolina Chopped Tomatoes</text>
+<text x="168" y="1448" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="390g">390g</text>
+<text x="168" y="1464" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="£1.10">£1.10</text>
+<rect x="358" y="1428" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="386" y="1448" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="81" y="1524" width="358" height="116" rx="0" fill="#FBF8F3"/>
+<line x1="81" y1="1524" x2="439" y2="1524" stroke="#DDD8CE" stroke-width="1.5"/>
+<text x="98" y="1550" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="start" data-name="Search Tesco for">Search Tesco for</text>
+<rect x="96" y="1560" width="328" height="46" rx="8" fill="#FFFFFF" stroke="#2F5D3A" stroke-width="2"/>
+<text x="110" y="1589" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="garlic bulb">garlic bulb</text>
+<line x1="176" y1="1570" x2="176" y2="1596" stroke="#2F5D3A" stroke-width="1.5"/>
+<text x="410" y="1589" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#8A8F86" text-anchor="end" data-name="✕">✕</text>
+<text x="98" y="1624" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="Was: garlic  ·  from &quot;2 garlic cloves&quot;">Was: garlic  ·  from "2 garlic cloves"</text>
+<rect x="81" y="1640" width="358" height="220" rx="20" fill="#D6D2CA"/>
+<rect x="81" y="1640" width="358" height="200" rx="0" fill="#D6D2CA"/>
+<rect x="92" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="126.2" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="160.4" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="194.6" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="228.8" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="263" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="297.2" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="331.4" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="365.6" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="399.8" y="1664" width="28.2" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="92" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="130" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="168" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="206" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="244" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="282" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="320" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="358" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="396" y="1716" width="32" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="92" y="1768" width="42.8571" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="140.857" y="1768" width="42.8571" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="189.714" y="1768" width="42.8571" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="238.571" y="1768" width="42.8571" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="287.429" y="1768" width="42.8571" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="336.286" y="1768" width="42.8571" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="385.143" y="1768" width="42.8571" height="42" rx="5" fill="#FFFFFF"/>
+<rect x="176" y="1820" width="168" height="34" rx="5" fill="#FFFFFF"/>
+<rect x="348" y="1820" width="80" height="34" rx="5" fill="#2F5D3A"/>
+<text x="388" y="1842" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle" data-name="Search">Search</text>
+</g>
+<g id="06-Full-queue-sheet" data-name="06 Full queue sheet">
+<text x="520" y="1086" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="06  Full queue">06  Full queue</text>
+<rect x="520" y="1100" width="360" height="760" rx="20" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="520" y="1888" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="Opened from the counter in the app bar. ">Opened from the counter in the app bar. Shows what is done, what</text>
+<text x="520" y="1905" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="was skipped and what is left, and lets y">was skipped and what is left, and lets you jump to any item --</text>
+<text x="520" y="1922" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="which is also the undo path when you tap">which is also the undo path when you tap Added by mistake.</text>
+<text x="538" y="1120" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="start" data-name="9:41">9:41</text>
+<rect x="834" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.5"/>
+<rect x="844" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.7"/>
+<rect x="854" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.9"/>
+<path d="M 548 1150 L 538 1156 L 548 1162" fill="none" stroke="#1B1C19" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="538" y1="1156" x2="552" y2="1156" stroke="#1B1C19" stroke-width="1.8"/>
+<text x="566" y="1161" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Fill Tesco basket">Fill Tesco basket</text>
+<text x="862" y="1161" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#444842" text-anchor="end" data-name="7 of 24">7 of 24</text>
+<rect x="521" y="1184" width="358" height="676" rx="0" fill="#FFFFFF"/>
+<rect x="521" y="1184" width="358" height="30" rx="0" fill="#F1F1F1"/>
+<text x="534" y="1203" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="tesco.com/groceries/en-GB/search?query=c">tesco.com/groceries/en-GB/search?query=chopped+tomatoes</text>
+<line x1="521" y1="1214" x2="879" y2="1214" stroke="#E4E4E4" stroke-width="1"/>
+<text x="534" y="1236" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#444842" text-anchor="start" data-name="Results for &quot;chopped tomatoes&quot;">Results for "chopped tomatoes"</text>
+<rect x="534" y="1252" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="544" y="1260" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="608" y="1276" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Tesco Chopped Tomatoes">Tesco Chopped Tomatoes</text>
+<text x="608" y="1292" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="400g">400g</text>
+<text x="608" y="1308" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="45p">45p</text>
+<rect x="798" y="1272" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="826" y="1292" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="534" y="1330" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="544" y="1338" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="608" y="1354" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Tesco Italian Chopped Toma">Tesco Italian Chopped Toma</text>
+<text x="608" y="1370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="400g">400g</text>
+<text x="608" y="1386" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="85p">85p</text>
+<rect x="798" y="1350" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="826" y="1370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="534" y="1408" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="544" y="1416" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="608" y="1432" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Napolina Chopped Tomatoes">Napolina Chopped Tomatoes</text>
+<text x="608" y="1448" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="390g">390g</text>
+<text x="608" y="1464" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="£1.10">£1.10</text>
+<rect x="798" y="1428" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="826" y="1448" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="521" y="1184" width="358" height="675" rx="0" fill="#1B1C19" opacity="0.45"/>
+<rect x="521" y="1310" width="358" height="549" rx="20" fill="#FBF8F3"/>
+<rect x="680" y="1320" width="40" height="4" rx="2" fill="#DDD8CE"/>
+<text x="538" y="1354" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="Your list">Your list</text>
+<text x="862" y="1354" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#444842" text-anchor="end" data-name="7 of 24 done">7 of 24 done</text>
+<line x1="538" y1="1368" x2="862" y2="1368" stroke="#DDD8CE" stroke-width="1"/>
+<rect x="538" y="1388" width="18" height="18" rx="9" fill="#2E7D32"/>
+<path d="M 542 1397 l 3.5 3.5 l 6.5 -7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="568" y="1401" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="chicken breast">chicken breast</text>
+<text x="862" y="1401" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="900 g">900 g</text>
+<rect x="538" y="1424" width="18" height="18" rx="9" fill="#2E7D32"/>
+<path d="M 542 1433 l 3.5 3.5 l 6.5 -7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="568" y="1437" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="smoked bacon">smoked bacon</text>
+<text x="862" y="1437" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="6 rashers">6 rashers</text>
+<rect x="538" y="1460" width="18" height="18" rx="9" fill="none" stroke="#8A8F86" stroke-width="1.5"/>
+<line x1="543" y1="1469" x2="551" y2="1469" stroke="#8A8F86" stroke-width="1.5"/>
+<text x="568" y="1473" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="samphire">samphire</text>
+<text x="862" y="1473" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="1 pack">1 pack</text>
+<rect x="532" y="1490" width="336" height="30" rx="8" fill="#CDE6D2"/>
+<rect x="538" y="1496" width="18" height="18" rx="9" fill="#2F5D3A"/>
+<rect x="544" y="1502" width="6" height="6" rx="3" fill="#FBF8F3"/>
+<text x="568" y="1509" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0C2214" text-anchor="start" data-name="chopped tomatoes">chopped tomatoes</text>
+<text x="862" y="1509" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#0C2214" text-anchor="end" data-name="600 g">600 g</text>
+<rect x="538" y="1532" width="18" height="18" rx="9" fill="none" stroke="#DDD8CE" stroke-width="1.5"/>
+<text x="568" y="1545" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="onions">onions</text>
+<text x="862" y="1545" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="3">3</text>
+<rect x="538" y="1568" width="18" height="18" rx="9" fill="none" stroke="#DDD8CE" stroke-width="1.5"/>
+<text x="568" y="1581" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="garlic">garlic</text>
+<text x="862" y="1581" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="1 bulb">1 bulb</text>
+<rect x="538" y="1604" width="18" height="18" rx="9" fill="none" stroke="#DDD8CE" stroke-width="1.5"/>
+<text x="568" y="1617" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="flat-leaf parsley">flat-leaf parsley</text>
+<text x="862" y="1617" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="1 bunch">1 bunch</text>
+<rect x="538" y="1640" width="18" height="18" rx="9" fill="none" stroke="#DDD8CE" stroke-width="1.5"/>
+<text x="568" y="1653" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="olive oil">olive oil</text>
+<text x="862" y="1653" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="end" data-name="as needed">as needed</text>
+</g>
+<g id="07-Run-summary" data-name="07 Run summary">
+<text x="960" y="1086" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="07  Summary">07  Summary</text>
+<rect x="960" y="1100" width="360" height="760" rx="20" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="960" y="1888" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="Added is self-reported, so the summary s">Added is self-reported, so the summary says so plainly and points</text>
+<text x="960" y="1905" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="at Tesco's own basket count as the real ">at Tesco's own basket count as the real check. Ticking the added</text>
+<text x="960" y="1922" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="items off the shopping list is offered, ">items off the shopping list is offered, never done silently.</text>
+<text x="978" y="1120" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#444842" text-anchor="start" data-name="9:41">9:41</text>
+<rect x="1274" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.5"/>
+<rect x="1284" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.7"/>
+<rect x="1294" y="1112" width="6" height="9" rx="1" fill="#444842" opacity="0.9"/>
+<path d="M 988 1150 L 978 1156 L 988 1162" fill="none" stroke="#1B1C19" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="978" y1="1156" x2="992" y2="1156" stroke="#1B1C19" stroke-width="1.8"/>
+<text x="1006" y="1161" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Fill Tesco basket">Fill Tesco basket</text>
+<text x="1302" y="1161" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#444842" text-anchor="end" data-name="Done">Done</text>
+<rect x="961" y="1184" width="358" height="676" rx="0" fill="#FFFFFF"/>
+<rect x="961" y="1184" width="358" height="30" rx="0" fill="#F1F1F1"/>
+<text x="974" y="1203" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="tesco.com/groceries/en-GB/trolley">tesco.com/groceries/en-GB/trolley</text>
+<line x1="961" y1="1214" x2="1319" y2="1214" stroke="#E4E4E4" stroke-width="1"/>
+<text x="974" y="1236" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#444842" text-anchor="start" data-name="Results for &quot;chopped tomatoes&quot;">Results for "chopped tomatoes"</text>
+<rect x="974" y="1252" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="984" y="1260" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="1048" y="1276" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Tesco Chopped Tomatoes">Tesco Chopped Tomatoes</text>
+<text x="1048" y="1292" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="400g">400g</text>
+<text x="1048" y="1308" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="45p">45p</text>
+<rect x="1238" y="1272" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="1266" y="1292" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="974" y="1330" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="984" y="1338" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="1048" y="1354" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Tesco Italian Chopped Toma">Tesco Italian Chopped Toma</text>
+<text x="1048" y="1370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="400g">400g</text>
+<text x="1048" y="1386" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="85p">85p</text>
+<rect x="1238" y="1350" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="1266" y="1370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="974" y="1408" width="332" height="70" rx="8" fill="#FFFFFF" stroke="#E4E4E4" stroke-width="1"/>
+<rect x="984" y="1416" width="54" height="54" rx="6" fill="#F1F1F1"/>
+<text x="1048" y="1432" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Napolina Chopped Tomatoes">Napolina Chopped Tomatoes</text>
+<text x="1048" y="1448" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="390g">390g</text>
+<text x="1048" y="1464" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="£1.10">£1.10</text>
+<rect x="1238" y="1428" width="56" height="30" rx="15" fill="none" stroke="#1B5E9E" stroke-width="1.5"/>
+<text x="1266" y="1448" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1B5E9E" text-anchor="middle" data-name="Add">Add</text>
+<rect x="961" y="1184" width="358" height="675" rx="0" fill="#1B1C19" opacity="0.45"/>
+<rect x="961" y="1350" width="358" height="509" rx="20" fill="#FBF8F3"/>
+<rect x="1120" y="1360" width="40" height="4" rx="2" fill="#DDD8CE"/>
+<rect x="1114" y="1384" width="52" height="52" rx="26" fill="#CDE6D2"/>
+<path d="M 1129 1411 l 7.7 7.7 l 14.3 -15.4" fill="none" stroke="#2F5D3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1140" y="1466" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#1B1C19" text-anchor="middle" data-name="21 added, 3 skipped">21 added, 3 skipped</text>
+<text x="1140" y="1488" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#444842" text-anchor="middle" data-name="Check the basket before you pay.">Check the basket before you pay.</text>
+<rect x="976" y="1508" width="328" height="92" rx="10" fill="#FFDBCD"/>
+<text x="990" y="1530" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="Skipped -- add these yourself">Skipped -- add these yourself</text>
+<text x="990" y="1552" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="•  samphire">•  samphire</text>
+<text x="990" y="1570" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="•  fresh dill">•  fresh dill</text>
+<text x="990" y="1588" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="•  sourdough loaf">•  sourdough loaf</text>
+<rect x="976" y="1618" width="328" height="48" rx="24" fill="#2F5D3A"/>
+<text x="1140" y="1647" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle" data-name="View basket in Tesco">View basket in Tesco</text>
+<rect x="976" y="1676" width="328" height="48" rx="24" fill="none" stroke="#2F5D3A" stroke-width="1"/>
+<text x="1140" y="1705" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#2F5D3A" text-anchor="middle" data-name="Tick 21 items off my list">Tick 21 items off my list</text>
+</g>
+<g id="08-Foundations" data-name="08 Foundations">
+<text x="1400" y="1086" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="08  Foundations">08  Foundations</text>
+<rect x="1400" y="1100" width="360" height="760" rx="20" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1400" y="1888" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="Colours are read straight out of ui/them">Colours are read straight out of ui/theme/Theme.kt, so the mockup</text>
+<text x="1400" y="1905" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#444842" text-anchor="start" data-name="and the running app cannot drift. Everyt">and the running app cannot drift. Everything sits on an 8pt grid.</text>
+<text x="1420" y="1140" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="Colour">Colour</text>
+<rect x="1420" y="1154" width="34" height="26" rx="6" fill="#2F5D3A" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1464" y="1166" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="primary">primary</text>
+<text x="1464" y="1178" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="#2F5D3A">#2F5D3A</text>
+<rect x="1420" y="1188" width="34" height="26" rx="6" fill="#CDE6D2" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1464" y="1200" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="primaryContainer">primaryContainer</text>
+<text x="1464" y="1212" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="#CDE6D2">#CDE6D2</text>
+<rect x="1420" y="1222" width="34" height="26" rx="6" fill="#B4562F" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1464" y="1234" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="secondary">secondary</text>
+<text x="1464" y="1246" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="#B4562F">#B4562F</text>
+<rect x="1420" y="1256" width="34" height="26" rx="6" fill="#FFDBCD" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1464" y="1268" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="secondaryContainer">secondaryContainer</text>
+<text x="1464" y="1280" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="#FFDBCD">#FFDBCD</text>
+<rect x="1420" y="1290" width="34" height="26" rx="6" fill="#FBF8F3" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1464" y="1302" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="background">background</text>
+<text x="1464" y="1314" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="#FBF8F3">#FBF8F3</text>
+<rect x="1420" y="1324" width="34" height="26" rx="6" fill="#E0E5DC" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1464" y="1336" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="surfaceVariant">surfaceVariant</text>
+<text x="1464" y="1348" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="#E0E5DC">#E0E5DC</text>
+<rect x="1420" y="1358" width="34" height="26" rx="6" fill="#444842" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1464" y="1370" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="onSurfaceVariant">onSurfaceVariant</text>
+<text x="1464" y="1382" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="#444842">#444842</text>
+<rect x="1420" y="1392" width="34" height="26" rx="6" fill="#2E7D32" stroke="#DDD8CE" stroke-width="1"/>
+<text x="1464" y="1404" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="added / success">added / success</text>
+<text x="1464" y="1416" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="#2E7D32">#2E7D32</text>
+<text x="1420" y="1456" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="Type">Type</text>
+<text x="1420" y="1482" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="Title  17 / 700">Title  17 / 700</text>
+<text x="1420" y="1512" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Item name  15 / 600">Item name  15 / 600</text>
+<text x="1420" y="1542" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="Body  13.5 / 400">Body  13.5 / 400</text>
+<text x="1420" y="1572" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#1B1C19" text-anchor="start" data-name="Quantity  12 / 500">Quantity  12 / 500</text>
+<text x="1420" y="1602" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#1B1C19" text-anchor="start" data-name="Label  11 / 600">Label  11 / 600</text>
+<text x="1420" y="1652" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1B1C19" text-anchor="start" data-name="Queue states">Queue states</text>
+<rect x="1422" y="1674" width="18" height="18" rx="9" fill="#2E7D32"/>
+<path d="M 1426 1683 l 3.5 3.5 l 6.5 -7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1452" y="1687" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="Added">Added</text>
+<rect x="1422" y="1706" width="18" height="18" rx="9" fill="none" stroke="#8A8F86" stroke-width="1.5"/>
+<line x1="1427" y1="1715" x2="1435" y2="1715" stroke="#8A8F86" stroke-width="1.5"/>
+<text x="1452" y="1719" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="Skipped">Skipped</text>
+<rect x="1422" y="1738" width="18" height="18" rx="9" fill="#2F5D3A"/>
+<rect x="1428" y="1744" width="6" height="6" rx="3" fill="#FBF8F3"/>
+<text x="1452" y="1751" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="Current">Current</text>
+<rect x="1422" y="1770" width="18" height="18" rx="9" fill="none" stroke="#DDD8CE" stroke-width="1.5"/>
+<text x="1452" y="1783" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1B1C19" text-anchor="start" data-name="Pending">Pending</text>
+<text x="1420" y="1812" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8A8F86" text-anchor="start" data-name="Touch targets 48dp  ·  Gutters 16dp">Touch targets 48dp  ·  Gutters 16dp</text>
+</g>
+<g id="Flow-arrows" data-name="Flow arrows">
+<path d="M 454 530 L 506 530" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 499 525 L 506 530 L 499 535" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 894 530 L 946 530" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 939 525 L 946 530 L 939 535" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1334 530 L 1386 530" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1379 525 L 1386 530 L 1379 535" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 454 1480 L 506 1480" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 499 1475 L 506 1480 L 499 1485" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 894 1480 L 946 1480" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 939 1475 L 946 1480 L 939 1485" fill="none" stroke="#8A8F86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
