@@ -1,7 +1,0 @@
--keepattributes *Annotation*, InnerClasses
--dontnote kotlinx.serialization.**
--keepclassmembers class com.pantry.app.** { *; }
--keep,includedescriptorclasses class com.pantry.app.**$$serializer { *; }
--keepclassmembers class com.pantry.app.** { *** Companion; }
--keepclasseswithmembers class com.pantry.app.** { kotlinx.serialization.KSerializer serializer(...); }
--keep class org.jsoup.** { *; }
