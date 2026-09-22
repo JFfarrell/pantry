@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "language": "kotlin",
+  "source": "blueprint",
+  "detectedFrom": "ARCHITECTURE.md"
+}
