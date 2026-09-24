@@ -85,7 +85,7 @@
   - A saved recipe persists across app restart and device reboot and is readable with the network off.
   - A manually entered recipe can carry the same optional fields an import can (cooking time, servings/yield, thumbnail from the device photo picker) and is indistinguishable downstream from an imported recipe except for having no `sourceUrl`/`fetchedAt`.
   - An optional field (cooking time, yield, thumbnail) left blank on manual entry or cleared on a post-save edit persists as an explicit absence, never a coerced zero, empty string or default value — asserted by a test on both the manual-entry and post-save-edit paths. [CFC-2]
-  - Ingredient lines typed by hand and ingredient lines confirmed from an import draft are parsed by the same C4 entry point — asserted by a test that feeds identical text through both routes and compares the resulting canonical keys and quantities. [CFC-1]
+  - Ingredient lines typed by hand, ingredient lines confirmed from an import draft, and ingredient lines changed in a post-save edit are all parsed by the same C4 entry point — asserted by a test that drives identical text (drawn from F3's shared parse-fidelity corpus) through all three routes and confirms the resulting canonical keys and quantities are byte-identical. [CFC-1]
   - Saving requires a title and at least one ingredient line on every path; a save attempt missing either is refused with an inline message.
   - A post-save edit updates the recipe and bumps `updatedAt` but does not change `sourceUrl` or `fetchedAt` — asserted by a test.
   - Deleting a recipe removes it from the catalogue and from the shopping-list selection immediately and offers an Undo affordance that stays available long enough for an assistive-tech user to act on; Undo restores the recipe and its selection membership exactly.
@@ -142,10 +142,11 @@
 - **Acceptance Criteria:**
   - A recipe can be added to and removed from the selection from the card view and from its detail screen, with no day, meal or other designation required at any point.
   - Adding a recipe sets its servings to the recipe's stated yield, or to a 1× baseline when the recipe states none; the user can change it afterwards.
-  - Editing a source recipe updates the selection entry's displayed nutrition and cooking time while leaving the user's servings figure unchanged — asserted by a test.
+  - Editing a source recipe updates the selection entry's displayed nutrition and cooking time while leaving the user's servings figure unchanged; where the edited recipe now carries no cooking time or an unmatched/estimated nutrition figure, the selection entry displays the same explicit absence/caveat state the card does, never a coerced zero or a stale prior value — asserted by a test. [CFC-2]
   - Deleting a source recipe drops its selection entry with a visible notice, never leaving stale data on screen.
   - The selection survives app restart and process death — asserted by a persistence test.
   - The selection is fully usable with the network disabled.
+  - Every status indicator this screen renders (nutrition-caveat, missing-cooking-time) is drawn from the shared indicator vocabulary and distinguishable by icon, shape or text, never colour alone. [CFC-3]
 
 ### F11: Shopping-List Generation
 
@@ -186,8 +187,8 @@
 - **Component:** C9 — UI Shell & Accessibility Layer (builds/hardens).
 - **Acceptance Criteria:**
   - Every interactive element on every screen carries a content description — asserted by a Compose test sweep over the core-flow screens.
-  - Every screen renders without truncation or overlap at the largest system font scale — verified on the import, form, browse, detail, selection, list and walkthrough screens.
-  - No indicator on F7, F11, F12 or F14's screen — the four screen-owning CFC-3 participants this sweep verifies (F13 itself is CFC-3's fifth participant, as verifier rather than renderer; F15 is CFC-3's sixth, self-certifying its own screen the same way F14 does elsewhere, since F15 ships after this sweep and isn't covered by it) — is conveyed by colour alone; each is also distinguishable by shape, icon or text — verified against the indicator vocabulary inventory. [CFC-3]
+  - Every screen renders without truncation or overlap at the largest system font scale — verified on the orientation, import, form, browse, detail, selection, list and walkthrough screens.
+  - No indicator on F7, F10, F11, F12 or F14's screen — the five screen-owning CFC-3 participants this sweep verifies (F13 itself is CFC-3's sixth participant, as verifier rather than renderer; F15 is CFC-3's seventh, self-certifying its own screen the same way F14 does elsewhere, since F15 ships after this sweep and isn't covered by it) — is conveyed by colour alone; each is also distinguishable by shape, icon or text — verified against the indicator vocabulary inventory. [CFC-3]
   - The complete core flow (capture a recipe, browse and choose, generate a list, step through the walkthrough) is exercised end to end with TalkBack enabled and completes without a dead end, with the result recorded.
   - Text and control contrast on the walkthrough controls and both indicator families meets the Material 3 contrast tokens at their rendered sizes.
 
@@ -339,7 +340,7 @@ This section is the build-order signal `[DEF-02]` routed here. Three forces set 
 | 6 | F6: Recipe Form — Import Draft, Manual Entry, Post-Save Edit & Delete | Closes G1 and makes the catalogue non-empty, which every subsequent feature needs to demonstrate at all. Consolidating all three entry points here (`[DEF-03]`) is cheaper now than reconciling three divergent forms later. |
 | 7 | F8: Seasonality & Substitution Service | Pure domain, no UI, and a prerequisite of F7's card. Sequenced before F7 so the card is built once against real indicator inputs rather than stubs. |
 | 8 | F9: Nutrition Service — Staples Path & Disclosure Record | Same reasoning as F8, and the disclosure record's shape must exist before F7 decides how to render a caveat. |
-| 9 | F7: Catalogue Browse, Search, Filter & Recipe Detail | Assembles F6, F8 and F9 into G2, and is where the indicator vocabulary [CFC-3] is defined once for every later screen (R7 — deciding it here rather than per-screen is what keeps accessibility from forcing rework). |
+| 9 | F7: Catalogue Browse, Search, Filter & Recipe Detail | Assembles F6, F8 and F9 toward G2 (the browse/compare portion; G2's "choose" criterion completes at F10), and is where the indicator vocabulary [CFC-3] is defined once for every later screen (R7 — deciding it here rather than per-screen is what keeps accessibility from forcing rework). |
 | 10 | F10: Shopping-List Selection | Small, and the bridge without which F11 has no input. |
 | 11 | F11: Shopping-List Generation | Where F3's engine finally pays off in user-visible output; sequenced after F10 because it consumes the selection. |
 | 12 | F12: Retailer Assist Walkthrough | Completes the chain. Its `[DEF-05]` Custom Tabs spike is the last unretired technical unknown, and it is deliberately scheduled where a fallback (return-to-app between items) is still affordable rather than where it would force a redesign. |
@@ -409,14 +410,14 @@ No milestone carries a target date: the Timeline constraint states no deadline a
 - [ ] F8: Seasonality & Substitution Service
 - [ ] F9: Nutrition Service — Staples Path & Disclosure Record
 - [ ] F7: Catalogue Browse, Search, Filter & Recipe Detail
-- **Deliverable:** G2, G4 (offline path) and G7. The catalogue browses as cards carrying time, energy, seasonality and caveat indicators, searchable by name and filterable by season, with a detail screen behind each. The indicator vocabulary every later screen reuses is fixed here.
+- **Deliverable:** G2 (browse/compare), G4 (offline path) and G7. The catalogue browses as cards carrying time, energy, seasonality and caveat indicators, searchable by name and filterable by season, with a detail screen behind each. The indicator vocabulary every later screen reuses is fixed here. G2's own "choose" criterion — putting a chosen recipe into the shopping-list selection — depends on F10's selection mechanism and isn't met until Milestone 4.
 
 ### Milestone 4: Shop — build order 10–12
 
 - [ ] F10: Shopping-List Selection
 - [ ] F11: Shopping-List Generation
 - [ ] F12: Retailer Assist Walkthrough
-- **Deliverable:** The complete chain from the Problem Statement: chosen recipes collapse into one merged, scaled, walk-ordered list, and that list is walked item by item against Tesco Ireland's own site with every basket action left to the user. G3 and G5 are met; the app is functionally whole, though not yet shippable.
+- **Deliverable:** The complete chain from the Problem Statement: chosen recipes collapse into one merged, scaled, walk-ordered list, and that list is walked item by item against Tesco Ireland's own site with every basket action left to the user. G3 and G5 are met, and G2 is now fully met — F10 supplies the selection mechanism G2's own "choose" criterion depends on; the app is functionally whole, though not yet shippable.
 
 ### Milestone 5: Distribution Readiness — build order 13–15
 
@@ -453,21 +454,21 @@ These are the three cross-cutting integration points SCOPE `[DEF-04]` routed to 
 
 ### CFC-2: Absence is explicit and never collapses to a default
 
-- **Participating features:** F3, F5, F6, F7, F8, F9, F11, F16, F17
+- **Participating features:** F3, F5, F6, F7, F8, F9, F10, F11, F16, F17
 - **Contract:** Every absence the system can encounter — *unquantified* quantity, *unmatched* ingredient, *unknown* seasonality, *unknown* supermarket section, *unknown* cooking time, *no image* — is represented as its own explicit value and is never collapsed into a zero, a default, an empty string, a placeholder or a silent omission by any producer or any renderer. This is ARCHITECTURE's first Data Flow invariant and is what makes G3's, G4's and G7's honesty criteria enforceable rather than aspirational. It spans Milestones 1 through 6 and has no single owner: a producer can represent absence correctly and a renderer can still flatten it, so both sides must carry the obligation.
 - **Per-feature AC:** Every absent value this feature produces or renders is represented and displayed as an explicit absence state, distinguishable from a zero, a default and an empty value, and is never substituted with a guessed or placeholder value.
 - **Enforcement:** Per-feature unit and Compose tests asserting the explicit-absence value on both the producing and the rendering side; no owning feature — the invariant is co-enforced by each participating feature's own tests and re-checked during that feature's own SDD-phase code review, not by this blueprint's own document-review panel (which reviews this plan, not application code).
 
 ### CFC-3: One indicator vocabulary, never colour alone
 
-- **Participating features:** F7, F11, F12, F13, F14, F15
+- **Participating features:** F7, F10, F11, F12, F13, F14, F15
 - **Contract:** All status indicators in the app draw from one vocabulary defined once — the seasonality family and the nutrition-caveat family must be visually distinct from each other and from the no-caveat state, and every indicator anywhere (including unquantified/unknown-section list entries and the walkthrough's progress) is distinguishable by icon, shape or text and never by colour alone. Defining it once is R7's stated mitigation against late accessibility rework. It spans Milestones 3 through 5 and cannot be a dependency edge: F13 verifies the vocabulary but does not author the indicators, and each screen-owning feature renders its own.
 - **Per-feature AC:** Every status indicator this feature renders is drawn from the shared indicator vocabulary and is distinguishable by icon, shape or text without reliance on colour.
 - **Enforcement:** The accessibility conformance inventory and Compose test sweep owned by F13, which enumerates every indicator in the app and asserts a non-colour distinguishing attribute on each.
 
 ### CFC-4: No user or imported content in any error message
 
-- **Participating features:** F1, F3, F4, F5, F6, F7, F8, F9, F11, F12, F14, F16, F15 (as verifier)
+- **Participating features:** F1, F3, F4, F5, F6, F7, F8, F9, F11, F12, F14, F15, F16
 - **Contract:** No exception constructed anywhere in Pantry's own code embeds raw user-supplied or imported content — a recipe URL, an ingredient line, a recipe title, a fragment of fetched HTML, a retailer search term — in its own message, whether it is caught and converted to a typed error or left to propagate as an unhandled crash; a third-party library exception that might carry such content is re-wrapped before it can reach a caller unchanged. This is what makes ARCHITECTURE's claim that Android vitals never carries recipe or list content true rather than assumed. It spans Milestones 1 through 6 and is enforceable only across every component that touches such content, not by any one of them.
 - **Per-feature AC:** No exception or error message this feature constructs contains raw user-supplied or imported content, and any third-party exception carrying such content is re-wrapped into a typed error before propagating.
 - **Enforcement:** Per-feature tests asserting error messages against content-bearing fixtures (a recipe URL, an ingredient line, fetched HTML) at every participating feature; F4 defines the typed-error surface and its re-wrapping rule that the rest re-use. F15's pre-submission verification (Milestone 5) re-checks the invariant end to end rather than through separate CI tooling, which a solo developer's existing build setup does not otherwise establish.
@@ -489,24 +490,24 @@ These are the three cross-cutting integration points SCOPE `[DEF-04]` routed to 
 
 ### Trajectory
 
-| Pass | Date       | HIGHs | Regressions | Addressed | Deferred | Sealed | Notes                                                                              |
-|------|------------|-------|-------------|-----------|----------|--------|------------------------------------------------------------------------------------|
-| … | … | — | — | — | — | — | 6 earlier passes elided |
-| 7    | 2026-09-17 | 0     | 0           | 2         | 0        | 5      | converged (0 HIGH); tags=d0u0c0                                                    |
-| 8    | 2026-09-18 | 0     | 0           | 1         | 0        | 4      | converged (0 HIGH); tags=d0u0c0                                                    |
-| 9    | 2026-09-18 | 1     | 0           | 1         | 0        | 6      | tags=d0u0c0                                                                        |
-| 10   | 2026-09-18 | 0     | 0           | 1         | 0        | 4      | converged (0 HIGH); tags=d0u0c0                                                    |
-| 11   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                        |
-| 12   | 2026-09-21 | 2     | 0           | 2         | 0        | 1      | tags=d0u0c0                                                                        |
-| 13   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                        |
-| 14   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                        |
-| 15   | 2026-09-21 | 3     | 0           | 3         | 0        | 0      | tags=d0u0c0                                                                        |
-| 16   | 2026-09-21 | 3     | 0           | 3         | 0        | 0      | tags=d0u0c0                                                                        |
-| 17   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                        |
-| 18   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                        |
-| 19   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                        |
-| 20   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                        |
-| 21   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                        |
+| Pass | Date       | HIGHs | Regressions | Addressed | Deferred | Sealed | Notes                           |
+|------|------------|-------|-------------|-----------|----------|--------|---------------------------------|
+| … | … | — | — | — | — | — | 8 earlier passes elided |
+| 9    | 2026-09-18 | 1     | 0           | 1         | 0        | 6      | tags=d0u0c0                     |
+| 10   | 2026-09-18 | 0     | 0           | 1         | 0        | 4      | converged (0 HIGH); tags=d0u0c0 |
+| 11   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                     |
+| 12   | 2026-09-21 | 2     | 0           | 2         | 0        | 1      | tags=d0u0c0                     |
+| 13   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                     |
+| 14   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                     |
+| 15   | 2026-09-21 | 3     | 0           | 3         | 0        | 0      | tags=d0u0c0                     |
+| 16   | 2026-09-21 | 3     | 0           | 3         | 0        | 0      | tags=d0u0c0                     |
+| 17   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                     |
+| 18   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                     |
+| 19   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                     |
+| 20   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                     |
+| 21   | 2026-09-21 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                     |
+| 22   | 2026-09-22 | 3     | 0           | 8         | 0        | 5      | tags=d0u0c3                     |
+| 23   | 2026-09-22 | 0     | 0           | 0         | 0        | 5      | converged (0 HIGH); tags=d0u0c0; upstream-panel a0f4eb61 |
 
 ### Sealed dispositions
 
@@ -546,6 +547,16 @@ These are the three cross-cutting integration points SCOPE `[DEF-04]` routed to 
 - `[SEAL-34]` **SCOPE's SC-G1 ("opened for editing...from its own detail…** (pass 10, user-directed) — Defense: this is exactly what the Milestones section's own preamble states (each milestone is a build-order checkpoint, not a shippable increment) — a plan-wide convention already established before F6 existed, not a gap specific to this feature.
 - `[SEAL-35]` **Panel Review's `### Latest pass detail` table is empty…** (pass 10, user-directed) — Defense: expected pipeline state — `archive_pass.py` clears this table after each archive so the next pass starts clean; not a defect.
 - `[SEAL-36]` **Considered a third candidate from the same audit, F10 (C5's…** (pass 12, user-directed) — Defense: verified against ARCHITECTURE's C5 Boundary text; the ingredient-text-touching responsibilities (canonical-key grouping, merging) belong entirely to C5's generation half, already covered by F11 — F10 itself has no exception-construction surface that touches raw content, structurally the same situation as F17's existing CFC-4 exemption (`[SEAL-05]`).
+- `[SEAL-37]` **CFC-1's narrative folds F11 into "one ingredient-parsing…** (pass 22, accepted-as-risk) — Defense: synthesizer-judged (free-ride branch, this pass already non-terminal) — F11's Per-feature AC already correctly describes merge-equivalence rather than parsing, and the narrative sentence is scene-setting prose, not a per-feature commitment; not worth a further pass to retitle the contract.
+- `[SEAL-38]` **Milestone 6 deliverable's F15/R12 explanation reads as…** (pass 22, accepted-as-risk) — Defense: synthesizer-judged — the sentence explains why F15's row stays byte-frozen despite R12's recurring nature, which is exactly the kind of load-bearing clarification a future reader of a closed row needs; not an instruction telling the reader what to conclude or skip, so it doesn't cross into the uncapped case.
+- `[SEAL-39]` **F1 bundles the full thumbnail…** (pass 22, accepted-as-risk) — Defense: synthesizer-judged — moving these AC bullets from F1 to F6 mid-pass would restructure both features' component ownership (ARCHITECTURE assigns thumbnail storage to a component F1 already builds) with cascading risk of introducing new inconsistencies; the cost (synthetic fixtures in F1's own JVM tests) is small and consistent with F1's stated Milestone-1 purpose of retiring correctness risk early. Not deferrable — PLAN.md is the terminal artifact.
+- `[SEAL-40]` **CFC-2's Per-feature AC clause is repeated near-verbatim…** (pass 22, accepted-as-risk) — Defense: consistent with `[SEAL-07]`'s already-accepted reasoning for the same redundancy shape in CFC Enforcement fields — intentional redundancy for a reader who reads only one part; not worth a further pass to de-duplicate.
+- `[SEAL-41]` **F13's Description spends a paragraph distinguishing its…** (pass 22, accepted-as-risk) — Defense: synthesizer-judged — correct and load-bearing content (it's what prevents a reader from double-counting F13's sweep against those features' own self-certifications); a wording trim isn't worth a pass.
+- `[SEAL-42]` **F10's new CFC-3 AC and F13 AC3's "five screen-owning…** (pass 23, accepted-as-risk) — Defense: synthesizer-judged (exit-capable pass) — F10's Description already establishes the context ("reachable from both the card and the recipe detail screen"), so "this screen" resolves to F7's card/detail screen where F10's selection state renders as an affordance/overlay rather than a separate screen of its own; not worth a pass to spell out an antecedent a reader can already infer.
+- `[SEAL-43]` **CFC-3's contract prose illustrates "every indicator…** (pass 23, accepted-as-risk) — Defense: synthesizer-judged (exit-capable pass) — the contract's Participating features line is the authoritative membership list and already includes F10; the prose examples are illustrative, not exhaustive, and F7/F13/F14/F15 aren't separately illustrated there either.
+- `[SEAL-44]` **Milestone 3/4 Deliverable and Implementation Order row 9…** (pass 23, accepted-as-risk) — Defense: consistent with this document's established redundancy precedent (`[SEAL-07]`, `[SEAL-40]`) — each restatement serves a different reader path (milestone summary vs. sequencing rationale); not worth a pass to consolidate.
+- `[SEAL-45]` **F13 AC3's participant-counting parenthetical duplicates the…** (pass 23, accepted-as-risk) — Defense: the parenthetical exists to disambiguate renderer-vs-verifier-vs-self-certifier roles within the count, not merely to restate it; not worth a pass to trim.
+- `[SEAL-46]` **F10 now carries the highest cross-feature-contract-tag…** (pass 23, accepted-as-risk) — Defense: proportionate to what F10 actually renders (two CFC obligations, both genuinely applicable); not scope creep.
 
 ### Latest pass detail
 
@@ -555,10 +566,10 @@ These are the three cross-cutting integration points SCOPE `[DEF-04]` routed to 
 ## Approval
 
 - [x] Approved to proceed to feature development
-- **Content Hash:** `4daab021bc171266`
+- **Content Hash:** `7a79be7f2f4db4c7`
 - **Hash basis:** v2
 - **CFC Content Hashes:**
   - CFC-1: `1055e5fde8e9a5cc995dd08c9debbb36326b6ac8df1ad5cc5eba00be72148f16`
-  - CFC-2: `9d9c6c16c0545a6c8b691929b9e8510b60796e85216783e15dd0bf0433ee7e61`
-  - CFC-3: `26f873a13642848f10ffd44141e9ad8a490428309d7a63ab3ad5803f77c1aec0`
-  - CFC-4: `2aa48dfcf8067dbe3b5e451449e843369ed3a336fc7b30e6bb33ef7fe182b655`
+  - CFC-2: `ee4a5c0bdd23c6aef890160fd0ce63031b32cf1dc841b218ed70eb4c64c76b47`
+  - CFC-3: `72e1cc29f5ea159e5c1ac405fb4ad71c4fe6a37786ce53f13ed459d60a3958b6`
+  - CFC-4: `0e772a570c8a270ab88dcb718f4aa7864863c740e354154f0b61a3fe3f3163f0`

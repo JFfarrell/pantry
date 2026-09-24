@@ -349,6 +349,7 @@ Android vitals is Play Services' own platform-level crash/ANR instrumentation, p
 | 12   | 2026-09-17 | 1     | 0           | 1         | 0        | 0      | tags=d0u0c0                                                                    |
 | 13   | 2026-09-17 | 0     | 0           | 6         | 0        | 3      | converged (0 HIGH); tags=d0u0c0                                                |
 | 14   | 2026-09-17 | 0     | 0           | 0         | 0        | 9      | converged (0 HIGH); tags=d0u0c0                                                |
+| 15   | 2026-09-22 | 0     | 0           | 0         | 0        | 10     | converged (0 HIGH); tags=d0u0c0; upstream-panel f2e7539e                       |
 
 ### Sealed dispositions
 
@@ -395,6 +396,16 @@ Android vitals is Play Services' own platform-level crash/ANR instrumentation, p
 - `[SEAL-41]` **EXIF/geolocation metadata retention for photo-picker…** (pass 14, accepted-as-risk) — Defense: the decode-to-Bitmap/re-encode pipeline already described in Technology Choices — Thumbnail storage inherently strips EXIF as a side effect of re-encoding; true by construction, not a gap requiring a new sentence.
 - `[SEAL-42]` **External Dependencies' Photo Picker row doesn't name the…** (pass 14, accepted-as-risk) — Defense: implementation-level API-selection detail.
 - `[SEAL-43]` **C9's and C3's Boundary each restate the…** (pass 14, accepted-as-risk) — Defense: harmless, intentional redundancy — each component's own Boundary section states the property from its own side.
+- `[SEAL-44]` **C6's Boundary sentence is ambiguous about whether…** (pass 15, accepted-as-risk) — Defense: synthesizer-judged (no HIGH landed this pass, exit-capable) — the Data Architecture and Interaction tables already resolve this correctly ("C6 (persisted via C3)"); not worth a further pass to also disambiguate the Boundary prose.
+- `[SEAL-45]` **SCOPE's `[DEF-05]` (Custom Tabs toolbar-persistence spike)…** (pass 15, accepted-as-risk) — Defense: synthesizer-judged (exit-capable pass) — the design already sidesteps the concern (per-item Custom Tabs launch from C9's own screen), it is just not called out in prose as a deliberate `[DEF-05]` resolution; a documentation completeness gap, not a correctness gap.
+- `[SEAL-46]` **At-rest-encryption paragraph compresses the actual Android…** (pass 15, accepted-as-risk) — Defense: the document's conclusion (minSdk 26+ implies platform encryption) still holds regardless; not worth a pass to correct historical Android-version detail with no bearing on the commitment made.
+- `[SEAL-47]` **Search/filter (SC-G2) has no explicit "Inside:"…** (pass 15, accepted-as-risk) — Defense: plausibly trivial client-side filtering over C9's existing subscription; not worth a pass to add an ownership sentence for an uncontested, low-risk gap.
+- `[SEAL-48]` **NutritionCacheEntry has no stated growth-bound rationale,…** (pass 15, accepted-as-risk) — Defense: synthesizer-judged (exit-capable pass) — the cache is self-evidently bounded by the universe of distinct ingredients a single household looks up, the same reasoning R13 states explicitly for thumbnails; not worth a pass to add the parallel sentence.
+- `[SEAL-49]` **C7's Boundary commits to a retry/back-off policy without…** (pass 15, accepted-as-risk) — Defense: synthesizer-judged (exit-capable pass) — this is implementation-level tuning detail, consistent with this document's established pattern (`[SEAL-09]`, `[SEAL-15]`, `[SEAL-32]`) of leaving exact mechanism parameters to implementation rather than pinning them architecturally.
+- `[SEAL-50]` **The Play-policy-rejection Fallback entry addresses…** (pass 15, accepted-as-risk) — Defense: a real but narrow edge case with no server-side mitigation possible under G6's no-backend design; not worth a pass to add a scenario the document can't actually mitigate.
+- `[SEAL-51]` **Nutrition-lookup (C6) JSON response has no stated…** (pass 15, accepted-as-risk) — Defense: synthesizer-judged (exit-capable pass) — the nutrition endpoint is a known, schema-constrained JSON API rather than an attacker-influenced arbitrary URL the way the page fetch is, so the narrower raw-byte cap already on all three C7 call sites is a materially different risk profile; not worth a pass to extend the streaming cap to this path.
+- `[SEAL-52]` **The decompression-bomb cap asymmetry (row above) isn't…** (pass 15, accepted-as-risk) — Defense: same reasoning as the row above — the asymmetry reflects a real risk-profile difference, not an oversight; not worth a pass to add a dedicated Risks row.
+- `[SEAL-53]` **C6's Key Concerns names no size/resource bound on the…** (pass 15, accepted-as-risk) — Defense: same underlying gap as the two rows above; not worth a further pass to cross-reference C7's Boundary text into C6's Key Concerns.
 
 ### Deferred dispositions
 
@@ -408,5 +419,5 @@ Android vitals is Play Services' own platform-level crash/ANR instrumentation, p
 ## Approval
 
 - [x] Approved to proceed to next phase
-- **Content Hash:** `f2e7539e7ec28217`
+- **Content Hash:** `5bb4245bd5fe9b6c`
 - **Hash basis:** v2
