@@ -1,6 +1,11 @@
 package ie.pantry
 
 import android.app.Application
+import ie.pantry.di.AppContainer
 
-/** Application entry point. The dependency container is added in T22. */
-class PantryApplication : Application()
+/** Application entry point. It owns the one [AppContainer] for the process. */
+class PantryApplication : Application() {
+
+    /** Created on first read, thread-safely, so every caller sees the same container. */
+    val container: AppContainer by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { AppContainer.production(this) }
+}

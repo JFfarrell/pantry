@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantry: UI mockup</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --surface: #fffdf8;
+    --surface-2: #f0ece2;
+    --ink: #1f2a20;
+    --ink-2: #566056;
+    --line: #dcd6c6;
+    --primary: #2f6b3c;
+    --on-primary: #ffffff;
+    --primary-soft: #dcebd9;
+    --warn: #8a5a00;
+    --warn-soft: #f6e6c2;
+    --danger: #a3342b;
+    --danger-soft: #f6d9d5;
+    --frame: #1b1b1b;
+    --shadow: 0 6px 24px rgba(0, 0, 0, .18);
+  }
+  :root[data-theme="dark"] {
+    --bg: #14181a;
+    --surface: #1d2326;
+    --surface-2: #262e31;
+    --ink: #e8ece6;
+    --ink-2: #a8b2a8;
+    --line: #38424a;
+    --primary: #8fca9a;
+    --on-primary: #0d2412;
+    --primary-soft: #24382a;
+    --warn: #f0c46a;
+    --warn-soft: #3a2f14;
+    --danger: #f2a49b;
+    --danger-soft: #3d1f1c;
+    --frame: #050505;
+    --shadow: 0 6px 24px rgba(0, 0, 0, .6);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  header.page { max-width: 1180px; margin: 0 auto; padding: 28px 16px 8px; }
+  header.page h1 { margin: 0 0 4px; font-size: 26px; }
+  header.page p { margin: 4px 0; color: var(--ink-2); max-width: 78ch; }
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .toolbar button {
+    background: var(--surface); color: var(--ink); border: 1px solid var(--line);
+    border-radius: 999px; padding: 6px 14px; font: inherit; cursor: pointer;
+  }
+  .note {
+    margin-top: 14px; padding: 10px 14px; border-radius: 10px;
+    background: var(--warn-soft); color: var(--ink); border: 1px solid var(--line);
+  }
+  main { max-width: 1180px; margin: 0 auto; padding: 8px 16px 48px; }
+  h2.group { margin: 36px 0 4px; font-size: 19px; }
+  p.group-note { margin: 0 0 14px; color: var(--ink-2); }
+  .row { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+  figure.screen { margin: 0; width: 320px; }
+  figure.screen figcaption { margin-top: 10px; font-size: 13px; color: var(--ink-2); }
+  figure.screen figcaption b { color: var(--ink); }
+
+  /* phone frame */
+  .phone {
+    width: 320px; height: 640px; background: var(--surface); border-radius: 34px;
+    border: 9px solid var(--frame); box-shadow: var(--shadow); overflow: hidden;
+    display: flex; flex-direction: column; position: relative;
+  }
+  .status { display: flex; justify-content: space-between; padding: 6px 16px 2px; font-size: 11px; color: var(--ink-2); }
+  .appbar { display: flex; align-items: center; gap: 10px; padding: 8px 14px 10px; }
+  .appbar h3 { margin: 0; font-size: 19px; flex: 1; }
+  .icon-btn {
+    width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--surface-2); color: var(--ink); font-size: 16px; border: 0;
+  }
+  .body { flex: 1; overflow: hidden; padding: 0 14px 10px; display: flex; flex-direction: column; gap: 10px; }
+  .navbar { display: flex; border-top: 1px solid var(--line); background: var(--surface); }
+  .navbar div { flex: 1; text-align: center; padding: 8px 0 9px; font-size: 11px; color: var(--ink-2); }
+  .navbar div span { display: block; font-size: 18px; line-height: 1.1; }
+  .navbar .on { color: var(--primary); font-weight: 700; }
+  .navbar .on span { background: var(--primary-soft); border-radius: 999px; width: 54px; margin: 0 auto 2px; }
+  .fab {
+    position: absolute; right: 16px; bottom: 64px; background: var(--primary); color: var(--on-primary);
+    border-radius: 16px; padding: 13px 16px; font-weight: 700; box-shadow: var(--shadow);
+  }
+
+  /* controls */
+  .search {
+    display: flex; align-items: center; gap: 8px; background: var(--surface-2);
+    border-radius: 999px; padding: 10px 14px; color: var(--ink-2);
+  }
+  .search b { color: var(--ink); font-weight: 500; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip {
+    border: 1px solid var(--line); border-radius: 9px; padding: 5px 10px; font-size: 12.5px;
+    background: var(--surface); color: var(--ink);
+  }
+  .chip.on { background: var(--primary-soft); border-color: var(--primary); font-weight: 700; }
+  .btn {
+    display: block; text-align: center; padding: 12px; border-radius: 999px; font-weight: 700;
+    background: var(--primary); color: var(--on-primary);
+  }
+  .btn.ghost { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+  .btn.small { display: inline-block; padding: 7px 14px; font-size: 13px; }
+  .field { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; background: var(--surface); }
+  .field small { display: block; color: var(--ink-2); font-size: 11px; }
+  .field.multi { min-height: 64px; }
+  .label { font-size: 12px; font-weight: 700; color: var(--ink-2); text-transform: uppercase; letter-spacing: .04em; }
+
+  /* recipe cards */
+  .card { display: flex; gap: 10px; border: 1px solid var(--line); border-radius: 14px; padding: 8px; background: var(--surface); }
+  .thumb {
+    width: 76px; height: 76px; border-radius: 10px; flex: none; display: grid; place-items: center;
+    font-size: 30px; background: linear-gradient(135deg, #e4a86d, #b5563a);
+  }
+  .thumb.a { background: linear-gradient(135deg, #b9cf8b, #5b8b45); }
+  .thumb.b { background: linear-gradient(135deg, #e8c777, #c98a2c); }
+  .thumb.none {
+    background: repeating-linear-gradient(45deg, var(--surface-2), var(--surface-2) 6px, var(--surface) 6px, var(--surface) 12px);
+    font-size: 11px; text-align: center; color: var(--ink-2); padding: 4px; border: 1px dashed var(--line);
+  }
+  .card .meta { flex: 1; min-width: 0; }
+  .card h4 { margin: 0 0 4px; font-size: 15px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12.5px; color: var(--ink-2); }
+  .facts .nodata { font-style: italic; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+
+  /* indicator vocabulary: shape + text, never colour alone */
+  .ind {
+    display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 700;
+    padding: 2px 8px 2px 6px; border-radius: 7px; border: 1.5px solid currentColor;
+  }
+  .ind.in { color: var(--primary); }
+  .ind.part { color: var(--warn); border-style: dashed; }
+  .ind.out { color: var(--danger); border-style: dotted; }
+  .ind.caveat { color: var(--warn); background: var(--warn-soft); border-style: solid; }
+  .ind.ok { color: var(--ink-2); border-color: var(--line); font-weight: 500; }
+
+  /* lists */
+  .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-top: 4px; }
+  .li { display: flex; align-items: center; gap: 10px; padding: 8px 2px; border-bottom: 1px solid var(--line); }
+  .li:last-child { border-bottom: 0; }
+  .li .grow { flex: 1; min-width: 0; }
+  .li small { color: var(--ink-2); display: block; }
+  .stepper { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .stepper span { padding: 3px 10px; }
+  .stepper .v { border-left: 1px solid var(--line); border-right: 1px solid var(--line); font-weight: 700; min-width: 34px; text-align: center; }
+  .box { width: 20px; height: 20px; border: 2px solid var(--ink-2); border-radius: 5px; flex: none; }
+  .box.done { background: var(--primary); border-color: var(--primary); color: var(--on-primary); font-size: 13px; text-align: center; line-height: 16px; }
+  .sub {
+    margin: 4px 0 2px 30px; padding: 6px 10px; border-radius: 8px; background: var(--primary-soft);
+    font-size: 12.5px;
+  }
+  .sub small { color: var(--ink-2); }
+  .bar { height: 8px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--primary); }
+  table.nut { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.nut td { padding: 5px 0; border-bottom: 1px solid var(--line); }
+  table.nut td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .banner { padding: 10px 12px; border-radius: 12px; font-size: 13px; }
+  .banner.err { background: var(--danger-soft); border: 1px solid var(--danger); }
+  .banner.info { background: var(--primary-soft); border: 1px solid var(--primary); }
+  .center { text-align: center; }
+  .grow-fill { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; text-align: center; padding: 0 12px; }
+  .big-glyph { font-size: 52px; line-height: 1; }
+  .dots { display: flex; gap: 6px; justify-content: center; }
+  .dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+  .dots i.on { background: var(--primary); width: 22px; border-radius: 99px; }
+  .tab { background: var(--surface-2); border-radius: 12px 12px 0 0; padding: 6px 12px; font-size: 12px; color: var(--ink-2); display: flex; justify-content: space-between; }
+  .webview { flex: 1; background: #fff; color: #222; padding: 12px; border-radius: 0; font-size: 13px; }
+  :root[data-theme="dark"] .webview { background: #f4f4f4; }
+  .webview .hit { border: 1px solid #ddd; border-radius: 10px; padding: 8px; margin-top: 8px; background: #fff; }
+  .webview .hit i { display: block; height: 46px; background: #e6e6e6; border-radius: 6px; margin-bottom: 6px; }
+  .toolbar-bottom { display: flex; gap: 8px; padding: 10px; background: var(--surface); border-top: 1px solid var(--line); }
+  .toolbar-bottom .btn { flex: 1; padding: 10px 0; font-size: 13px; }
+
+  /* legend */
+  .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 10px; }
+  .legend > div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+  .legend h4 { margin: 0 0 8px; font-size: 14px; }
+  .legend .ind { margin: 2px 4px 2px 0; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; }
+  .flow span { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 6px 12px; font-size: 13px; }
+  .flow i { color: var(--ink-2); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="page">
+  <h1>Pantry: UI mockup</h1>
+  <p>
+    A predicted look for the finished app, drawn from <code>blueprint/03_PLAN.md</code>. It is a static
+    illustration for discussion, not a spec: layout, wording and colours will change as each feature is
+    designed. Every screen works on a phone, offline except where a network step is named.
+  </p>
+  <div class="note">
+    <b>Where the app is today:</b> only F1 (build setup and the on-device database) is being implemented.
+    Building the app now shows a single screen with the word "Pantry" (the placeholder in the first group below).
+    Everything else here is planned in features F5&ndash;F15.
+  </div>
+  <div class="toolbar">
+    <button id="theme" type="button">Toggle light / dark</button>
+  </div>
+</header>
+
+<main>
+
+  <h2 class="group">Journey</h2>
+  <p class="group-note">The whole product is one chain: capture a recipe, pick some, get one shopping list, shop it.</p>
+  <div class="flow">
+    <span>Share or paste a recipe link</span><i>&rarr;</i>
+    <span>Check and save</span><i>&rarr;</i>
+    <span>Browse and compare</span><i>&rarr;</i>
+    <span>Choose recipes for the shop</span><i>&rarr;</i>
+    <span>Generate the list</span><i>&rarr;</i>
+    <span>Walk it item by item</span>
+  </div>
+
+  <!-- ============ F1 ============ -->
+  <h2 class="group">Today: F1 placeholder</h2>
+  <p class="group-note">What a build shows now.</p>
+  <div class="row">
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="grow-fill"><div style="font-size:22px;font-weight:600">Pantry</div></div>
+      </div>
+      <figcaption><b>F1 placeholder.</b> A themed screen with only the app name; follows the system light/dark setting.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ F14 first run ============ -->
+  <h2 class="group">First run (F14)</h2>
+  <p class="group-note">Orients someone who is not the developer to the core flow.</p>
+  <div class="row">
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="grow-fill">
+          <div class="big-glyph">&#128279;</div>
+          <h3 style="margin:0">Keep recipes from the web</h3>
+          <div style="color:var(--ink-2)">Share a recipe page to Pantry, or paste its link. It is saved on this phone, no account needed.</div>
+        </div>
+        <div class="body" style="flex:none">
+          <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+          <div class="btn">Next</div>
+          <div class="center" style="color:var(--primary);font-weight:700;padding:4px">Skip</div>
+        </div>
+      </div>
+      <figcaption><b>Step 1 of 4.</b> Import a recipe, or enter one by hand.</figcaption>
+    </figure>
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="grow-fill">
+          <div class="big-glyph">&#128722;</div>
+          <h3 style="margin:0">Choose recipes, get one list</h3>
+          <div style="color:var(--ink-2)">Pick what you'll cook this week. Pantry merges the ingredients into a single shopping list in shop-walking order.</div>
+        </div>
+        <div class="body" style="flex:none">
+          <div class="dots"><i></i><i></i><i class="on"></i><i></i></div>
+          <div class="btn">Next</div>
+          <div class="center" style="color:var(--primary);font-weight:700;padding:4px">Skip</div>
+        </div>
+      </div>
+      <figcaption><b>Step 3 of 4.</b> Selection and list generation.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ F7 catalogue ============ -->
+  <h2 class="group">Catalogue (F7)</h2>
+  <p class="group-note">Browse and compare without opening a recipe. Works with the network off.</p>
+  <div class="row">
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><h3>Recipes</h3><span class="icon-btn">&#8942;</span></div>
+        <div class="body">
+          <div class="search">&#128269; <span>Search by name</span></div>
+          <div class="chips">
+            <span class="chip">In season</span><span class="chip">Partial</span><span class="chip">Out of season</span>
+          </div>
+          <div class="card">
+            <div class="thumb">&#127858;</div>
+            <div class="meta"><h4>Tomato &amp; lentil soup</h4>
+              <div class="facts"><span>&#9202; 35 min</span><span>&#128293; 310 kcal</span></div>
+              <div class="tags"><span class="ind in">&#9679; In season</span><span class="ind ok">&#10003; Nutrition complete</span></div></div>
+          </div>
+          <div class="card">
+            <div class="thumb a">&#129388;</div>
+            <div class="meta"><h4>Roast squash salad</h4>
+              <div class="facts"><span>&#9202; 50 min</span><span>&#128293; 420 kcal</span></div>
+              <div class="tags"><span class="ind part">&#9680; Partial</span><span class="ind caveat">&#9432; Estimated figures</span></div></div>
+          </div>
+          <div class="card">
+            <div class="thumb none">No image</div>
+            <div class="meta"><h4>Gran's brown bread</h4>
+              <div class="facts"><span class="nodata">&#9202; No time given</span><span>&#128293; 260 kcal</span></div>
+              <div class="tags"><span class="ind out">&#9675; Out of season</span></div></div>
+          </div>
+        </div>
+        <div class="fab">+ Add</div>
+        <div class="navbar"><div class="on"><span>&#128214;</span>Recipes</div><div><span>&#9745;</span>Selection</div><div><span>&#128722;</span>Lists</div></div>
+      </div>
+      <figcaption><b>Card list.</b> Each card shows time, energy, a seasonality indicator and a nutrition caveat. A missing time or image is shown as such, never blank or invented.</figcaption>
+    </figure>
+
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><h3>Recipes</h3><span class="icon-btn">&#8942;</span></div>
+        <div class="body">
+          <div class="search">&#128269; <b>pancake</b></div>
+          <div class="chips"><span class="chip">In season</span><span class="chip on">&#10003; Out of season</span><span class="chip">Partial</span></div>
+          <div class="grow-fill">
+            <div class="big-glyph">&#129371;</div>
+            <h3 style="margin:0">No recipes match</h3>
+            <div style="color:var(--ink-2)">Nothing matches "pancake" and Out of season.</div>
+            <div class="btn ghost small">Clear season filter</div>
+          </div>
+        </div>
+        <div class="navbar"><div class="on"><span>&#128214;</span>Recipes</div><div><span>&#9745;</span>Selection</div><div><span>&#128722;</span>Lists</div></div>
+      </div>
+      <figcaption><b>Empty result.</b> Name search and season filter combine; clearing one leaves the other alone.</figcaption>
+    </figure>
+
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><span class="icon-btn">&#8592;</span><h3>Roast squash salad</h3><span class="icon-btn">&#9998;</span></div>
+        <div class="body">
+          <div class="facts"><span>&#9202; 50 min</span><span>Serves 4</span><span class="ind part">&#9680; Partial</span></div>
+          <div class="label">Ingredients</div>
+          <div>
+            <div class="li"><div class="grow">800 g butternut squash</div><span class="ind in">&#9679; In season</span></div>
+            <div class="li"><div class="grow">100 g rocket</div><span class="ind out">&#9675; Out of season</span></div>
+            <div class="sub">Try <b>baby spinach</b><br><small>Suggestion only; no allergen-safety guarantee.</small></div>
+            <div class="li"><div class="grow">2 tbsp olive oil</div></div>
+            <div class="li"><div class="grow">Salt, to taste</div></div>
+          </div>
+          <div class="label">Nutrition (per serving)</div>
+          <table class="nut">
+            <tr><td>Energy</td><td>420 kcal &#9432;</td></tr>
+            <tr><td>Protein</td><td>9 g</td></tr>
+            <tr><td>Fat / Carbohydrate</td><td>24 g / 38 g &#9432;</td></tr>
+          </table>
+          <div class="banner info">&#9432; = estimated from a weight conversion. Based on 4 of 6 ingredients.</div>
+        </div>
+        <div class="toolbar-bottom"><div class="btn">Add to selection</div></div>
+      </div>
+      <figcaption><b>Recipe detail.</b> Substitution shows only beside an out-of-season ingredient, with its disclaimer. Nutrition states what is estimated and how many ingredients contributed.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ F5/F6 ============ -->
+  <h2 class="group">Adding a recipe (F5, F6)</h2>
+  <p class="group-note">Import from a link, or type one in. Both end at the same form.</p>
+  <div class="row">
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><span class="icon-btn">&#10005;</span><h3>Add a recipe</h3></div>
+        <div class="body">
+          <div class="field"><small>Recipe link</small>https://example.ie/recipes/squash-salad</div>
+          <div class="btn">Import</div>
+          <div class="center" style="color:var(--ink-2)">or</div>
+          <div class="btn ghost">Enter by hand</div>
+          <div class="banner info">Tip: in your browser, choose <b>Share &rarr; Pantry</b> and the link arrives here for you.</div>
+        </div>
+      </div>
+      <figcaption><b>Start.</b> Paste a link, or arrive via the Android share sheet.</figcaption>
+    </figure>
+
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><span class="icon-btn">&#8592;</span><h3>Check &amp; save</h3></div>
+        <div class="body">
+          <div class="banner info">Imported from example.ie. Check it looks right, then save.</div>
+          <div class="field"><small>Title</small>Roast squash salad</div>
+          <div style="display:flex;gap:8px">
+            <div class="field" style="flex:1"><small>Serves</small>4</div>
+            <div class="field" style="flex:1"><small>Time (min)</small>50</div>
+          </div>
+          <div class="label">Ingredients</div>
+          <div class="field"><small>1</small>800 g butternut squash</div>
+          <div class="field"><small>2</small>100 g rocket</div>
+          <div class="field"><small>3</small>2 tbsp olive oil</div>
+          <div class="btn ghost small">+ Add ingredient</div>
+          <div class="li" style="border:0"><div class="thumb a" style="width:44px;height:44px;font-size:18px">&#129388;</div><div class="grow">Photo<small>From the page</small></div><span class="btn ghost small">Change</span></div>
+        </div>
+        <div class="toolbar-bottom"><div class="btn ghost">Discard</div><div class="btn">Save</div></div>
+      </div>
+      <figcaption><b>One form, three uses.</b> Confirming an import, entering by hand, or editing a saved recipe use the same fields.</figcaption>
+    </figure>
+
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><span class="icon-btn">&#10005;</span><h3>Add a recipe</h3></div>
+        <div class="body">
+          <div class="field"><small>Recipe link</small>https://example.ie/recipes/squash-salad</div>
+          <div class="banner err"><b>Couldn't reach that page.</b><br>Check your connection and try again, or enter the recipe by hand.</div>
+          <div class="btn">Try again</div>
+          <div class="btn ghost">Enter by hand</div>
+        </div>
+      </div>
+      <figcaption><b>Network error (F14).</b> Plain, non-crashing, and never repeats the link or page text.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ F10 / F11 ============ -->
+  <h2 class="group">Shopping (F10, F11)</h2>
+  <p class="group-note">Choose recipes and servings, then generate one merged list.</p>
+  <div class="row">
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><h3>Selection</h3></div>
+        <div class="body">
+          <div class="li"><div class="thumb" style="width:44px;height:44px;font-size:20px">&#127858;</div><div class="grow">Tomato &amp; lentil soup<small>Recipe serves 4</small></div>
+            <div class="stepper"><span>&minus;</span><span class="v">4</span><span>+</span></div></div>
+          <div class="li"><div class="thumb a" style="width:44px;height:44px;font-size:20px">&#129388;</div><div class="grow">Roast squash salad<small>Recipe serves 4</small></div>
+            <div class="stepper"><span>&minus;</span><span class="v">6</span><span>+</span></div></div>
+          <div class="li"><div class="thumb none" style="width:44px;height:44px;font-size:9px">No image</div><div class="grow">Gran's brown bread<small>No serves stated: 1&times; baseline</small></div>
+            <div class="stepper"><span>&minus;</span><span class="v">1</span><span>+</span></div></div>
+        </div>
+        <div class="toolbar-bottom"><div class="btn">Generate list (3 recipes)</div></div>
+        <div class="navbar"><div><span>&#128214;</span>Recipes</div><div class="on"><span>&#9745;</span>Selection</div><div><span>&#128722;</span>Lists</div></div>
+      </div>
+      <figcaption><b>Selection.</b> Servings default to the recipe's yield, or 1&times; when none is stated, and your edits are kept.</figcaption>
+    </figure>
+
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><span class="icon-btn">&#8592;</span><h3>Shopping list</h3><span class="icon-btn">&#9654;</span></div>
+        <div class="body">
+          <div class="label">Fruit &amp; veg</div>
+          <div class="li"><span class="box"></span><div class="grow">Butternut squash<small>1.2 kg</small></div></div>
+          <div class="li"><span class="box"></span><div class="grow">Tomatoes<small>800 g</small></div></div>
+          <div class="li"><span class="box"></span><div class="grow">Rocket<small>150 g</small></div></div>
+          <div class="label" style="margin-top:6px">Baking</div>
+          <div class="li"><span class="box"></span><div class="grow">Wholemeal flour<small>250 g</small></div></div>
+          <div class="label" style="margin-top:6px">Store cupboard</div>
+          <div class="li"><span class="box"></span><div class="grow">Olive oil<small>3 tbsp</small></div></div>
+          <div class="li"><span class="box"></span><div class="grow">Red lentils<small>300 g</small></div></div>
+          <div class="label" style="margin-top:6px">Other</div>
+          <div class="li"><span class="box"></span><div class="grow">Salt<small>to taste</small></div></div>
+        </div>
+        <div class="navbar"><div><span>&#128214;</span>Recipes</div><div><span>&#9745;</span>Selection</div><div class="on"><span>&#128722;</span>Lists</div></div>
+      </div>
+      <figcaption><b>Generated list.</b> Merged by ingredient, scaled by servings, grouped by supermarket section in walking order. Unknown sections go last; "to taste" stays "to taste".</figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ F12 ============ -->
+  <h2 class="group">Retailer walkthrough (F12)</h2>
+  <p class="group-note">One item at a time, searched on Tesco Ireland in a browser tab. Your place is saved on the phone.</p>
+  <div class="row">
+    <figure class="screen">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+        <div class="appbar"><span class="icon-btn">&#8592;</span><h3>Shop the list</h3></div>
+        <div class="body">
+          <div class="center" style="color:var(--ink-2)">Item 3 of 9</div>
+          <div class="bar"><i style="width:33%"></i></div>
+          <div class="grow-fill">
+            <div class="big-glyph">&#129388;</div>
+            <h2 style="margin:0">Rocket</h2>
+            <div style="color:var(--ink-2)">150 g &middot; Fruit &amp; veg</div>
+            <div class="btn">Search on tesco.ie</div>
+          </div>
+        </div>
+        <div class="toolbar-bottom"><div class="btn ghost">Back</div><div class="btn ghost">Skip</div><div class="btn">Next</div></div>
+      </div>
+      <figcaption><b>Walkthrough.</b> Back, Skip and Next only move your saved place; nothing is sent to the shop.</figcaption>
+    </figure>
+
+    <figure class="screen">
+      <div class="phone">
+        <div class="tab"><span>&#128274; tesco.ie</span><span>&#10005;</span></div>
+        <div class="webview">
+          <b>Results for "rocket"</b>
+          <div class="hit"><i></i>Wild rocket salad 60 g</div>
+          <div class="hit"><i></i>Rocket &amp; spinach mix 120 g</div>
+        </div>
+        <div class="toolbar-bottom"><div class="btn ghost">Back</div><div class="btn ghost">Skip</div><div class="btn">Next</div></div>
+      </div>
+      <figcaption><b>In the browser tab.</b> The controls sit at the bottom so you can advance without returning to the app (subject to the feasibility check in F12).</figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ Accessibility ============ -->
+  <h2 class="group">Design rules that show up everywhere</h2>
+  <div class="legend">
+    <div>
+      <h4>Indicators never rely on colour alone (F7, F13)</h4>
+      <span class="ind in">&#9679; In season</span>
+      <span class="ind part">&#9680; Partial</span>
+      <span class="ind out">&#9675; Out of season</span>
+      <span class="ind caveat">&#9432; Estimated figures</span>
+      <span class="ind ok">&#10003; Nutrition complete</span>
+      <p style="color:var(--ink-2);margin:8px 0 0">Each carries a distinct shape, border style and text label.</p>
+    </div>
+    <div>
+      <h4>Absence is shown, not hidden</h4>
+      <p style="margin:0;color:var(--ink-2)">No image, no cooking time, no yield or an ingredient without a quantity each get an explicit, honest state. Nothing is replaced by a made-up value.</p>
+    </div>
+    <div>
+      <h4>Errors carry no recipe content</h4>
+      <p style="margin:0;color:var(--ink-2)">Error messages never repeat a title, ingredient line, link or page text. They say what went wrong and what to do next.</p>
+    </div>
+    <div>
+      <h4>Everything lives on the phone</h4>
+      <p style="margin:0;color:var(--ink-2)">No account, no cloud. Browsing, search, filtering, detail and selection all work with the network off. Only importing a link, and optionally shopping on tesco.ie, need it.</p>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var button = document.getElementById("theme");
+    var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    function apply() { root.setAttribute("data-theme", dark ? "dark" : "light"); }
+    apply();
+    button.addEventListener("click", function () { dark = !dark; apply(); });
+  })();
+</script>
+</body>
+</html>

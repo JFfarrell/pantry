@@ -11,6 +11,7 @@ import java.time.Instant
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
@@ -72,6 +73,18 @@ class RecipeDaoTest {
                 val pending = if (cursor.isNull(1)) null else cursor.getLong(1)
                 path to pending
             }
+
+    private fun rawUpdatedAt(id: Long): Instant =
+        db.openHelper.writableDatabase.query("SELECT updatedAt FROM recipe WHERE id = $id").use { cursor ->
+            assertEquals(true, cursor.moveToFirst(), "recipe $id must exist")
+            Instant.ofEpochMilli(cursor.getLong(0))
+        }
+
+    private fun rowCount(table: String): Int =
+        db.openHelper.writableDatabase.query("SELECT COUNT(*) FROM $table").use { cursor ->
+            cursor.moveToFirst()
+            cursor.getInt(0)
+        }
 
     @Test
     fun `catalogue flow emits empty list when no recipes`() = runTest {
@@ -232,5 +245,134 @@ class RecipeDaoTest {
 
         val found = assertNotNull(dao.findRecipe(id))
         assertEquals(listOf("b", "a"), found.orderedIngredients.map { it.rawText })
+    }
+
+    @Test
+    fun `catalogue flow drops row when pendingDeletionAt set`() = runTest {
+        val id = seed()
+        val recorder = FlowRecorder(dao.observeCatalogue(), backgroundScope)
+        assertEquals(listOf(id), recorder.awaitNext().map { it.id })
+
+        dao.setPendingDeletion(id, clock.instant())
+
+        assertEquals(emptyList(), recorder.awaitUntil { it.isEmpty() })
+    }
+
+    @Test
+    fun `catalogue flow re-includes row when pendingDeletionAt cleared`() = runTest {
+        val id = seed()
+        dao.setPendingDeletion(id, clock.instant())
+        val recorder = FlowRecorder(dao.observeCatalogue(), backgroundScope)
+        assertEquals(emptyList(), recorder.awaitNext())
+
+        dao.clearPendingDeletion(id)
+
+        assertEquals(listOf(id), recorder.awaitUntil { it.isNotEmpty() }.map { it.id })
+    }
+
+    @Test
+    fun `recipe flow emits null while pending and row again when cleared`() = runTest {
+        val id = seed()
+        val recorder = FlowRecorder(dao.observeRecipe(id), backgroundScope)
+        assertNotNull(recorder.awaitNext())
+
+        dao.setPendingDeletion(id, clock.instant())
+        assertNull(recorder.awaitUntil { it == null })
+
+        dao.clearPendingDeletion(id)
+        assertNotNull(recorder.awaitUntil { it != null })
+    }
+
+    @Test
+    fun `findRecipe returns null while pending deletion`() = runTest {
+        val id = seed()
+
+        dao.setPendingDeletion(id, clock.instant())
+
+        assertNull(dao.findRecipe(id))
+    }
+
+    @Test
+    fun `setPendingDeletion leaves updatedAt unchanged`() = runTest {
+        val id = seed()
+        clock.advanceBy(Duration.ofHours(3))
+
+        assertEquals(1, dao.setPendingDeletion(id, clock.instant()))
+
+        assertEquals(start, rawUpdatedAt(id))
+    }
+
+    @Test
+    fun `clearPendingDeletion leaves updatedAt unchanged`() = runTest {
+        val id = seed()
+        dao.setPendingDeletion(id, clock.instant())
+        clock.advanceBy(Duration.ofHours(3))
+
+        assertEquals(1, dao.clearPendingDeletion(id))
+
+        assertEquals(start, rawUpdatedAt(id))
+    }
+
+    @Test
+    fun `clearAllPendingDeletions leaves updatedAt unchanged`() = runTest {
+        val id = seed()
+        dao.setPendingDeletion(id, clock.instant())
+        clock.advanceBy(Duration.ofHours(3))
+
+        dao.clearAllPendingDeletions()
+
+        assertEquals(start, rawUpdatedAt(id))
+    }
+
+    @Test
+    fun `clearAllPendingDeletions clears every leftover marker and returns count`() = runTest {
+        val first = seed()
+        val second = seed()
+        val untouched = seed()
+        dao.setPendingDeletion(first, clock.instant())
+        dao.setPendingDeletion(second, clock.instant())
+
+        assertEquals(2, dao.clearAllPendingDeletions())
+
+        assertEquals(setOf(first, second, untouched), dao.observeCatalogue().first().map { it.id }.toSet())
+        assertEquals(0, dao.clearAllPendingDeletions())
+    }
+
+    @Test
+    fun `setThumbnailPath stores path and bumps updatedAt`() = runTest {
+        val id = seed()
+        clock.advanceBy(Duration.ofMinutes(5))
+
+        dao.setThumbnailPath(id, "thumbnails/new.jpg")
+
+        assertEquals("thumbnails/new.jpg", assertNotNull(dao.findRecipe(id)).recipe.thumbnailPath)
+        assertEquals(start.plus(Duration.ofMinutes(5)), updatedAtOf(id))
+    }
+
+    @Test
+    fun `thumbnailPathOf returns stored path`() = runTest {
+        val id = seed()
+        dao.setThumbnailPath(id, "thumbnails/a.jpg")
+
+        assertEquals("thumbnails/a.jpg", dao.thumbnailPathOf(id))
+    }
+
+    @Test
+    fun `thumbnailPathOf returns null when unset or id missing`() = runTest {
+        val id = seed()
+
+        assertNull(dao.thumbnailPathOf(id))
+        assertNull(dao.thumbnailPathOf(404L))
+    }
+
+    @Test
+    fun `deleteRecipeRow cascades to ingredients`() = runTest {
+        val id = seed(listOf(ingredient(0), ingredient(1)))
+        assertEquals(2, rowCount("recipe_ingredient"))
+
+        assertEquals(1, dao.deleteRecipeRow(id))
+
+        assertEquals(0, rowCount("recipe"))
+        assertEquals(0, rowCount("recipe_ingredient"))
     }
 }

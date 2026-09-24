@@ -15,24 +15,24 @@
 | T6 | Recipe-side entities and relations | R3 | T5 | Yes (with T7, T17, T18) | Done |
 | T7 | List-side and nutrition-cache entities and relation | R3 | T5 | Yes (with T6, T17, T18) | Done |
 | T8 | `PantryDatabase`, `ALL_MIGRATIONS`, committed `1.json`, `SchemaShapeTest` | R3, R6 | T3, T6, T7 | Yes (with T17, T18) | Done |
-| T9 | Migration harness skeleton with `FixtureV1` | R6 | T8 | Yes (with T10, T11, T15, T17, T18, T25) | Not Started |
-| T10 | `RecipeDao` reads and `updatedAt`-bumping writes | R4, R5 | T8 | Yes (with T9, T15, T17, T18, T25) | Not Started |
-| T11 | `RecipeDao` soft-delete filter, sweep and repository-only ops | R3, R4, R5 | T10 | Yes (with T9, T15, T17, T18, T25) | Not Started |
-| T12 | `SelectionEntryDao` with `Flow` reads | R4 | T11 | Yes (with T9, T15, T17, T18, T25) | Not Started |
-| T13 | `ShoppingListDao` and `RetailerAssistDao` with `Flow` reads | R4 | T10, T12 | Yes (with T9, T15, T17, T18, T25) | Not Started |
-| T14 | `NutritionCacheDao` and DAO-surface review | R3 | T13 | Yes (with T16, T17, T18, T19, T25) | Not Started |
-| T15 | `PersistenceException`, `Sentinels` and error-hygiene test foundation [CFC-4] | R3 | T8 | Yes (with T9, T10, T11, T12, T13, T17, T18, T25) | Not Started |
-| T16 | Error-hygiene cases for DAO constraint failures [CFC-4] | R3 | T10, T13, T15 | Yes (with T14, T17, T18, T19, T25) | Not Started |
-| T17 | `ThumbnailProcessor` bounds-aware decode/downsample/re-encode | R8 | T3 | Yes (with T5–T16, T18) | Not Started |
+| T9 | Migration harness skeleton with `FixtureV1` | R6 | T8 | Yes (with T10, T11, T15, T17, T18, T25) | Done |
+| T10 | `RecipeDao` reads and `updatedAt`-bumping writes | R4, R5 | T8 | Yes (with T9, T15, T17, T18, T25) | Done |
+| T11 | `RecipeDao` soft-delete filter, sweep and repository-only ops | R3, R4, R5 | T10 | Yes (with T9, T15, T17, T18, T25) | Done |
+| T12 | `SelectionEntryDao` with `Flow` reads | R4 | T11 | Yes (with T9, T15, T17, T18, T25) | Done |
+| T13 | `ShoppingListDao` and `RetailerAssistDao` with `Flow` reads | R4 | T10, T12 | Yes (with T9, T15, T17, T18, T25) | Done |
+| T14 | `NutritionCacheDao` and DAO-surface review | R3 | T13 | Yes (with T16, T17, T18, T19, T25) | Done |
+| T15 | `PersistenceException`, `Sentinels` and error-hygiene test foundation [CFC-4] | R3 | T8 | Yes (with T9, T10, T11, T12, T13, T17, T18, T25) | Done |
+| T16 | Error-hygiene cases for DAO constraint failures [CFC-4] | R3 | T10, T13, T15 | Yes (with T14, T17, T18, T19, T25) | Done |
+| T17 | `ThumbnailProcessor` bounds-aware decode/downsample/re-encode | R8 | T3 | Yes (with T5–T16, T18) | Done |
 | T18 | `ThumbnailStore` and `ThumbnailOutcome` | R8 | T2 | Yes (with T3–T17) | Done |
-| T19 | `RecipeRepository.saveNewRecipe` with thumbnail path | R8 | T11, T15, T17, T18 | Yes (with T14, T16, T25) | Not Started |
-| T20 | `RecipeRepository` replace/remove thumbnail and hard delete | R8 | T19 | Yes (with T21, T22, T23, T24, T25) | Not Started |
-| T21 | Error-hygiene cases for repository and thumbnail failures [CFC-4] | R3 | T16, T19 | Yes (with T20, T22, T23, T24, T25) | Not Started |
-| T22 | `AppContainer` and `PantryApplication.container` wiring | R2 | T14, T19 | Yes (with T20, T21, T23, T24, T25) | Not Started |
-| T23 | `RestartDurabilityTest` (restart + no network) | R7 | T14 | Yes (with T19, T20, T21, T22, T24, T25) | Not Started |
-| T24 | Extend migration harness to read fixture back through DAOs | R6 | T9, T14 | Yes (with T19, T20, T21, T22, T23, T25) | Not Started |
+| T19 | `RecipeRepository.saveNewRecipe` with thumbnail path | R8 | T11, T15, T17, T18 | Yes (with T14, T16, T25) | Done |
+| T20 | `RecipeRepository` replace/remove thumbnail and hard delete | R8 | T19 | Yes (with T21, T22, T23, T24, T25) | Done |
+| T21 | Error-hygiene cases for repository and thumbnail failures [CFC-4] | R3 | T16, T19 | Yes (with T20, T22, T23, T24, T25) | Done |
+| T22 | `AppContainer` and `PantryApplication.container` wiring | R2 | T14, T19 | Yes (with T20, T21, T23, T24, T25) | Done |
+| T23 | `RestartDurabilityTest` (restart + no network) | R7 | T14 | Yes (with T19, T20, T21, T22, T24, T25) | Done |
+| T24 | Extend migration harness to read fixture back through DAOs | R6 | T9, T14 | Yes (with T19, T20, T21, T22, T23, T25) | Done |
 | T25 | Write `docs/migrations.md` | R6 | T8 | Yes (with T9–T24) | Done |
-| T26 | Feature closeout: full suite, lint, clean build and manual checks | R1, R2, R3, R6 | T1–T25 | No | Not Started |
+| T26 | Feature closeout: full suite, lint, clean build and manual checks | R1, R2, R3, R6 | T1–T25 | No | Done |
 
 ## Phase 1: Build and App Shell (FC1, FC2)
 
@@ -230,7 +230,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/SchemaShapeTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.SchemaShapeTest"`; `test -f app/schemas/ie.pantry.data.db.PantryDatabase/1.json`; `git check-ignore -q app/schemas/ie.pantry.data.db.PantryDatabase/1.json` exits 1; `grep -rn fallbackToDestructiveMigration app/src` prints nothing. After the user commits `1.json`, `./gradlew assembleDebug && git status --porcelain app/schemas` prints nothing.
 
-### - [ ] T9: Migration harness skeleton with `FixtureV1`
+### - [x] T9: Migration harness skeleton with `FixtureV1`
 
 - **Requirement:** R6
 - **Description:** Create `FixtureV1` (programmatic `ContentValues` inserts, one row per table, some optionals absent, per AD10) and `MigrationHarnessTest` that creates the v1 database through `MigrationTestHelper` from the committed `1.json`, inserts the fixture, asserts `ALL_MIGRATIONS.isEmpty()` and `PantryDatabase.VERSION == 1`, runs `runMigrationsAndValidate` only when `VERSION > 1`, reopens the file through the production builder configuration, and asserts every fixture row field by field; this retires DR4 before DAO work. **[ASSUMPTION]** Read-back here uses cursor queries on the Room-opened database; T24 switches the read-back to DAOs once they exist (see Q1).
@@ -257,7 +257,7 @@
 
 ## Phase 3: DAOs (FC5)
 
-### - [ ] T10: `RecipeDao` reads and `updatedAt`-bumping writes
+### - [x] T10: `RecipeDao` reads and `updatedAt`-bumping writes
 
 - **Requirement:** R4, R5
 - **Description:** Create `RecipeDao` as an abstract class taking `PantryDatabase` (I3) with `observeCatalogue`, `observeRecipe`, `findRecipe`, the protected-abstract raw ops, and the public `@Transaction` wrappers `insertRecipeWithIngredients`/`updateRecipe`/`insertIngredient`/`updateIngredient`/`deleteIngredient` that set `updatedAt = db.clock.instant()` on the parent; add `recipeDao()` to `PantryDatabase`; add `FlowRecorder`. If Room rejects `protected abstract` (DR2), apply DR2's `openHelper.writableDatabase` fallback without adding any public surface.
@@ -299,7 +299,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/RecipeDaoTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.RecipeDaoTest"`
 
-### - [ ] T11: `RecipeDao` soft-delete filter, sweep and repository-only ops
+### - [x] T11: `RecipeDao` soft-delete filter, sweep and repository-only ops
 
 - **Requirement:** R3, R4, R5
 - **Description:** Add `setPendingDeletion`, `clearPendingDeletion`, `clearAllPendingDeletions` (single-column updates, no bump), and the repository-only `setThumbnailPath` (bumping), `thumbnailPathOf` and `deleteRecipeRow` to `RecipeDao`, with KDoc stating the `pendingDeletionAt IS NULL` rule for new queries (DR5) and the repository-only rule (DR3).
@@ -334,7 +334,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/RecipeDaoTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.RecipeDaoTest"`
 
-### - [ ] T12: `SelectionEntryDao` with `Flow` reads
+### - [x] T12: `SelectionEntryDao` with `Flow` reads
 
 - **Requirement:** R4
 - **Description:** Create `SelectionEntryDao` (I4) with the explicit `recipe_`-aliased JOIN projection filtered on `r.pendingDeletionAt IS NULL`, `upsert` and `delete`, and add `selectionEntryDao()` to `PantryDatabase`.
@@ -362,7 +362,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/SelectionEntryDaoTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.SelectionEntryDaoTest"`
 
-### - [ ] T13: `ShoppingListDao` and `RetailerAssistDao` with `Flow` reads
+### - [x] T13: `ShoppingListDao` and `RetailerAssistDao` with `Flow` reads
 
 - **Requirement:** R4
 - **Description:** Create `ShoppingListDao` (I5, atomic `insertListWithItems`) and `RetailerAssistDao` (I6), and add both getters to `PantryDatabase`.
@@ -399,7 +399,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/RetailerAssistDaoTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.ShoppingListDaoTest" --tests "*.RetailerAssistDaoTest"`
 
-### - [ ] T14: `NutritionCacheDao` and DAO-surface review
+### - [x] T14: `NutritionCacheDao` and DAO-surface review
 
 - **Requirement:** R3
 - **Description:** Create the one-shot `NutritionCacheDao` (I7), add its getter to `PantryDatabase`, and complete the R3 AC6 DAO-surface review now that all five DAOs exist.
@@ -428,7 +428,7 @@
 
 ## Phase 4: Persistence Error Surface (FC6, CFC-4)
 
-### - [ ] T15: `PersistenceException`, `Sentinels` and error-hygiene test foundation [CFC-4]
+### - [x] T15: `PersistenceException`, `Sentinels` and error-hygiene test foundation [CFC-4]
 
 - **Requirement:** R3
 - **Description:** Create `PersistenceException` (I10: message from category, constant operation and cause simple-name only; no cause chaining) and `persistenceFailure` (maps SQLite exception types to categories, copies stack frames, logs `key=value` fields only), the `Sentinels` fixture with `Throwable.assertNoSentinel()`, and `PersistenceErrorHygieneTest` covering the factory and hygiene case (4) direct-Room downgrade.
@@ -458,7 +458,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/PersistenceErrorHygieneTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.PersistenceErrorHygieneTest"`
 
-### - [ ] T16: Error-hygiene cases for DAO constraint failures [CFC-4]
+### - [x] T16: Error-hygiene cases for DAO constraint failures [CFC-4]
 
 - **Requirement:** R3
 - **Description:** Add hygiene cases (1) FK violation via `RecipeDao` with `rawText = INGREDIENT`, (2) PK conflict via `RecipeDao` with `title = TITLE`, and (6) FK violation via `ShoppingListDao` with `displayName = INGREDIENT`, each followed by `assertNoSentinel()`.
@@ -481,7 +481,7 @@
 
 ## Phase 5: Thumbnail Pipeline (FC7)
 
-### - [ ] T17: `ThumbnailProcessor` bounds-aware decode/downsample/re-encode
+### - [x] T17: `ThumbnailProcessor` bounds-aware decode/downsample/re-encode
 
 - **Requirement:** R8
 - **Description:** Create `ThumbnailProcessor` (I9: `inJustDecodeBounds` pass, power-of-two `inSampleSize` via `computeSampleSize`, EXIF orientation via platform `ExifInterface`, exact scale to longest edge ≤ 512, JPEG quality 85, `null` on undecodable input or `OutOfMemoryError`) and the `ImageFixtures` generator (`jpeg`, `png`, streamed `pngBomb`, `garbage`).
@@ -538,7 +538,7 @@
 
 ## Phase 6: Recipe Repository (FC8)
 
-### - [ ] T19: `RecipeRepository.saveNewRecipe` with thumbnail path
+### - [x] T19: `RecipeRepository.saveNewRecipe` with thumbnail path
 
 - **Requirement:** R8
 - **Description:** Create `RecipeRepository` (I8) with `saveNewRecipe`: process bytes, store the file on `Dispatchers.IO`, then `insertRecipeWithIngredients` with `thumbnailPath` from the outcome and `pendingDeletionAt = null`; on row failure delete the new file and rethrow via `persistenceFailure`.
@@ -567,7 +567,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/RecipeRepositoryTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.RecipeRepositoryTest"`
 
-### - [ ] T20: `RecipeRepository` replace/remove thumbnail and hard delete
+### - [x] T20: `RecipeRepository` replace/remove thumbnail and hard delete
 
 - **Requirement:** R8
 - **Description:** Add `replaceThumbnail` (write new file, `setThumbnailPath`, then delete old file; on failure leave the existing thumbnail and return `NoImage`), `removeThumbnail` and `deleteRecipe` (row then file), logging failed file deletes by category only (DR6).
@@ -591,7 +591,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/RecipeRepositoryTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.RecipeRepositoryTest"`
 
-### - [ ] T21: Error-hygiene cases for repository and thumbnail failures [CFC-4]
+### - [x] T21: Error-hygiene cases for repository and thumbnail failures [CFC-4]
 
 - **Requirement:** R3
 - **Description:** Add hygiene cases (3) repository save after `db.close()`, (4) the repository half of the downgrade case, and (5) thumbnail write failure, each against `Sentinels` content.
@@ -617,7 +617,7 @@
 
 ## Phase 7: App Container (FC3)
 
-### - [ ] T22: `AppContainer` and `PantryApplication.container` wiring
+### - [x] T22: `AppContainer` and `PantryApplication.container` wiring
 
 - **Requirement:** R2
 - **Description:** Create `AppContainer` (I2: primary-constructor injection, DAO `val`s read once, `recipeRepository`, companion `production(app, clock)`) and add `val container by lazy { AppContainer.production(this) }` to `PantryApplication`.
@@ -647,7 +647,7 @@
 
 ## Phase 8: Durability, Migration Procedure and Closeout (FC9)
 
-### - [ ] T23: `RestartDurabilityTest` (restart + no network)
+### - [x] T23: `RestartDurabilityTest` (restart + no network)
 
 - **Requirement:** R7
 - **Description:** Create `RestartDurabilityTest`: on-disk database, one row per entity with some optionals absent, `close()`, reopen a new instance on the same file, compare field by field, with the no-network guards (no active `ConnectivityManager` network, a failing `ProxySelector` installed after Robolectric bootstrap, `okhttp3.OkHttpClient` not loadable).
@@ -673,7 +673,7 @@
   - File: `app/src/test/java/ie/pantry/data/db/RestartDurabilityTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests "*.RestartDurabilityTest"`
 
-### - [ ] T24: Extend migration harness to read fixture back through DAOs
+### - [x] T24: Extend migration harness to read fixture back through DAOs
 
 - **Requirement:** R6
 - **Description:** Change `MigrationHarnessTest`'s post-migration read-back from cursor queries to the five DAOs, as design Testing Strategy specifies, keeping every field-level assertion.
@@ -708,7 +708,7 @@
 - **Tests:** Not applicable — documentation only; see Verification.
 - **Verification:** `for p in 'VERSION' 'schemas' 'Migration' 'ALL_MIGRATIONS' 'FixtureV' 'testDebugUnitTest' 'fallbackToDestructiveMigration' 'pendingDeletionAt IS NULL'; do grep -q "$p" docs/migrations.md || echo "missing: $p"; done` prints nothing, and `grep -cE '^[1-6]\. ' docs/migrations.md` prints `6` (the ordered procedure, not just the keywords).
 
-### - [ ] T26: Feature closeout: full suite, lint, clean build and manual checks
+### - [x] T26: Feature closeout: full suite, lint, clean build and manual checks
 
 - **Requirement:** R1, R2, R3, R6
 - **Description:** Run the full suite and lint, rebuild both variants from a clean checkout, and perform the design's remaining manual checks.
@@ -732,6 +732,7 @@
     THEN it prints nothing (R3 AC5)
 - **Tests:** Not applicable — runs every test written in T3–T24; see Verification.
 - **Verification:** Precondition: the user has committed the working tree (`1.json`, the new sources and the wrapper jar); Claude runs no mutating git. From a fresh clone: `./gradlew assembleDebug assembleRelease && ./gradlew testDebugUnitTest lintDebug`; with `M=app/build/intermediates/merged_manifest/release/processReleaseMainManifest/AndroidManifest.xml`, `grep -c 'allowBackup="false"' "$M"` prints `1` and `grep -c 'uses-permission android:name="android.permission' "$M"` prints `0`; `grep -rn fallbackToDestructiveMigration app/src`, `grep -rn '@RawQuery' app/src/main/java/ie/pantry/data/db`, `grep -niE 'hilt|dagger|koin' gradle/libs.versions.toml app/build.gradle.kts` and `grep -nE '"[^"]+:[^"]+:[0-9][^"]*"' build.gradle.kts app/build.gradle.kts settings.gradle.kts` each print nothing; `git status --porcelain app/schemas` prints nothing; `./gradlew installDebug` and launch per T4.
+- **Completion note (2026-09-25):** Verified from a fresh clone (86 tasks executed): `assembleDebug assembleRelease` and `testDebugUnitTest lintDebug` succeeded, `git status --porcelain app/schemas` printed nothing, the release manifest carries `allowBackup="false"` and no `android.permission.*` entry (only androidx.core's `DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION`), and every grep check printed nothing. **The on-device launch check (R2 AC1, `installDebug` then open the app) was NOT run: no device or emulator was available.** It is owed; the first feature that adds UI will exercise the app on a device.
 
 ## Implementation Order
 
@@ -758,8 +759,9 @@ Notes:
 
 | Date | Task | What spec/design said | What was actually done | Why | Classification | Backport status |
 |------|------|-----------------------|------------------------|-----|----------------|-----------------|
-| 2026-09-24 | T1 | T1 Verification: `./gradlew help` succeeds, tolerating a warning that `:app` has no project directory until T2 | Created an empty `app/` directory during T1 so the wrapper could be generated | The developer's system Gradle is 9.x, which makes a missing project directory a hard error (not the warning Gradle 8.11.1 gives), so `gradle wrapper` failed | minor | pending |
-| 2026-09-24 | T8 | Design I1 lists the factories `create` and `createInMemory` on `PantryDatabase` | Added an `internal fun createAt(context, fileName, clock)` alongside them; `create` delegates to it with `FILE_NAME` | `TestDatabases.onDisk(name, clock)` (design Testing Strategy) needs a differently-named database file, and `clock` has a private setter only the factories can assign; the addition is internal and changes no public interface | minor | pending |
+| 2026-09-24 | T1 | T1 Verification: `./gradlew help` succeeds, tolerating a warning that `:app` has no project directory until T2 | Created an empty `app/` directory during T1 so the wrapper could be generated | The developer's system Gradle is 9.x, which makes a missing project directory a hard error (not the warning Gradle 8.11.1 gives), so `gradle wrapper` failed | minor | declined |
+| 2026-09-24 | T8 | Design I1 lists the factories `create` and `createInMemory` on `PantryDatabase` | Added an `internal fun createAt(context, fileName, clock)` alongside them; `create` delegates to it with `FILE_NAME` | `TestDatabases.onDisk(name, clock)` (design Testing Strategy) needs a differently-named database file, and `clock` has a private setter only the factories can assign; the addition is internal and changes no public interface | minor | declined |
+| 2026-09-25 | T21 | Design Testing Strategy case (3) and T21's test: a repository save after `db.close()` yields `PersistenceException` (category and null `cause` asserted) | The test forces the failure by placing a directory where the database file should be, so the open itself fails (`DATABASE_OPEN`, null `cause`, no sentinel); the test is renamed `repository save on unopenable database throws content-free PersistenceException with null cause` | Room 2.6.1 quietly reopens a database after `close()`, so the save succeeds and no exception is thrown; the hygiene requirement (R3 AC8) is unchanged and still asserted, only the forcing mechanism differs | minor | declined |
 
 ## TDD Exceptions
 
@@ -767,6 +769,16 @@ Notes:
 
 | Date | Task | Skip Reason | Resolution |
 |------|------|-------------|------------|
+
+## Accepted Divergences
+
+> Deviations from the approved design or tasks that were reviewed at the Phase-4 completion gate and deliberately not backported. Each pairs with a `declined` row in `## Implementation Deviations`.
+
+| Date | Upstream change | Consistency check item | Divergence | Rationale | Re-evaluate trigger |
+|------|-----------------|------------------------|------------|-----------|---------------------|
+| 2026-09-25 | T1 Verification tolerated a warning that `:app` had no project directory | Implementation Deviations row: T1 | An empty `app/` directory was created during T1 so the Gradle wrapper could be generated | The developer's system Gradle is 9.x, which treats a missing project directory as a hard error (Gradle 8.11.1, the pinned wrapper version, only warns). It affects only T1's one-off Verification wording, which is moot once `app/` exists. No acceptance criterion or interface is touched | Re-evaluate if a later feature's bootstrap step again creates a Gradle project before its directory exists |
+| 2026-09-25 | Design I1 lists two factories, `create` and `createInMemory`, on `PantryDatabase` | Implementation Deviations row: T8 | An `internal fun createAt(context, fileName, clock)` was added beside them; `create` delegates to it with `FILE_NAME` | `TestDatabases.onDisk(name, clock)` (design Testing Strategy) needs a database file with a different name, and `clock` has a private setter that only the factories can assign. The addition is internal to the module and changes no public interface or acceptance criterion | Re-evaluate if any production code needs a named database (for example a second database file), which would make it part of the public surface |
+| 2026-09-25 | Design Testing Strategy case (3) and T21's test: a repository save after `db.close()` yields `PersistenceException` | Implementation Deviations row: T21 | The test forces the failure by placing a directory where the database file should be, so the open itself fails; it is renamed `repository save on unopenable database throws content-free PersistenceException with null cause` | Room 2.6.1 quietly reopens a database after `close()`, so a save after close succeeds and no exception is thrown; a later feature must not rely on close() to fail. The hygiene requirement (R3 AC8) is still asserted on a real failure. The by-name check of declared tests will therefore report the old name as absent, which this entry explains | Re-evaluate on any Room upgrade, or if a later feature needs close() to make persistence calls fail |
 
 ## Open Questions
 
@@ -840,5 +852,5 @@ Notes:
 ## Approval
 
 - [x] Approved to proceed to implementation
-- **Content Hash:** `3e4fc65bdca6d1d2`
+- **Content Hash:** `39282f0054284038`
 - **Hash basis:** v2

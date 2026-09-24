@@ -34,8 +34,10 @@ android {
         compose = true
     }
 
-    // MigrationTestHelper reads the exported schema JSON from the test assets under Robolectric.
-    sourceSets.getByName("test").assets.srcDir("$projectDir/schemas")
+    // MigrationTestHelper reads the exported schema JSON from assets under Robolectric. Design DR4's fallback:
+    // the test source set's assets were not found, so the schema directory goes in the debug source set's
+    // assets (this ships the schema JSON in debug builds only, which is harmless).
+    sourceSets.getByName("debug").assets.srcDir("$projectDir/schemas")
 
     testOptions {
         unitTests {

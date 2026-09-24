@@ -5,6 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import ie.pantry.data.db.dao.NutritionCacheDao
+import ie.pantry.data.db.dao.RecipeDao
+import ie.pantry.data.db.dao.RetailerAssistDao
+import ie.pantry.data.db.dao.SelectionEntryDao
+import ie.pantry.data.db.dao.ShoppingListDao
 import ie.pantry.data.db.entity.NutritionCacheEntry
 import ie.pantry.data.db.entity.Recipe
 import ie.pantry.data.db.entity.RecipeIngredient
@@ -33,6 +38,16 @@ abstract class PantryDatabase : RoomDatabase() {
     /** The time source DAO writes stamp `updatedAt` from. Always initialised by the factories below. */
     lateinit var clock: Clock
         private set
+
+    abstract fun recipeDao(): RecipeDao
+
+    abstract fun selectionEntryDao(): SelectionEntryDao
+
+    abstract fun shoppingListDao(): ShoppingListDao
+
+    abstract fun retailerAssistDao(): RetailerAssistDao
+
+    abstract fun nutritionCacheDao(): NutritionCacheDao
 
     companion object {
         const val VERSION = 1
