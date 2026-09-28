@@ -1,0 +1,7 @@
+{"sections": [
+  {"name": "Fresh Food", "walkIndex": 0}
+],
+"mappings": [
+  {"key": "onion", "section": "Fresh Food"},
+  {"key": "leek", "section": "No Such Section"}
+]}

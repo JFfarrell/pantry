@@ -29,7 +29,7 @@
 - **Acceptance Criteria:**
   - `StaplesEntry`, `AliasEntry`, `SeasonalityEntry` and `SectionOrderEntry` datasets load from bundled JSON assets and are queryable by canonical key.
   - A lookup miss returns an explicit absence value distinguishable from a zero, an empty record or a default — asserted by a unit test per dataset.
-  - The staples table contains approximately 170 raw-ingredient entries, matching SCOPE's stated figure; the section-ordering list assigns a section and a walk-order index to every section it names and is internally complete (no section without an index, no index collision).
+  - The staples table contains approximately 170 raw-ingredient entries, matching SCOPE's stated figure; the section-ordering list assigns a section and a display-order index to every section it names and is internally complete (no section without an index, no index collision).
   - The seasonality/substitution dataset ships at v1 with a developer-curated seed slice covering common Irish fruit, vegetable and herb staples — no fixed numeric target (Q1, resolved) — and is versioned in git as plain JSON, so a coverage increase is a data edit with no schema migration. F2's own bar is this seed slice existing and loading correctly, not any particular coverage level; growing coverage to match what the developer's own recipes (imported or hand-entered, once F5/F6 exist) actually exercise is F17's post-release criterion, not F2's.
   - Dataset loading is lazy and off the main thread; a Compose UI test asserts first paint is not blocked by dataset load on a cold start.
   - The datasets are read-only at runtime: no API on this component mutates loaded data, verified by inspection of the public surface.
@@ -150,7 +150,7 @@
 
 ### F11: Shopping-List Generation
 
-- **Description:** Collapses the selection into one merged, scaled, walk-ordered shopping list: scale each recipe's contributions by servings ÷ yield through C4, group by canonical key, merge only where C4's compatibility predicate allows, assign each entry a supermarket section from C2's ordering list, and emit a stable sequence with a terminal bucket for unknown sections. The generated list is persisted as a snapshot and is the artefact the user shops from. Also builds the plain list screen itself — the walk-ordered, sectioned view of the generated list — independently of F12's retailer-assist walkthrough, so the list stays fully usable on its own if the walkthrough is skipped or a retailer page fails to load.
+- **Description:** Collapses the selection into one merged, scaled, display-ordered shopping list: scale each recipe's contributions by servings ÷ yield through C4, group by canonical key, merge only where C4's compatibility predicate allows, assign each entry a supermarket section from C2's ordering list, and emit a stable sequence with a terminal bucket for unknown sections. The generated list is persisted as a snapshot and is the artefact the user shops from. Also builds the plain list screen itself — the display-ordered, sectioned view of the generated list — independently of F12's retailer-assist walkthrough, so the list stays fully usable on its own if the walkthrough is skipped or a retailer page fails to load.
 - **Component:** C5 — Shopping List Selection & Generation (builds the generation half); C9 — UI Shell & Accessibility Layer (builds the plain list screen); C4, C2 (uses); C3 (persists).
 - **Acceptance Criteria:**
   - The same ingredient appearing in several selected recipes appears once on the list with its quantities combined, where the units are physically comparable.
@@ -270,7 +270,7 @@ The MVP is the first publicly distributable release, not a private developer bui
 
 | Phase | Features | Goal |
 |-------|----------|------|
-| MVP | F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15 | The whole chain — a recipe found on the web reaches the catalogue, is compared honestly, collapses into one merged walk-ordered list, and is shopped against Tesco Ireland — in a build that meets every Play listing gate. |
+| MVP | F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15 | The whole chain — a recipe found on the web reaches the catalogue, is compared honestly, collapses into one merged display-ordered list, and is shopped against Tesco Ireland — in a build that meets every Play listing gate. |
 | Phase 2 | F16 | Raises nutrition match coverage by adding the external food-data lookup, with its cache, attribution and licence handling. |
 | Phase 3 | F17 | Raises seasonality, substitution and alias coverage from real observed usage. |
 
@@ -417,7 +417,7 @@ No milestone carries a target date: the Timeline constraint states no deadline a
 - [ ] F10: Shopping-List Selection
 - [ ] F11: Shopping-List Generation
 - [ ] F12: Retailer Assist Walkthrough
-- **Deliverable:** The complete chain from the Problem Statement: chosen recipes collapse into one merged, scaled, walk-ordered list, and that list is walked item by item against Tesco Ireland's own site with every basket action left to the user. G3 and G5 are met, and G2 is now fully met — F10 supplies the selection mechanism G2's own "choose" criterion depends on; the app is functionally whole, though not yet shippable.
+- **Deliverable:** The complete chain from the Problem Statement: chosen recipes collapse into one merged, scaled, display-ordered list, and that list is walked item by item against Tesco Ireland's own site with every basket action left to the user. G3 and G5 are met, and G2 is now fully met — F10 supplies the selection mechanism G2's own "choose" criterion depends on; the app is functionally whole, though not yet shippable.
 
 ### Milestone 5: Distribution Readiness — build order 13–15
 
@@ -566,7 +566,7 @@ These are the three cross-cutting integration points SCOPE `[DEF-04]` routed to 
 ## Approval
 
 - [x] Approved to proceed to feature development
-- **Content Hash:** `7a79be7f2f4db4c7`
+- **Content Hash:** `3b0060f5442c47d1`
 - **Hash basis:** v2
 - **CFC Content Hashes:**
   - CFC-1: `1055e5fde8e9a5cc995dd08c9debbb36326b6ac8df1ad5cc5eba00be72148f16`

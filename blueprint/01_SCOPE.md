@@ -19,14 +19,14 @@ A prior throwaway implementation of Pantry existed and was deleted deliberately 
 ### Online Grocery Shopper (secondary)
 
 - **Role:** The same person at the point of ordering, working through a finished shopping list against a supermarket's own website in their own logged-in session.
-- **Needs:** To be walked through the list item by item without losing their place, landing on the retailer's own search results for each item, usable single-handed while distracted in-store and resumable after an interruption, and to keep full control over what actually goes in the basket and in what quantity.
+- **Needs:** To be walked through the list item by item without losing their place, landing on the retailer's own search results for each item, usable single-handed while distracted by whatever else is going on around them and resumable after an interruption, and to keep full control over what actually goes in the basket and in what quantity.
 - **Current Pain:** Typing every item into the retailer's search box, scrolling back to a list held elsewhere, and losing track of which items have been added. Full automation is not wanted here — product choice and quantity are judgement calls the shopper wants to keep.
 
 ## Goals
 
 - **G1 — Capture, correct and maintain recipes accurately.** A recipe on a web page ends up in the local catalogue, accurate and editable, without the user transcribing it, and a bad parse is a quick correction rather than a dead end. A recipe can also be entered entirely by hand — title, ingredients, method — for a source with no URL at all. A saved recipe stays editable after it's been saved, not only in the moment of import, so a recipe that parsed poorly can be salvaged later rather than only during that first correction; a saved recipe can also be deleted from the catalogue.
 - **G2 — Browse, search, filter and choose recipes without scheduling them.** The user can browse their saved recipes as cards carrying a thumbnail image, find one by searching its name or filtering by season status, and see enough information (cooking time, energy, seasonality) to choose between recipes without opening each one — and can put a chosen recipe straight into the shopping-list selection, with no day or meal slot to designate first.
-- **G3 — One list, correctly combined.** Any selection of chosen recipes collapses into a single shopping list whose quantities are merged only where merging is physically valid, scaled to the servings actually being cooked, and ordered for the way a shop is walked (a stable sequence approximating a single front-to-back walk through a store's sections).
+- **G3 — One list, correctly combined.** Any selection of chosen recipes collapses into a single shopping list whose quantities are merged only where merging is physically valid, scaled to the servings actually being cooked, and grouped by supermarket section in a stable display order (a fixed presentation sequence for a click-and-collect order, not an approximation of any physical route through a store).
 - **G4 — Honest numbers, not invented ones.** Per-recipe nutrition information is available where the underlying data supports it, and wherever a figure rests on an estimate or incomplete ingredient coverage the interface says so rather than presenting a confident number.
 - **G5 — Faster shopping without automating the retailer.** Working the list against a retailer's website is materially faster than typing each item, while every basket action — product choice, quantity, checkout — remains a human action on the retailer's own page, and the app never claims knowledge of basket state it does not have.
 - **G6 — Local-first and obligation-free.** The app is usable with no account, no API key, no backend service, and no network connection except for the network-dependent actions named elsewhere in this document — fetching a recipe from a URL (G1), looking up nutrition data for an ingredient (G4), and loading the retailer's own site in the in-app browser for retailer-assist (G5, this does not extend to the retailer's own login shown during retailer-assist) — and a user's recipes, selections and lists never leave the device.
@@ -90,7 +90,7 @@ A prior throwaway implementation of Pantry existed and was deleted deliberately 
 - [ ] **(G3)** Quantities are combined only where the units are physically comparable (e.g. 1 kg and 500 g of the same ingredient combine to 1.5 kg), and non-comparable quantities of a nominally similar ingredient stay as separate entries (e.g. 400 g tomatoes and 2 tbsp tomato purée).
 - [ ] **(G3)** An ingredient whose quantity cannot be parsed or compared appears on the list marked as unquantified rather than carrying a number the app invented.
 - [ ] **(G3)** Changing the servings for a recipe scales its contributed quantities proportionally on the resulting list (a 4-serving recipe cooked for 6 contributes 1.5×); a recipe with no stated yield scales from the 1× baseline described under G2 instead.
-- [ ] **(G3)** List entries are grouped by supermarket section in a stable, walk-ordered sequence rather than recipe order.
+- [ ] **(G3)** List entries are grouped by supermarket section in a stable, fixed display order rather than recipe order — a presentation order for a click-and-collect shopping list, not a physical in-store walking route.
 - [ ] **(G4)** A recipe with recognised ingredients shows per-recipe nutrition figures.
 - [ ] **(G4)** Wherever a figure depends on an estimated weight conversion, the interface labels it as estimated; wherever ingredients were unmatched, the interface discloses what proportion of the recipe's ingredients contributed real data.
 - [ ] **(G4)** An unmatched ingredient contributes nothing to the totals — the app never substitutes a guessed value for missing data.
@@ -100,7 +100,7 @@ A prior throwaway implementation of Pantry existed and was deleted deliberately 
 - [ ] **(G5)** No interface text asserts that an item is in the retailer's basket. Progress wording refers to the user's position in the local list only.
 - [ ] **(G5)** The user's position in the retailer-assist walkthrough survives the app being backgrounded or the process being killed and restarted — resuming lands back on the same list position, not the start.
 - [ ] **(G5)** If the user is not already logged into the retailer's site, the in-app browser shows the retailer's own login flow exactly as a normal visit to that site would; Pantry stores no retailer credentials and does not manage retailer authentication. Because Pantry is distributed to users who didn't build it (G8), the retailer's page is shown through a mechanism that gives the user a verifiable indicator of the real domain and connection security (e.g. Android Custom Tabs' address bar), not a bare WebView with no way to check where the login form actually is.
-- [ ] **(G5)** The retailer-assist walkthrough's own controls (advance, skip, back) are reachable and operable one-handed, with no multi-finger gesture required, matching the persona's need to use them while distracted in-store.
+- [ ] **(G5)** The retailer-assist walkthrough's own controls (advance, skip, back) are reachable and operable one-handed, with no multi-finger gesture required, matching the persona's need to use them while distracted by whatever else is going on around them.
 - [ ] **(G5)** Stepping through a shopping list of the size named in the Problem Statement (around 30 items) via retailer-assist takes measurably fewer taps and actions per item than typing each item into the retailer's search box by hand — verified informally by the developer's own comparison, not a formal benchmark.
 - [ ] **(G6)** With the network disabled, every function except recipe-URL import, nutrition lookup, and retailer-assist browsing remains usable: browsing, searching, filtering, manually creating, editing and deleting recipes, selecting recipes, list generation, and the shopping list itself.
 - [ ] **(G6)** The app itself requires no sign-in, stores no credentials, and ships no API key (this does not extend to the retailer's own login shown during retailer-assist, per G5 — Pantry stores and manages none of it); it can be installed on a clean device and used immediately.
@@ -135,23 +135,24 @@ A prior throwaway implementation of Pantry existed and was deleted deliberately 
 
 ### Trajectory
 
-| Pass | Date       | HIGHs | Regressions | Addressed | Deferred | Sealed | Notes                   |
-|------|------------|-------|-------------|-----------|----------|--------|-------------------------|
-| 1    | 2026-09-13 | 2     | 0           | 21        | 0        | 2      | —                       |
-| 2    | 2026-09-13 | 3     | 0           | 13        | 1        | 1      | —                       |
-| 3    | 2026-09-13 | 2     | 0           | 6         | 0        | 3      | —                       |
-| 4    | 2026-09-13 | 2     | 0           | 7         | 0        | 3      | —                       |
-| 5    | 2026-09-14 | 0     | 0           | 0         | 0        | 7      | converged (0 HIGH)      |
-| 6    | 2026-09-14 | 5     | 0           | 14        | 0        | 2      | —                       |
-| 7    | 2026-09-14 | 2     | 0           | 9         | 0        | 5      | —                       |
-| 8    | 2026-09-14 | 4     | 0           | 14        | 0        | 3      | upstream-panel 69f5964a |
-| 9    | 2026-09-15 | 3     | 0           | 10        | 2        | 2      | —                       |
-| 10   | 2026-09-15 | 2     | 1           | 8         | 0        | 0      | —                       |
-| 11   | 2026-09-15 | 1     | 1           | 3         | 2        | 2      | —                       |
-| 12   | 2026-09-15 | 1     | 1           | 1         | 0        | 0      | —                       |
-| 13   | 2026-09-15 | 0     | 0           | 0         | 0        | 10     | converged (0 HIGH)      |
-| 14   | 2026-09-16 | 1     | 0           | 5         | 0        | 3      | upstream-panel c7fae8d2 |
-| 15   | 2026-09-16 | 0     | 0           | 0         | 0        | 7      | converged (0 HIGH)      |
+| Pass | Date       | HIGHs | Regressions | Addressed | Deferred | Sealed | Notes                                       |
+|------|------------|-------|-------------|-----------|----------|--------|---------------------------------------------|
+| … | … | — | — | — | — | — | 2 earlier passes elided |
+| 3    | 2026-09-13 | 2     | 0           | 6         | 0        | 3      | —                                           |
+| 4    | 2026-09-13 | 2     | 0           | 7         | 0        | 3      | —                                           |
+| 5    | 2026-09-14 | 0     | 0           | 0         | 0        | 7      | converged (0 HIGH)                          |
+| 6    | 2026-09-14 | 5     | 0           | 14        | 0        | 2      | —                                           |
+| 7    | 2026-09-14 | 2     | 0           | 9         | 0        | 5      | —                                           |
+| 8    | 2026-09-14 | 4     | 0           | 14        | 0        | 3      | upstream-panel 69f5964a                     |
+| 9    | 2026-09-15 | 3     | 0           | 10        | 2        | 2      | —                                           |
+| 10   | 2026-09-15 | 2     | 1           | 8         | 0        | 0      | —                                           |
+| 11   | 2026-09-15 | 1     | 1           | 3         | 2        | 2      | —                                           |
+| 12   | 2026-09-15 | 1     | 1           | 1         | 0        | 0      | —                                           |
+| 13   | 2026-09-15 | 0     | 0           | 0         | 0        | 10     | converged (0 HIGH)                          |
+| 14   | 2026-09-16 | 1     | 0           | 5         | 0        | 3      | upstream-panel c7fae8d2                     |
+| 15   | 2026-09-16 | 0     | 0           | 0         | 0        | 7      | converged (0 HIGH)                          |
+| 16   | 2026-09-27 | 0     | 0           | 0         | 0        | 6      | converged (0 HIGH); upstream-panel dc8a2110 |
+| 17   | 2026-09-27 | 0     | 0           | 0         | 0        | 2      | converged (0 HIGH); upstream-panel c4589028  |
 
 ### Sealed dispositions
 
@@ -205,6 +206,14 @@ A prior throwaway implementation of Pantry existed and was deleted deliberately 
 - `[SEAL-48]` **The Tesco-Ireland/Republic-of-Ireland rationale sentence is…** (pass 15, accepted-as-risk) — Defense: harmless duplication; a consolidation pass is a documentation nicety, not a content gap.
 - `[SEAL-49]` **Bare "the prior build" references have no cross-reference…** (pass 15, accepted-as-risk) — Defense: "the prior build" is established in the Problem Statement's opening paragraphs and used consistently in ordinary English throughout; a cross-reference adds no new information.
 - `[SEAL-50]` **The Technology row remains densely formatted post-pass-14,…** (pass 15, accepted-as-risk) — Defense: consistent with this document's own already-sealed `[SEAL-40]` precedent — a formatting/scanability nicety with no effect on buildability or correctness.
+- `[SEAL-51]` **G3 Goal's parenthetical uses "order" in two senses in one…** (pass 16, accepted-as-risk) — Defense: resolves on a second read, no buildability impact; not worth an extra pass on an exit-capable review — noted for a future copy-edit.
+- `[SEAL-52]` **G3 Goal and Success Criterion restate the "not a physical…** (pass 16, accepted-as-risk) — Defense: consistent with the already-sealed Goal/SC register-variation precedent (`[SEAL-08]`); not a fresh defect class.
+- `[SEAL-53]` **"Click-and-collect" is used at G3 (Goal and SC) without…** (pass 16, accepted-as-risk) — Defense: mainstream retail term; the surrounding "not a physical in-store walking route" clause doubles as an implicit gloss; a documentation nicety, not a buildability blocker.
+- `[SEAL-54]` **G3 Goal says "a click-and-collect order" while its Success…** (pass 16, accepted-as-risk) — Defense: cosmetic Goal/SC terminology variance, consistent with this document's established register-variation pattern; doesn't affect buildability.
+- `[SEAL-55]` **Neither the revised Goal nor SC names a canonical…** (pass 16, accepted-as-risk) — Defense: already mooted in practice — `blueprint/02_ARCHITECTURE.md`'s cascade fix (applied this session) consistently uses "display-order"/"display ordering," and `blueprint/03_PLAN.md`'s upcoming cascade fix will follow the same term; no drift has materialized.
+- `[SEAL-56]` **Minor wording redundancy ("stable, fixed display order" vs.…** (pass 16, accepted-as-risk) — Defense: cosmetic wording quality only, no downstream consequence; a future copy-edit pass can tighten if desired.
+- `[SEAL-57]` **The replacement phrase ("distracted by whatever else is…** (pass 17, accepted-as-risk) — Defense: the actual testable Success Criteria — one-handed reachability, no multi-finger gesture, resumability after interruption — remain unchanged and fully concrete; trading a false concrete scenario for true abstraction is the correct trade here, and an illustrative example is a documentation nicety not worth an extra pass on an exit-capable review.
+- `[SEAL-58]` **The two edited spots now share near-identical phrasing…** (pass 17, accepted-as-risk) — Defense: consistent with the already-sealed Goal/SC register-variation precedent (`[SEAL-08]`); not a fresh defect class.
 
 ### Deferred dispositions
 
@@ -224,5 +233,5 @@ A prior throwaway implementation of Pantry existed and was deleted deliberately 
 ## Approval
 
 - [x] Approved to proceed to next phase
-- **Content Hash:** `e14a33163b675599`
+- **Content Hash:** `9c4d9f1d0f75a11d`
 - **Hash basis:** v2

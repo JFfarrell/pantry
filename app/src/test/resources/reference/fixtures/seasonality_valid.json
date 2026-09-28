@@ -1,0 +1,5 @@
+{"entries": [
+  {"key": "strawberry", "inSeasonMonths": [6, 7, 8], "substitutions": ["raspberry"]},
+  {"key": "kale", "inSeasonMonths": [1, 2, 3, 10, 11, 12], "substitutions": ["cabbage"]},
+  {"key": "leek", "inSeasonMonths": [9, 10], "substitutions": []}
+]}

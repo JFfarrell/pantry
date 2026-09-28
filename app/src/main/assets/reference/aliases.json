@@ -1,0 +1,10 @@
+{"entries": [
+  {"variant": "scallion", "canonicalKey": "spring onion"},
+  {"variant": "scallions", "canonicalKey": "spring onion"},
+  {"variant": "eggplant", "canonicalKey": "aubergine"},
+  {"variant": "zucchini", "canonicalKey": "courgette"},
+  {"variant": "cilantro", "canonicalKey": "coriander"},
+  {"variant": "shrimp", "canonicalKey": "prawn"},
+  {"variant": "corn", "canonicalKey": "sweetcorn"},
+  {"variant": "brussel sprout", "canonicalKey": "brussels sprout"}
+]}

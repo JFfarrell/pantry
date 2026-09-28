@@ -1,0 +1,5 @@
+{"entries": [
+  {"key": "water", "basis": "PER_100G", "energyKcal": 0, "proteinG": 0, "fatG": 0, "carbohydrateG": 0},
+  {"key": "onion", "basis": "PER_100G", "energyKcal": 40, "proteinG": 1.1, "fatG": 0.1, "carbohydrateG": 9.3},
+  {"key": "flour", "basis": "PER_100G", "energyKcal": 364, "proteinG": 10, "fatG": 1, "carbohydrateG": 76}
+]}

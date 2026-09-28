@@ -1,0 +1,24 @@
+## Machine findings
+
+- [MED] "distracted by whatever else is going on around them" is scene-setting rather than a testable requirement in itself — but every actionable consequence (one-handed reachability, no multi-finger gesture, resumability across process death, glance-legibility contrast/size) is already stated as its own separate, testable Success Criterion (SC-G5 x3, SC-G8), so no implementable content was actually lost when "in-store" was dropped.
+- [LOW] The persona Needs line (line 22) and SC-G5 (line 103) now share the identical clause "distracted by whatever else is going on around them" near-verbatim, which is more duplicated than the prior "distracted in-store" (Needs) vs. "matching the persona's need... distracted" (SC) phrasing — consistent with the already-sealed Goal/SC register-variation precedent (`[SEAL-08]`), not a fresh defect class; a documentation nicety only.
+- [LOW] Cascade check performed: grepped `blueprint/02_ARCHITECTURE.md` and `blueprint/03_PLAN.md` for "in-store", "in store", "distracted", "one-handed", "walkthrough" — no location-claiming or "distracted" wording found in either downstream doc for G5/F12. `03_PLAN.md`'s F12 AC (line 178: "operable one-handed with no multi-finger gesture") was already location-neutral before this edit, so no drift was ever introduced downstream and no cascade fix is needed in either file.
+
+## Assessment (human)
+
+**Feasibility Assessment.** The two revised spots (persona Needs line, SC-G5's one-handed-operability criterion) are internally consistent with each other and with the rest of the document after the edit. Dropping "in-store" removes a factual claim that contradicted the click-and-collect shopping model (no physical in-store presence ever occurs), while every operationally load-bearing requirement the old wording implied — single-handed reachability, no multi-finger gesture, resumable after interruption, glance-legible controls — survives as its own explicit, separately testable Success Criterion elsewhere in G5 and G8. Nothing here is unbuildable or ambiguous as stated; a downstream implementer (F12's own SDD Specify phase) has everything needed to write concrete acceptance criteria without inferring a location the app can never observe.
+
+I checked whether the edit needed to cascade into `02_ARCHITECTURE.md` or `03_PLAN.md`. It does not: neither file asserts or implied in-store physical presence for G5/F12, and `03_PLAN.md`'s F12 acceptance criterion ("operable one-handed with no multi-finger gesture") was already written in location-neutral terms before this pass. The upstream backport is fully contained to `01_SCOPE.md`.
+
+The only residual concern is stylistic: the persona Needs line and SC-G5 now repeat the replacement clause almost verbatim, which reads slightly more redundant than the previous pairing did. This is the same class of Goal/SC register overlap the panel already sealed at `[SEAL-08]` and is not a buildability issue.
+
+**Implementation Roadmap.** No roadmap changes are triggered by this pass — this is a documentation correction with no new build surface. The one forward-looking action worth noting for F12's eventual Specify phase (small effort): when translating "distracted by whatever else is going on around them" into concrete test scenarios, anchor on the already-explicit criteria (one hand occupied, no multi-finger gesture, resumable mid-list, glance-legible at low attention) rather than trying to re-derive a scenario from the now-removed location detail.
+
+**Dependencies.** None. This edit has no external blockers and requires no upstream decision.
+
+**Risk Factors.** The main risk is soft: a future reader skimming quickly could read "distracted by whatever else is going on around them" as vaguer than "distracted in-store" and wonder if something concrete was lost. It wasn't — the concrete requirements live in the adjacent bullet-level criteria, not in the scene-setting clause itself — but this is worth a mental note for whoever writes F12's spec, so they don't go looking for a location-specific requirement that no longer exists (and was never meant to exist, given the click-and-collect model).
+
+**Top 3 Recommendations (ranked by ROI):**
+1. Accept as-is — zero rework needed; the edit is complete and consistent (effort: none).
+2. At F12's Specify phase, write the "distracted" persona framing into 2-3 concrete acceptance scenarios (e.g., one hand occupied, brief interruption mid-step) grounded in the existing one-handed/resumability/glance-legibility criteria rather than any location assumption (effort: small; value: sharper downstream test design).
+3. Optional future copy-edit to de-duplicate the now near-identical Needs/SC-G5 clause, bundled with the already-planned `[SEAL-08]`-style consolidation pass rather than a dedicated pass (effort: trivial; value: cosmetic only).

@@ -38,7 +38,7 @@ Structurally the app is one Gradle module organised as layered packages: a Compo
 ### C5 — Shopping List Selection & Generation
 
 - **Responsibility:** Maintain the set of recipes chosen for the next shop with their per-entry servings, and collapse that selection into one ordered, merged shopping list.
-- **Boundary:** Inside: adding and removing a recipe to and from the selection, the per-entry servings figure and its default (the recipe's own stated yield, or a 1× baseline where the recipe states none), scaling each recipe's contributions by servings ÷ recipe yield, grouping by canonical key, merging via C4's compatibility predicate, assigning each entry a supermarket section from C2's ordering list, and emitting a stable walk-ordered sequence. Outside: quantity arithmetic itself (C4), section-list curation (C2), the nutrition and seasonality figures shown alongside a selected recipe (C6, C10), and how the finished list is worked in-store (C8).
+- **Boundary:** Inside: adding and removing a recipe to and from the selection, the per-entry servings figure and its default (the recipe's own stated yield, or a 1× baseline where the recipe states none), scaling each recipe's contributions by servings ÷ recipe yield, grouping by canonical key, merging via C4's compatibility predicate, assigning each entry a supermarket section from C2's ordering list, and emitting a stable, sectioned display sequence. Outside: quantity arithmetic itself (C4), section-list curation (C2), the nutrition and seasonality figures shown alongside a selected recipe (C6, C10), and how the finished list is worked through online (C8).
 - **Key Concerns:** A recipe enters the selection directly from a card or its detail screen with nothing to designate first, and goes from there to a generated list with no intervening step (G2) — there is no container between choosing a recipe and generating its list. Order stability — the same selection must produce the same sequence every time, with an explicit terminal bucket for entries whose section is unknown. Unquantified entries survive to the output marked as such. Both the selection and the generated list are persisted (C3) so each is fully usable with the network off (G6) and the selection survives restarts. A generated list is a snapshot as of the moment it was generated: a later edit or deletion of a source recipe changes the live selection (via C3's reactive reads), never an already-generated list (G2).
 
 ### C6 — Nutrition Service
@@ -154,7 +154,7 @@ there are no cycles.
 | C9 | C10 | In-process call (pure) | Recipe reference, current date | Aggregate seasonality indicator for the browse/compare view (G2, G7) |
 | C5 | C3 | In-process call + `Flow` | Selection entries (recipe ref, servings) | Store and observe the shopping-list selection across restarts (G2) |
 | C5 | C4 | In-process call (pure) | Ingredient lines, servings ratio | Canonical keys, scaled quantities, merge decisions |
-| C5 | C2 | In-process call (pure) | Canonical keys | Supermarket section for walk ordering (G3) |
+| C5 | C2 | In-process call (pure) | Canonical keys | Supermarket section for display ordering (G3) |
 | C4 | C2 | In-process call (pure) | Raw ingredient text variant | Alias-table lookup for canonical-key exceptions the normalisation rule misses (Q2) |
 | C5 | C3 | In-process call (`suspend`) | Generated shopping list + entries | Persist the list for offline use |
 | C6 | C2 | In-process call (pure) | Canonical keys | Staples-table nutrition lookup (offline path) |
@@ -199,7 +199,7 @@ there are no cycles.
 | `RecipeIngredient` | One ingredient line: raw text, canonical key, parsed quantity + unit dimension, or *unquantified* | C3 | Room (child of `Recipe`) |
 | `ShoppingListSelectionEntry` | One recipe chosen for the next shop: recipe reference + the servings to shop for — defaulted from the recipe's own stated yield, or a 1× baseline where the recipe gives none, and thereafter the user's own value, preserved across a later edit of that recipe (G2) | C3 | Room |
 | `ShoppingList` | A generated list: creation time, the selections it was generated from | C3 | Room |
-| `ShoppingListItem` | Merged entry: canonical key, display name, merged quantity or *unquantified* flag, section, walk-order index | C3 | Room (child of `ShoppingList`) |
+| `ShoppingListItem` | Merged entry: canonical key, display name, merged quantity or *unquantified* flag, section, display-order index | C3 | Room (child of `ShoppingList`) |
 | `RetailerAssistSession` | Current list, position index, skipped item ids | C3 | Room |
 | `NutritionCacheEntry` | Per-canonical-key nutrition values, source attribution, licence tag, fetch time, estimated-conversion flag | C6 (persisted via C3) | Room (device-local cache; never exported — excluded from Android auto-backup, see Technology Choices — Backup) |
 | `NutritionSummary` | Per-recipe totals plus disclosure record: matched/total ingredient counts, estimated-conversion flags | C6 | Derived at read time, not stored |
@@ -207,7 +207,7 @@ there are no cycles.
 | `StaplesEntry` | Curated nutrition for ~170 raw ingredients | C2 | Bundled JSON asset (read-only) |
 | `AliasEntry` | Raw ingredient text variant → canonical key, for exceptions the C4 normalisation rule misses (Q2) | C2 | Bundled JSON asset (read-only) |
 | `SeasonalityEntry` | Canonical key → Irish (Republic of Ireland) months in season + substitution keys | C2 | Bundled JSON asset (read-only) |
-| `SectionOrderEntry` | Canonical key → Tesco section; section → walk-order index | C2 | Bundled JSON asset (read-only) |
+| `SectionOrderEntry` | Canonical key → Tesco section; section → display-order index | C2 | Bundled JSON asset (read-only) |
 
 Derived entities (`NutritionSummary`, `SeasonalityState`) are deliberately not persisted by default: an *unkeyed* cache — one with no invalidation tied to the recipe it was derived from — would create a second source of truth that could go stale behind a recipe edit, which is exactly the failure G2's propagation criterion forbids. The default cost is recomputation on read, which is trivial at this data scale. R8 names a fallback if that assumption proves wrong under real measurement: a cache keyed and invalidated on the source recipe's `updatedAt` is not this failure mode, because a stale entry is provably detectable and never served — it is a performance contingency, not a reopening of the no-persistence default.
 
@@ -252,7 +252,7 @@ LIST (G3)
         ─> group by key ─> C4 merge-compatible? ─┬─ yes ─> combined entry
                                                  └─ no  ─> separate entries
         ─> unparseable quantity ─> entry marked UNQUANTIFIED (never a number)
-        ─> C2 section lookup ─> walk-order sort (unknown section ─> terminal bucket)
+        ─> C2 section lookup ─> display-order sort (unknown section ─> terminal bucket)
         ─> C3 Room (ShoppingList + items)
 
 SHOP (G5)
@@ -419,5 +419,5 @@ Android vitals is Play Services' own platform-level crash/ANR instrumentation, p
 ## Approval
 
 - [x] Approved to proceed to next phase
-- **Content Hash:** `5bb4245bd5fe9b6c`
+- **Content Hash:** `5866a2ccae0f590d`
 - **Hash basis:** v2

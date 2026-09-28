@@ -8,6 +8,9 @@ import ie.pantry.data.db.dao.RecipeDao
 import ie.pantry.data.db.dao.RetailerAssistDao
 import ie.pantry.data.db.dao.SelectionEntryDao
 import ie.pantry.data.db.dao.ShoppingListDao
+import ie.pantry.data.reference.AndroidAssetSource
+import ie.pantry.data.reference.AssetSource
+import ie.pantry.data.reference.ReferenceDataStore
 import ie.pantry.data.thumbnail.ThumbnailProcessor
 import ie.pantry.data.thumbnail.ThumbnailStore
 import java.time.Clock
@@ -20,7 +23,10 @@ class AppContainer(
     val database: PantryDatabase,
     thumbnailStore: ThumbnailStore,
     thumbnailProcessor: ThumbnailProcessor,
+    referenceAssets: AssetSource = AssetSource.UNAVAILABLE,
 ) {
+    val referenceData: ReferenceDataStore = ReferenceDataStore(referenceAssets)
+
     val recipeDao: RecipeDao = database.recipeDao()
     val selectionEntryDao: SelectionEntryDao = database.selectionEntryDao()
     val shoppingListDao: ShoppingListDao = database.shoppingListDao()
@@ -35,6 +41,7 @@ class AppContainer(
                 database = PantryDatabase.create(app, clock),
                 thumbnailStore = ThumbnailStore(app.filesDir),
                 thumbnailProcessor = ThumbnailProcessor(),
+                referenceAssets = AndroidAssetSource(app.assets),
             )
     }
 }

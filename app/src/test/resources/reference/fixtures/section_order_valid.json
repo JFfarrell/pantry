@@ -1,0 +1,9 @@
+{"sections": [
+  {"name": "Fresh Food", "walkIndex": 0},
+  {"name": "Bakery", "walkIndex": 10},
+  {"name": "Drinks", "walkIndex": 20}
+],
+"mappings": [
+  {"key": "water", "section": "Drinks"},
+  {"key": "bread", "section": "Bakery"}
+]}
