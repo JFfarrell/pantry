@@ -57,6 +57,17 @@ room {
 // Bounds the thumbnail memory test (a decode at native resolution must not fit in this heap).
 tasks.withType<Test> {
     maxHeapSize = "1g"
+
+    // Sandboxed dev containers have no route to Maven Central, so Robolectric's runtime
+    // android-all-instrumented SDK-jar fetch would otherwise fail. When a local Maven-layout
+    // repo pre-populated with that artifact exists (this devcontainer's .toolchain/m2), point
+    // Robolectric's dependency resolver at it via the standard `maven.repo.local` property so it
+    // finds the jar locally instead of reaching out. No-op on any machine without that directory
+    // (e.g. the original developer's, or CI), which keeps resolving from Maven Central as normal.
+    val localMavenRepo = rootProject.file(".toolchain/m2/repository")
+    if (localMavenRepo.isDirectory) {
+        systemProperty("maven.repo.local", localMavenRepo.absolutePath)
+    }
 }
 
 dependencies {

@@ -692,7 +692,7 @@ Where each bundled reference dataset's content came from, and the developer's re
 
 ## Aliases
 
-- **Source:** Developer-chosen everyday synonyms for keys in the staples seed: "scallion"/"scallions" for "spring onion" (common Irish/UK usage).
+- **Source:** Developer-chosen everyday synonyms for keys in the staples seed: "scallion"/"scallions" for "spring onion" (common Irish/UK usage). F3 (spec Q3) adds two reconciliation entries mapping the canonical-key rule's regular-plural output back to the shipped staples keys it cannot otherwise reach: "oat" to "oats", and "baked bean" to "baked beans".
 - **Retrieved:** 2026-09-27
 - **Licence:** not stated by source
 - **Reviewed:** 2026-09-28

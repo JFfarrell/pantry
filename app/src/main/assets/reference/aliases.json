@@ -6,5 +6,7 @@
   {"variant": "cilantro", "canonicalKey": "coriander"},
   {"variant": "shrimp", "canonicalKey": "prawn"},
   {"variant": "corn", "canonicalKey": "sweetcorn"},
-  {"variant": "brussel sprout", "canonicalKey": "brussels sprout"}
+  {"variant": "brussel sprout", "canonicalKey": "brussels sprout"},
+  {"variant": "oat", "canonicalKey": "oats"},
+  {"variant": "baked bean", "canonicalKey": "baked beans"}
 ]}
