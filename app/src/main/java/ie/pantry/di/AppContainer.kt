@@ -8,6 +8,7 @@ import ie.pantry.data.db.dao.RecipeDao
 import ie.pantry.data.db.dao.RetailerAssistDao
 import ie.pantry.data.db.dao.SelectionEntryDao
 import ie.pantry.data.db.dao.ShoppingListDao
+import ie.pantry.data.gateway.ExternalDataGateway
 import ie.pantry.data.reference.AndroidAssetSource
 import ie.pantry.data.reference.AssetSource
 import ie.pantry.data.reference.ReferenceDataStore
@@ -17,13 +18,15 @@ import java.time.Clock
 
 /**
  * The app's dependencies, wired by hand: no DI framework. Construction does no database I/O (Room opens the
- * file lazily) and each property is read once, so a container holds exactly one instance of each.
+ * file lazily; the gateway's HTTP client is built on first use) and each property is read once, so a container
+ * holds exactly one instance of each.
  */
 class AppContainer(
     val database: PantryDatabase,
     thumbnailStore: ThumbnailStore,
     thumbnailProcessor: ThumbnailProcessor,
     referenceAssets: AssetSource = AssetSource.UNAVAILABLE,
+    val gateway: ExternalDataGateway = ExternalDataGateway.create(),
 ) {
     val referenceData: ReferenceDataStore = ReferenceDataStore(referenceAssets)
 
@@ -42,6 +45,7 @@ class AppContainer(
                 thumbnailStore = ThumbnailStore(app.filesDir),
                 thumbnailProcessor = ThumbnailProcessor(),
                 referenceAssets = AndroidAssetSource(app.assets),
+                gateway = ExternalDataGateway.create(),
             )
     }
 }

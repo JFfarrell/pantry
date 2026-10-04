@@ -2,6 +2,9 @@ package ie.pantry.di
 
 import androidx.test.core.app.ApplicationProvider
 import ie.pantry.PantryApplication
+import ie.pantry.data.gateway.GatewayException
+import ie.pantry.data.gateway.GatewayPolicy
+import ie.pantry.data.gateway.GatewayResult
 import ie.pantry.data.reference.LoadFailed
 import ie.pantry.data.reference.LoadFailure
 import ie.pantry.data.reference.ReferenceDataStore
@@ -11,11 +14,13 @@ import ie.pantry.testutil.FixtureAssetSource
 import ie.pantry.testutil.MutableClock
 import ie.pantry.testutil.RecordingAssetSource
 import ie.pantry.testutil.TestDatabases
+import ie.pantry.testutil.TestGateways
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertNotNull
 import kotlin.test.assertSame
 import kotlinx.coroutines.test.runTest
+import okhttp3.mockwebserver.MockResponse
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
@@ -106,5 +111,45 @@ class AppContainerTest {
 
         assertSame(app.container.referenceData, app.container.referenceData)
         assertIs<ReferenceDataStore>(app.container.referenceData)
+    }
+
+    // ---- F4 T15: gateway ----
+
+    @Test
+    fun `container gateway is the same instance across reads`() {
+        val app = ApplicationProvider.getApplicationContext<PantryApplication>()
+
+        assertSame(app.container.gateway, app.container.gateway)
+    }
+
+    @Test
+    fun `gateway client is built once and shared across reads`() {
+        val gateway = ApplicationProvider.getApplicationContext<PantryApplication>().container.gateway
+
+        assertSame(gateway.client, gateway.client)
+    }
+
+    @Test
+    fun `production gateway uses the default policy`() {
+        val gateway = ApplicationProvider.getApplicationContext<PantryApplication>().container.gateway
+
+        assertEquals(GatewayPolicy.DEFAULT, gateway.policy)
+    }
+
+    @Test
+    fun `production container refuses a loopback url with no request recorded`() = runTest {
+        val server = TestGateways.server()
+        try {
+            server.dispatcher = TestGateways.answerEvery { MockResponse().setBody("reached") }
+            val gateway = ApplicationProvider.getApplicationContext<PantryApplication>().container.gateway
+
+            val result = gateway.fetchPage(TestGateways.urlOf(server, "/"))
+
+            val error = assertIs<GatewayResult.Failed>(result).error
+            assertEquals(GatewayException.Category.ADDRESS_REFUSED, error.category)
+            assertEquals(0, server.requestCount)
+        } finally {
+            server.shutdown()
+        }
     }
 }

@@ -14,7 +14,9 @@ import ie.pantry.data.db.entity.ShoppingList
 import ie.pantry.data.db.entity.ShoppingListItem
 import ie.pantry.data.db.entity.ShoppingListSelectionEntry
 import ie.pantry.testutil.MutableClock
+import ie.pantry.testutil.RepoPaths
 import ie.pantry.testutil.TestDatabases
+import java.io.File
 import java.io.IOException
 import java.net.ProxySelector
 import java.net.SocketAddress
@@ -22,7 +24,7 @@ import java.net.URI
 import java.time.Instant
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.test.assertEquals
-import kotlin.test.assertFailsWith
+import kotlin.test.assertTrue
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlinx.coroutines.flow.first
@@ -179,10 +181,6 @@ class RestartDurabilityTest {
             override fun connectFailed(uri: URI?, sa: SocketAddress?, ioe: IOException?) = Unit
         })
         try {
-            assertFailsWith<ClassNotFoundException>("no HTTP client may be on the classpath") {
-                Class.forName("okhttp3.OkHttpClient")
-            }
-
             val (db, ids) = populateAndReopen()
 
             assertNotNull(db.recipeDao().findRecipe(ids.recipeId))
@@ -191,5 +189,16 @@ class RestartDurabilityTest {
         } finally {
             ProxySelector.setDefault(previous)
         }
+    }
+
+    @Test
+    fun `persistence sources reference no HTTP client or gateway`() {
+        val dbDir = File(RepoPaths.repoRoot(), "app/src/main/java/ie/pantry/data/db")
+        val sources = dbDir.walkTopDown().filter { it.isFile && it.extension == "kt" }.toList()
+        assertTrue(sources.isNotEmpty(), "expected persistence sources under $dbDir")
+        val offenders = sources.filter { file ->
+            file.readText().let { "okhttp3" in it || "ie.pantry.data.gateway" in it }
+        }
+        assertTrue(offenders.isEmpty(), "persistence sources must not reference okhttp3 or the gateway: $offenders")
     }
 }

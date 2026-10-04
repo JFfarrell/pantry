@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
-/** R1 AC5 for the debug-merged manifest: no backup, and no Android (network or other) permissions. */
+/** R10 AC1 and AC2 for the debug-merged manifest: no backup, only the INTERNET permission, cleartext allowed. */
 @RunWith(RobolectricTestRunner::class)
 class ManifestPolicyTest {
 
@@ -24,7 +24,7 @@ class ManifestPolicyTest {
     }
 
     @Test
-    fun `debug manifest requests no android permissions`() {
+    fun `debug manifest requests only the INTERNET android permission`() {
         @Suppress("DEPRECATION")
         val requested = context.packageManager
             .getPackageInfo(context.packageName, PackageManager.GET_PERMISSIONS)
@@ -32,14 +32,35 @@ class ManifestPolicyTest {
             .orEmpty()
             .toList()
 
-        assertFalse(
-            "INTERNET must not be requested: $requested",
-            requested.contains("android.permission.INTERNET"),
-        )
         // androidx.core's <applicationId>.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION is allowed.
-        assertTrue(
-            "no android.permission.* entry may be requested: $requested",
-            requested.none { it.startsWith("android.permission.") },
+        assertEquals(
+            "only INTERNET may be requested among android.permission.* entries: $requested",
+            setOf("android.permission.INTERNET"),
+            requested.filter { it.startsWith("android.permission.") }.toSet(),
         )
+    }
+
+    @Test
+    fun `debug manifest allows cleartext traffic`() {
+        val cleartext = context.applicationInfo.flags and ApplicationInfo.FLAG_USES_CLEARTEXT_TRAFFIC
+        assertTrue("FLAG_USES_CLEARTEXT_TRAFFIC must be set", cleartext != 0)
+    }
+
+    @Test
+    fun `merged manifest declares no okhttp3 component`() {
+        @Suppress("DEPRECATION")
+        val info = context.packageManager.getPackageInfo(
+            context.packageName,
+            PackageManager.GET_ACTIVITIES or PackageManager.GET_SERVICES or
+                PackageManager.GET_RECEIVERS or PackageManager.GET_PROVIDERS,
+        )
+        val classNames = mutableListOf<String>()
+        info.activities?.forEach { classNames += it.name }
+        info.services?.forEach { classNames += it.name }
+        info.receivers?.forEach { classNames += it.name }
+        info.providers?.forEach { classNames += it.name }
+
+        assertTrue("the merged manifest must declare components: $classNames", classNames.isNotEmpty())
+        assertFalse("no okhttp3 component may be declared: $classNames", classNames.any { it.startsWith("okhttp3.") })
     }
 }

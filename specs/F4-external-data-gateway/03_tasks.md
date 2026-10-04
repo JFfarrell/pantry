@@ -7,30 +7,30 @@
 
 | Task | Description | Requirement | Dependencies | Parallel | Status |
 |------|-------------|-------------|--------------|----------|--------|
-| T1 | Build setup: verify DR1 artefacts are available offline, pre-F4 baselines, OkHttp/MockWebServer aliases, `RestartDurabilityTest` source guard | R10, R1 | None | No | Not Started |
-| T2 | `ConnectionTargetPolicy`: scheme verdicts, blocked ranges, exemptions | R2, R3 | T1 | Yes (with T3, T4, T7) | Not Started |
-| T3 | Result, error and policy model: the CFC-4 typed-error surface and re-wrapping rule [CFC-4] | R9, R6, R1 | T1 | Yes (with T2, T4) | Not Started |
-| T4 | `NutritionQuery` URL builder and its unit and source checks | R8 | T1 | Yes (with T2, T3, T5, T7) | Not Started |
-| T5 | Socket guard and filtering Dns in `GatewayTransport.kt` | R3 | T1, T2, T3 | Yes (with T4, T7) | Not Started |
-| T6 | `GatewaySeams`, raw-byte cap interceptor and `buildGatewayClient` | R5, R1, R8 | T4, T5 | Yes (with T7) | Not Started |
-| T7 | `TestGateways` helper (without `against()`) and TLS fixture | R6 | T1, T3 | Yes (with T2, T4, T5, T6) | Not Started |
-| T8 | `ExternalDataGateway` core: public surface, validation order, hop bridge, single attempt; R6 failure mapping; direct-URL refusals | R1, R2, R3, R5, R6 | T6, T7 | No | Not Started |
-| T9 | Raw-byte cap end to end: `Content-Length` fast path, cap mapping, close after cancel (runs after T10) | R5, R6 | T10 (serial edits to `ExternalDataGateway.kt`) | Yes (with T15) | Not Started |
-| T10 | Retry loop, back-off and cancellation | R7, R6, R1 | T8 | Yes (with T15) | Not Started |
-| T11 | Redirect loop with per-hop scheme validation | R2, R4, R7 | T9 (serial edits to `ExternalDataGateway.kt`) | Yes (with T15) | Not Started |
-| T12 | Resolved-address refusal characterisation (mixed answer, redirect, rebinding, alternate literals) | R3 | T11 | Yes (with T13, T15, T16) | Not Started |
-| T13 | Anonymous request construction characterisation | R8 | T11 | Yes (with T12, T15, T16) | Not Started |
-| T14 | Sentinel hygiene on every failure path (characterisation) [CFC-4] | R9 | T12, T13 | Yes (with T15, T16) | Not Started |
-| T15 | `AppContainer` wiring and single-instance / production-refusal tests | R1 | T8 | Yes (with T9–T14, T16) | Not Started |
-| T16 | `INTERNET` permission, cleartext flag and `ManifestPolicyTest` | R10 | T1, T11 | Yes (with T12–T15, T17) | Not Started |
-| T17 | `SingleCallSiteTest`: single call site, public surface, R9 source checks (characterisation) | R1, R9 | T12, T13, T14, T15 | Yes (with T16) | Not Started |
-| T18 | Feature closeout: F4 filter, full suite, lint, merged-manifest checks | R1–R10 | T1–T17 | No | Not Started |
+| T1 | Build setup: verify DR1 artefacts are available offline, pre-F4 baselines, OkHttp/MockWebServer aliases, `RestartDurabilityTest` source guard | R10, R1 | None | No | Done |
+| T2 | `ConnectionTargetPolicy`: scheme verdicts, blocked ranges, exemptions | R2, R3 | T1 | Yes (with T3, T4, T7) | Done |
+| T3 | Result, error and policy model: the CFC-4 typed-error surface and re-wrapping rule [CFC-4] | R9, R6, R1 | T1 | Yes (with T2, T4) | Done |
+| T4 | `NutritionQuery` URL builder and its unit and source checks | R8 | T1 | Yes (with T2, T3, T5, T7) | Done |
+| T5 | Socket guard and filtering Dns in `GatewayTransport.kt` | R3 | T1, T2, T3 | Yes (with T4, T7) | Done |
+| T6 | `GatewaySeams`, raw-byte cap interceptor and `buildGatewayClient` | R5, R1, R8 | T4, T5 | Yes (with T7) | Done |
+| T7 | `TestGateways` helper (without `against()`) and TLS fixture | R6 | T1, T3 | Yes (with T2, T4, T5, T6) | Done |
+| T8 | `ExternalDataGateway` core: public surface, validation order, hop bridge, single attempt; R6 failure mapping; direct-URL refusals | R1, R2, R3, R5, R6 | T6, T7 | No | Done |
+| T9 | Raw-byte cap end to end: `Content-Length` fast path, cap mapping, close after cancel (runs after T10) | R5, R6 | T10 (serial edits to `ExternalDataGateway.kt`) | Yes (with T15) | Done |
+| T10 | Retry loop, back-off and cancellation | R7, R6, R1 | T8 | Yes (with T15) | Done |
+| T11 | Redirect loop with per-hop scheme validation | R2, R4, R7 | T9 (serial edits to `ExternalDataGateway.kt`) | Yes (with T15) | Done |
+| T12 | Resolved-address refusal characterisation (mixed answer, redirect, rebinding, alternate literals) | R3 | T11 | Yes (with T13, T15, T16) | Done |
+| T13 | Anonymous request construction characterisation | R8 | T11 | Yes (with T12, T15, T16) | Done |
+| T14 | Sentinel hygiene on every failure path (characterisation) [CFC-4] | R9 | T12, T13 | Yes (with T15, T16) | Done |
+| T15 | `AppContainer` wiring and single-instance / production-refusal tests | R1 | T8 | Yes (with T9–T14, T16) | Done |
+| T16 | `INTERNET` permission, cleartext flag and `ManifestPolicyTest` | R10 | T1, T11 | Yes (with T12–T15, T17) | Done |
+| T17 | `SingleCallSiteTest`: single call site, public surface, R9 source checks (characterisation) | R1, R9 | T12, T13, T14, T15 | Yes (with T16) | Done |
+| T18 | Feature closeout: F4 filter, full suite, lint, merged-manifest checks | R1–R10 | T1–T17 | No | Done |
 
 > **Parallel** means order-independent: `Yes (with Tn)` says the task has no dependency path to or from Tn, so either may be done first. Tasks are implemented one at a time, never concurrently, and every task must leave the test source set compiling (`./gradlew :app:compileDebugUnitTestKotlin` passes) before it is ticked.
 
 ## Phase 1: Build Setup (FC7 build, FC8 part; design Implementation Sequence step 1)
 
-### - [ ] T1: Build setup: verify DR1 artefacts are available offline, pre-F4 baselines, OkHttp/MockWebServer aliases, `RestartDurabilityTest` source guard
+### - [x] T1: Build setup: verify DR1 artefacts are available offline, pre-F4 baselines, OkHttp/MockWebServer aliases, `RestartDurabilityTest` source guard
 
 - **Requirement:** R10, R1
 - **Description:** Before editing anything, record the baselines T18 compares against; then verify the DR1 artefacts are available offline (Q1: the developer pre-fetches `mockwebserver` 4.12.0 into `.toolchain/gradle-home` outside this task list), add the `okhttp` version ref and the `okhttp` / `okhttp-mockwebserver` aliases (AD3), and wire `implementation(libs.okhttp)` and `testImplementation(libs.okhttp.mockwebserver)`. Adding OkHttp turns F1's `Class.forName("okhttp3.OkHttpClient")` assertion red, so the same task replaces it with AD14's source guard and keeps the `ProxySelector` and no-active-network guards. **[ASSUMPTION — AD14's `RestartDurabilityTest` edit moves from Implementation Sequence step 7 to step 1, because the suite would otherwise stay red from T1 until T16.]** Verify before editing the build files: `find .toolchain/gradle-home -path '*com.squareup.okhttp3/mockwebserver/4.12.0*' -name '*.jar' | grep -c .` prints a non-zero count. If it prints `0`, or the offline classpath check under Verification fails, halt and ask the developer to provision the artefact (Q1); do not fetch it from the task.
@@ -61,7 +61,7 @@
 
 ## Phase 2: Pure Policy, Error Model and Nutrition URL (FC3, FC1, FC2, FC5 part; steps 2–3)
 
-### - [ ] T2: `ConnectionTargetPolicy`: scheme verdicts, blocked ranges, exemptions
+### - [x] T2: `ConnectionTargetPolicy`: scheme verdicts, blocked ranges, exemptions
 
 - **Requirement:** R2, R3
 - **Description:** Implement FC3 / I4 in pure Kotlin (`java.net` only): `classifyTarget` (RFC 3986 scheme read; `SchemeRefused` / `NoScheme` / `HttpScheme`), byte-prefix `isBlocked` over Q4's IPv4 and IPv6 ranges with `::ffff:0:0/96` checked as IPv4, `permits` (exact address-and-port exemption), `permitsForResolution` (address-only exemption) and `STRICT`.
@@ -99,7 +99,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/ConnectionTargetPolicyTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.ConnectionTargetPolicyTest'`
 
-### - [ ] T3: Result, error and policy model: the CFC-4 typed-error surface and re-wrapping rule [CFC-4]
+### - [x] T3: Result, error and policy model: the CFC-4 typed-error surface and re-wrapping rule [CFC-4]
 
 - **Requirement:** R9, R6, R1
 - **Description:** Deliver the CFC-4 artifact F4 owns (AD12): `GatewayException` (AD1: `internal` constructor with no `String` parameter, `Category`, `causeType` from a `KClass`, message built from enum names and integers, `init` status-code invariant), `gatewayError`, `gatewayFailure` (I3 classification over cause chain and suppressed with a visited set; no chaining; stack frames copied; no logging), the two `IOException` markers and `isTransient`, plus `GatewayResult` / `FetchedBody` / `BodyEncoding` / `CallType` (DM1–DM6) and `GatewayPolicy` with `DEFAULT` (DM7). The KDoc on `gatewayFailure` states AD12 rules (a)–(e) as the rule F5 and F16 copy. Comments must not quote any token T17's raw-text R9 source check forbids (`Log.`, `println`, `printStackTrace`, `HttpLoggingInterceptor`, `String.format`, or a `$` in an exception-message argument). **[ASSUMPTION — the `BodyEncoding` classifier is an `internal` companion function, e.g. `BodyEncoding.of(header: String?)`; the design names the behaviour (DM3), not the function.]** **[ASSUMPTION — `GatewayPolicy` invariant tests live in `GatewayErrorHygieneTest` per Implementation Sequence step 3's "constructor invariants".]**
@@ -145,7 +145,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/GatewayErrorHygieneTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.GatewayErrorHygieneTest'`; `grep -c 'import okhttp3\|import android' app/src/main/java/ie/pantry/data/gateway/GatewayException.kt app/src/main/java/ie/pantry/data/gateway/GatewayResult.kt app/src/main/java/ie/pantry/data/gateway/GatewayPolicy.kt` prints three `<path>:0` lines, one per file (grep's exit status 1 on zero matches is expected and harmless).
 
-### - [ ] T4: `NutritionQuery` URL builder and its unit and source checks
+### - [x] T4: `NutritionQuery` URL builder and its unit and source checks
 
 - **Requirement:** R8
 - **Description:** Create `internal object NutritionQuery` (I6, AD11) with `ENDPOINT = https://world.openfoodfacts.org/cgi/search.pl`, the constant parameters `search_simple=1`, `action=process`, `json=1`, `page_size=5`, the term parameter `search_terms`, and `url(endpoint, term)` built only with `HttpUrl.Builder.addQueryParameter`. The source check matches raw text (comments are not stripped, because `//` also occurs inside the `ENDPOINT` string), so comments in `NutritionQuery.kt` must not quote any forbidden token. It comes before the transport because `GatewaySeams.PRODUCTION` (T6) defaults to `NutritionQuery.ENDPOINT`.
@@ -171,7 +171,7 @@
 
 ## Phase 3: Transport and Seams (FC4, FC6; step 4)
 
-### - [ ] T5: Socket guard and filtering Dns in `GatewayTransport.kt`
+### - [x] T5: Socket guard and filtering Dns in `GatewayTransport.kt`
 
 - **Requirement:** R3
 - **Description:** Create `GatewayTransport.kt` with `GuardedSocket` (overrides `connect(SocketAddress, Int)`; refuses unresolved endpoints and `!permits(address, port)` with `AddressRefusedException` before `super.connect`), `GuardedSocketFactory` (every `createSocket` overload returns a `GuardedSocket`; host/port overloads connect through the guard) and `TargetFilteringDns` (drops addresses failing `permitsForResolution`; throws `AddressRefusedException` when none remain) (AD5). This retires DR9 before any orchestration exists. `GatewayTransportTest` starts its own live server with `MockWebServer().start(InetAddress.getByName("127.0.0.1"), 0)` (T6 reuses it), so it does not need T7's `TestGateways`. Comments must not quote any token T17's raw-text R9 source check forbids (see T3).
@@ -204,7 +204,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/GatewayTransportTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.GatewayTransportTest'`
 
-### - [ ] T6: `GatewaySeams`, raw-byte cap interceptor and `buildGatewayClient`
+### - [x] T6: `GatewaySeams`, raw-byte cap interceptor and `buildGatewayClient`
 
 - **Requirement:** R5, R1, R8
 - **Description:** Create `GatewaySeams` (DM8; every parameter a `val`) with `PRODUCTION` and `TlsOverride` (FC6). Add `CappedSource` and `RawByteCapInterceptor` (AD9 part 2) and `buildGatewayClient(policy, targets, seams)` exactly as AD10 (no proxy, no cookies, no cache, no redirects, no retry-on-failure, `ConnectionPool(0, 1, SECONDS)`, Q2 timeouts, write = read, `callTimeout(0)`, filtering Dns, guarded socket factory, one cap network interceptor, optional TLS override / application interceptor / event listener from seams, no logging interceptor). Comments must not quote any token T17's raw-text R9 source check forbids (see T3).
@@ -239,7 +239,7 @@
 
 ## Phase 4: Shared Test Helper (FC9; step 5)
 
-### - [ ] T7: `TestGateways` helper (without `against()`) and TLS fixture
+### - [x] T7: `TestGateways` helper (without `against()`) and TLS fixture
 
 - **Requirement:** R6
 - **Description:** Create `ie.pantry.testutil.TestGateways` with `server()` (bound to literal `127.0.0.1`), `urlOf(server, path, scheme = "http")` (builds `<scheme>://127.0.0.1:<port><path>`, so `urlOf(httpsServer, "/", "https")` addresses the TLS server; never `server.url()`), `FAST`, `httpsServer()`, `trustingTestCert()` (in-memory `KeyStore` holding only the certificate entry; returns a plain `SSLSocketFactory` and `X509TrustManager` pair, which T8 wraps into `TlsOverride`, so T7 does not depend on T6), `answerEvery(response: () -> MockResponse)` (a `Dispatcher` that overrides **both** `dispatch` and `peek` to return a fresh copy of the same response: MockWebServer 4.12.0 reads the connection-level `SocketPolicy`, including `DISCONNECT_AT_START`, from `Dispatcher.peek()` before reading a request, so a dispatcher that overrides only `dispatch` never disconnects at start), `RecordingDns` (a scripted answer per hostname per lookup, where a scripted answer is either an address list or a `Throwable` to throw; once a hostname's script is exhausted, every later lookup repeats its last scripted answer; a hostname with no script throws `UnknownHostException`, so it never reaches the platform resolver), `RecordingEventListener` (recording `callStart`, `connectStart` (with its socket address), `connectionReleased` and `callFailed` per call, with wall-clock times for `callStart` and `callFailed` only, and `awaitCallStart(n)` backed by per-index `CompletableDeferred`; T8 to T12 assert on all four) and `RecordingBackoff` (records each delay, then calls `delay`, which is virtual under `runTest`); run `mkdir -p app/src/test/resources/gateway`, then generate `test-server.p12` with the keytool command in the design's Testing Strategy, recorded in `TestGateways`' KDoc. **[ASSUMPTION — `against()` is added in T8, not here: it constructs `ExternalDataGateway`, which does not exist until step 6.]**
@@ -261,7 +261,7 @@
 
 ## Phase 5: Gateway Orchestrator (FC5, FC9; step 6)
 
-### - [ ] T8: `ExternalDataGateway` core: public surface, validation order, hop bridge, single attempt; R6 failure mapping; direct-URL refusals
+### - [x] T8: `ExternalDataGateway` core: public surface, validation order, hop bridge, single attempt; R6 failure mapping; direct-URL refusals
 
 - **Requirement:** R1, R2, R3, R5, R6
 - **Description:** Create `ExternalDataGateway` (I1): `internal` primary constructor, `create()`, `internal val policy`, lazy `internal val client`, the three public `suspend` ops with I1's validation order (`classifyTarget`, then `toHttpUrlOrNull`, then the attempt; a blank nutrition term gives `INVALID_REQUEST`), `request(url)` (GET, only `Accept-Encoding: gzip`, AD2), and `executeHop` with the attempt deadline set through `call.timeout()` (AD6) and no redirect following: a plain 2xx body read into `FetchedBody` with the raw wire bytes, `BodyEncoding` and `mediaType` (AD2); every non-2xx, including every 3xx, gives `HTTP_STATUS` with its code until T11; a thrown exception goes through `gatewayFailure`. **Split with T10:** T8 builds the `suspendCancellableCoroutine` hop bridge that runs `executeHop` on `hopScope` / `ioDispatcher` with the `isActive` resume guard (AD7), because no call can run without it, and makes exactly one attempt per call. T10 adds the retry loop, the back-off through `seams.backoffDelay` (AD6), `invokeOnCancellation { call.cancel() }`, the `CancellationException` rethrow ahead of the defensive `catch` and the no-attempt-after-cancel rule (AD7). Add `TestGateways.against(...)` as FC9 describes, taking one or more servers and exempting each one's exact `(127.0.0.1, port)` pair, so a two-server redirect chain (T11 AC3) is reachable, and add `TestGateways.throwingInterceptor(...)` for the `UNEXPECTED` fixture. `against()`'s `dns` defaults to a fresh `RecordingDns` with no script, so every hostname lookup not scripted by the test throws `UnknownHostException` and no test depends on the sandbox resolver; its `backoff` defaults to a fresh `RecordingBackoff`, and every T8 test runs under `runTest`, so once T10 adds retries the back-off of transient cases is virtual and never sleeps in real time. Comments in `ExternalDataGateway.kt` must not quote any token T17's raw-text R9 source check forbids (see T3). No `TestGateways` class, function or lambda name contains the case-sensitive `SENTINEL` marker, so no stack frame from it carries the marker (T14 relies on this). **[ASSUMPTION — `against()` takes `vararg servers: MockWebServer` in place of FC9's single `server` parameter, so FC9's `against(server)` call form still compiles.]** **[ASSUMPTION — `against()` also takes `nutritionEndpoint: HttpUrl`, defaulting to `urlOf(<first server>, "/search")`, so nutrition lookups reach the test server (DM8) and this task's direct-URL refusal cases can point them at a blocked target; FC9's parameter list omits it.]** **IPv6 loopback rule (`[DEF-18]`):** the literal `http://[::1]:<port>/` case attempts to bind its own `MockWebServer` to `::1`, records `boundOk` (false if the bind throws), and then calls `Assume.assumeTrue(boundOk)` (JUnit reports it skipped, not passed, when the bind failed). IPv6 refusal stays covered unconditionally by T5's `GuardedSocket` test and by T12's Dns-mapped `::1` cases, which need no IPv6 listener.
@@ -316,7 +316,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/GatewayTargetValidationTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.GatewayFailureMappingTest' --tests 'ie.pantry.data.gateway.GatewayTargetValidationTest'`; the test report lists `a literal ipv6 loopback url gives ADDRESS_REFUSED for every call type` as passed or skipped, never failed.
 
-### - [ ] T9: Raw-byte cap end to end: `Content-Length` fast path, cap mapping, close after cancel (runs after T10)
+### - [x] T9: Raw-byte cap end to end: `Content-Length` fast path, cap mapping, close after cancel (runs after T10)
 
 - **Requirement:** R5, R6
 - **Description:** (runs after T10) Add AD9's `Content-Length > cap` fast path to `executeHop` (cancel the call, return a `TooLarge` outcome, mapped to `RESPONSE_TOO_LARGE`), and close every response whose body is not fully read only after `call.cancel()` (AD9 part 3). Everything else about the cap already holds from T6 and T8: 2xx bodies pass through `RawByteCapInterceptor`'s `CappedSource`, and its `ResponseTooLargeException` already maps to `RESPONSE_TOO_LARGE` through `gatewayFailure` (T3). **Red tests:** the two fast-path tests (headers declaring cap + 1 with a body that never arrives, or a connection that drops mid-body) are red against T10's code, which waits for the body and returns `TIMEOUT` or `CONNECTION_FAILED`. **Regression guards:** every other test below passes already at T10 and is kept to pin the cap behaviour end to end.
@@ -357,7 +357,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/GatewayFailureMappingTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.*'`. Mutation check (`GatewayFailureMappingTest`): temporarily remove the `Content-Length > cap` pre-check from `executeHop`; `a declared over cap content length with a body that never arrives gives RESPONSE_TOO_LARGE at once for each call type` fails (it returns `TIMEOUT`); revert and re-run green.
 
-### - [ ] T10: Retry loop, back-off and cancellation
+### - [x] T10: Retry loop, back-off and cancellation
 
 - **Requirement:** R7, R6, R1
 - **Description:** Wrap T8's single attempt in AD6's attempt loop: at most `retryCount + 1` attempts, each with its own `attemptTimeout` deadline, `isTransient()` deciding whether to retry, back-off through `seams.backoffDelay`, and `attempts` counting attempts started. Add AD7's cancellation behaviour to T8's hop bridge: `invokeOnCancellation { call.cancel() }`, the `CancellationException` rethrow ahead of each public op's defensive `catch (e: Exception)`, and no attempt after cancellation. Every test below except the non-retryable table is red against T8's single-attempt code (one `callStart`, an empty back-off record, an uncancelled OkHttp call); the non-retryable table already passes at T8 and is a regression guard. Includes the per-attempt cap fixture (`[DEF-13]`, attempt half), which needs only T6's `CappedSource`, not T9. Proven under `runTest` virtual time with real MockWebServer I/O.
@@ -397,7 +397,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/GatewayRetryTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.*'`
 
-### - [ ] T11: Redirect loop with per-hop scheme validation
+### - [x] T11: Redirect loop with per-hop scheme validation
 
 - **Requirement:** R2, R4, R7
 - **Description:** Add AD4's redirect loop inside one attempt: only 301/302/303/307/308 are redirects; missing `Location` → `HTTP_STATUS(code)`; `classifyTarget(location)` → `SCHEME_REFUSED`; `currentUrl.resolve(location) == null` → `INVALID_REQUEST`; `redirectsFollowed == maxRedirects` → `TOO_MANY_REDIRECTS`; otherwise re-issue a GET within the remaining attempt deadline (AD6). A transient outcome on any hop restarts the next attempt from the initial URL. The initial-URL scheme and malformed-URL cases (R2 AC1, AC4) are T8's. Each 3xx hop's unread body is closed after its call is cancelled (AD9 part 3, from T9); two large-body tests pin this for a non-2xx and a redirect response.
@@ -452,7 +452,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/GatewayFailureMappingTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.*'`
 
-### - [ ] T12: Resolved-address refusal characterisation (mixed answer, redirect, rebinding, alternate literals)
+### - [x] T12: Resolved-address refusal characterisation (mixed answer, redirect, rebinding, alternate literals)
 
 - **Requirement:** R3
 - **Description:** Verification/characterisation task: add R3's remaining integration cases to `GatewayTargetValidationTest` over production code already complete at T11, using a second, non-exempt `MockWebServer` on loopback as the live blocked target that must record 0 requests. The direct-URL refusal cases (R3 AC3) and the `[DEF-18]` IPv6 loopback rule are T8's. No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4, and the mutation check under Verification shows the class can fail. If a test exposes a defect, fix it in `ExternalDataGateway.kt` or `GatewayTransport.kt` before ticking the task.
@@ -483,7 +483,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/GatewayTargetValidationTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.GatewayTargetValidationTest'`. Mutation check (`GatewayTargetValidationTest`): temporarily make `TargetFilteringDns.lookup` return the delegate's answer unfiltered; `a mixed answer connects only to the allowed address` fails because `connectStart` records `10.0.0.1`; revert and re-run green.
 
-### - [ ] T13: Anonymous request construction characterisation
+### - [x] T13: Anonymous request construction characterisation
 
 - **Requirement:** R8
 - **Description:** Verification/characterisation task: add R8's recorded-request cases to `GatewayRequestInspectionTest` against MockWebServer, with `nutritionEndpoint` pointed at the server, over production code already complete at T11. No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4, and the mutation check under Verification shows the class can fail. A defect found here is fixed in `ExternalDataGateway.kt` before ticking the task.
@@ -515,7 +515,7 @@
   - File: `app/src/test/java/ie/pantry/data/gateway/GatewayRequestInspectionTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.GatewayRequestInspectionTest'`. Mutation check (`GatewayRequestInspectionTest`): temporarily add `.header("Cookie", "x=1")` to `request(url)`; `every call type sends an anonymous get with only the default headers` fails; revert and re-run green.
 
-### - [ ] T14: Sentinel hygiene on every failure path (characterisation) [CFC-4]
+### - [x] T14: Sentinel hygiene on every failure path (characterisation) [CFC-4]
 
 - **Requirement:** R9
 - **Description:** Verification/characterisation task: add the end-to-end half of `GatewayErrorHygieneTest` over production code already complete at T11. No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4, and the mutation check under Verification shows the class can fail. **[ASSUMPTION — sizing for `[DEF-04]`: "every failure path in R2 to R8" is covered as one sentinel-bearing fixture per (category × applicable call type) cell, listed below, rather than re-running every AC fixture with sentinels.]** Because `HttpUrl` lowercases hosts, the test also scans each error's `toString()` and `message` with `ignoreCase = true` against `Sentinels.all`, in addition to `assertNoSentinel()`. `stackTraceToString()` is checked only by the case-sensitive `assertNoSentinel()`, because stack frames carry test method and lambda names. The throwing interceptor and throwing `RecordingDns` come from `TestGateways`, whose class, function and lambda names contain no case-sensitive `SENTINEL` marker (T8); this test's own method names use lowercase `sentinel` only, so no stack frame carries the marker. If a test exposes a defect, fix it in the gateway main sources before ticking the task.
@@ -538,7 +538,7 @@
 
 ## Phase 6: Wiring, Manifest and Static Guards (FC7, FC8, FC9; step 7)
 
-### - [ ] T15: `AppContainer` wiring and single-instance / production-refusal tests
+### - [x] T15: `AppContainer` wiring and single-instance / production-refusal tests
 
 - **Requirement:** R1
 - **Description:** Add the last constructor parameter `gateway: ExternalDataGateway = ExternalDataGateway.create()` and `val gateway` to `AppContainer`; `production(...)` passes `create()` explicitly. Construction does no I/O (the client is lazy, AD10). Existing 3- and 4-argument call sites stay unchanged.
@@ -563,7 +563,7 @@
   - File: `app/src/test/java/ie/pantry/di/AppContainerTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.di.AppContainerTest'`
 
-### - [ ] T16: `INTERNET` permission, cleartext flag and `ManifestPolicyTest`
+### - [x] T16: `INTERNET` permission, cleartext flag and `ManifestPolicyTest`
 
 - **Requirement:** R10
 - **Description:** Add `<uses-permission android:name="android.permission.INTERNET" />` and `android:usesCleartextTraffic="true"` on `<application>` (design Q1); change `ManifestPolicyTest` to its Q1 form (AD14), keeping the backup assertion.
@@ -584,7 +584,7 @@
   - File: `app/src/test/java/ie/pantry/ManifestPolicyTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ManifestPolicyTest'`
 
-### - [ ] T17: `SingleCallSiteTest`: single call site, public surface, R9 source checks (characterisation)
+### - [x] T17: `SingleCallSiteTest`: single call site, public surface, R9 source checks (characterisation)
 
 - **Requirement:** R1, R9
 - **Description:** Verification/characterisation task: create `SingleCallSiteTest` (design row) using `RepoPaths.repoRoot()` and reflection over main sources already final at T15, with KDoc recording the static check's blind spot (`[DEF-06]`) and how AD1's `String`-free constructor and T14 close it. No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4, and the mutation check under Verification shows the class can fail.
@@ -616,7 +616,7 @@
 
 ## Phase 7: Closeout (step 8)
 
-### - [ ] T18: Feature closeout: F4 filter, full suite, lint, merged-manifest checks
+### - [x] T18: Feature closeout: F4 filter, full suite, lint, merged-manifest checks
 
 - **Requirement:** R1–R10
 - **Description:** Run the spec's Commands, compare the release merged manifest against T1's baseline, and confirm no out-of-scope file changed.
@@ -638,6 +638,19 @@
 - **Tests:** none — runs the existing suites and static checks; see Verification
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.data.gateway.*' --tests 'ie.pantry.ManifestPolicyTest' --tests 'ie.pantry.data.db.RestartDurabilityTest' --tests 'ie.pantry.di.AppContainerTest'`; `./gradlew :app:testDebugUnitTest`; `./gradlew lintDebug`; with `M=app/build/intermediates/merged_manifest/release/processReleaseMainManifest/AndroidManifest.xml` and `B=.toolchain/f4-baseline/release-AndroidManifest.xml`: `./gradlew :app:processReleaseMainManifest && grep -c 'uses-permission android:name="android.permission' "$M"` prints `1`; with `norm() { sed -E 's#<uses-permission android:name="android\.permission\.INTERNET"[[:space:]]*/>##; s#android:usesCleartextTraffic="true"##' "$1" | tr -d ' \t\r\n>'; }`, `diff <(norm "$B") <(norm "$M")` prints nothing; `git diff --quiet "$(cat .toolchain/f4-baseline/base-commit.txt)" -- app/schemas app/src/main/assets app/src/main/java/ie/pantry/data/db app/src/main/java/ie/pantry/data/reference app/src/main/java/ie/pantry/data/thumbnail app/src/main/java/ie/pantry/domain` exits 0, and `git status --porcelain -- app/schemas app/src/main/assets app/src/main/java/ie/pantry/data/db app/src/main/java/ie/pantry/data/reference app/src/main/java/ie/pantry/data/thumbnail app/src/main/java/ie/pantry/domain` prints nothing; `grep -rln 'import okhttp3\.' app/src/main/java | grep -v '/data/gateway/' || echo clean` prints `clean`. Manual, repeatable: record each spec Success Criteria line, ticked, with the passing test that proves it, as a checked list in T18's completion notes in `03_tasks.md`.
 
+- **Completion notes (2026-10-04):** full `:app:testDebugUnitTest` 479 tests, 0 failures, 0 skipped; `lintDebug` passes; merged release manifest equals T1's baseline apart from `INTERNET` and `usesCleartextTraffic` (one `android.permission` entry); protected paths unchanged against `base-commit.txt` and clean in `git status`; `import okhttp3.` appears only under `data/gateway/`. Success Criteria, each with the test that proves it:
+  - [x] One gateway, one client, identical policy, no other HTTP call — `AppContainerTest` (`container gateway is the same instance across reads`, `gateway client is built once and shared across reads`, `production gateway uses the default policy`); `SingleCallSiteTest` (`only gateway package files import okhttp3`, `no main source uses another http api`)
+  - [x] Every hop `http(s)` only, redirects to `intent://` and `content://` give `SCHEME_REFUSED` — `GatewayTargetValidationTest` (`non http schemes are refused before any connection…`, `a redirect to an intent or content scheme gives SCHEME_REFUSED…`)
+  - [x] Blocked addresses refused on both families, direct and by redirect, at the connected address — `ConnectionTargetPolicyTest`; `GatewayTransportTest` (`guarded socket refuses…`); `GatewayTargetValidationTest` (`literal blocked ipv4 urls…`, `a literal ipv6 loopback url…`, `a hostname resolving to a blocked address…`, `a mixed answer connects only to the allowed address`, `a redirect to a blocked ipv4 or ipv6 host…`, `dns rebinding after the first lookup is refused at connect`, `decimal octal and hex ipv4 literals never reach the blocked target`)
+  - [x] Redirect chains over the limit give `TOO_MANY_REDIRECTS` — `GatewayTargetValidationTest` (`exactly the redirect limit then 200 succeeds`, `one redirect over the limit and a self loop give TOO_MANY_REDIRECTS…`)
+  - [x] Raw-byte cap at one threshold for all call types, true, chunked and falsely low `Content-Length` — `GatewayFailureMappingTest` (`a body of exactly the cap…`, `a body one byte over the cap…`, `a fully sent over cap body…`, `a chunked over cap body…`, `a falsely low content length succeeds…`, `a declared over cap content length…`); `GatewayTransportTest` (`capped source…`)
+  - [x] Distinct timeout / non-2xx / oversized errors within the bound, nothing but cancellation escapes — `GatewayFailureMappingTest` (`a server that never sends headers…`, `a body that stalls midway…`, `timeout non 2xx and oversized errors are distinct categories`, `an exception thrown inside the client gives UNEXPECTED…`); `GatewayRetryTest` (`cancelling the caller cancels the in flight call…`)
+  - [x] Retries exactly the retry count with the back-off schedule, non-retryable not retried — `GatewayRetryTest` (all)
+  - [x] Anonymous requests, nutrition term one encoded parameter — `GatewayRequestInspectionTest` (all)
+  - [x] No URL, host, body or term in any error — `GatewayErrorHygieneTest` (`every failure category produced from sentinel fixtures…`, `sentinel errors carry no cause…`, `an unresolvable sentinel host…`); `SingleCallSiteTest` (`gateway sources have no logging and no interpolated exception messages`)
+  - [x] `INTERNET` only, F1 tests in Q1 form — `ManifestPolicyTest`, `RestartDurabilityTest`
+  - [x] All tests pass; no F1/F2/F3 regression — full suite above
+
 ## Implementation Order
 
 1. T1 — the developer commits F3 first (Q2) so the base commit and release-manifest baseline are clean before any file under `app/` is created; T1 unblocks every other task.
@@ -656,7 +669,19 @@
 
 | Date | Task | What spec/design said | What was actually done | Why | Classification | Backport status |
 |------|------|-----------------------|------------------------|-----|----------------|-----------------|
-| 2026-10-04 | T8 | Design Testing Strategy, `GatewayFailureMappingTest` row: stalled-body timeout fixture uses `throttleBody(1024, 1, HOURS)` | Planned: `throttleBody(1024, 3, SECONDS)` | `MockWebServer.shutdown()` waits 5 s for its threads and fails with an `IOException` on an hour-long sleep; 3 s still exceeds `FAST`'s 1 s read timeout | minor | pending — design backport at the Phase 4 completion gate |
+| 2026-10-04 | T8 | Design Testing Strategy, `GatewayFailureMappingTest` row: stalled-body timeout fixture uses `throttleBody(1024, 1, HOURS)` | `throttleBody(1024, 3, SECONDS)` | `MockWebServer.shutdown()` waits 5 s for its threads and fails with an `IOException` on an hour-long sleep; 3 s still exceeds `FAST`'s 1 s read timeout | minor | declined |
+| 2026-10-04 | T8 | T10 adds `invokeOnCancellation { call.cancel() }` to the hop bridge; T8 builds the bridge without it | `invokeOnCancellation` and the in-flight `Call` hand-off were written into T8's bridge, so T10's cancellation test was already green (a guard, not red) when T10 started | The bridge, the in-flight `Call` reference and the `isActive` resume guard are one construct (AD7); splitting them would have meant writing the bridge twice | minor | declined |
+| 2026-10-04 | T11 | `relative and protocol relative locations…`: the server's second recorded `requestUrl` is `http://127.0.0.1:<exemptPort>/recipe/1` | Asserted the second request's `path` (`/recipe/1`) and its `Host` header (`127.0.0.1:<port>`) | MockWebServer 4.12 rebuilds `RecordedRequest.requestUrl` with its own host name (`localhost`), so `requestUrl` cannot show which literal address was requested | minor | declined |
+
+## Accepted Divergences
+
+> Declined Implementation Deviations, each with its rationale. The upstream spec and design are left as written.
+
+| Date | Upstream change | Consistency check item | Divergence | Rationale | Re-evaluate trigger |
+|------|-----------------|------------------------|------------|-----------|---------------------|
+| 2026-10-04 | Design Testing Strategy, `GatewayFailureMappingTest` row: stalled body uses `throttleBody(1024, 1, HOURS)` | T8 stalled-body fixture | Fixture uses `throttleBody(1024, 3, SECONDS)` | `MockWebServer.shutdown()` waits 5 s and fails on an hour-long sleep; 3 s still exceeds `FAST`'s 1 s read timeout. Test mechanics only; no behaviour or criterion changes | A later feature reuses the fixture with a longer read timeout, or `shutdown()` behaviour changes |
+| 2026-10-04 | T10 adds `invokeOnCancellation` to the hop bridge | T8 / T10 task split | Cancellation was written into T8's bridge, so T10's cancellation test was a guard rather than a red test | The bridge, the in-flight `Call` reference and the `isActive` resume guard are one construct (AD7). Task ordering only | The task split is reused as a template for another feature |
+| 2026-10-04 | Design / T11: second recorded `requestUrl` is `http://127.0.0.1:<port>/recipe/1` | T11 relative-location test | Test asserts the second request's `path` and its `Host` header | MockWebServer 4.12 rebuilds `RecordedRequest.requestUrl` with its own host name (`localhost`) | MockWebServer is upgraded or replaced |
 
 ## TDD Exceptions
 
@@ -664,6 +689,14 @@
 
 | Date | Task | Skip Reason | Resolution |
 |------|------|-------------|------------|
+| 2026-10-04 | T12 | Characterisation task over production code already complete at T11, so no red step preceded the tests; the mutation check (unfiltered `TargetFilteringDns.lookup`) made 3 of the 4 tests fail, then was reverted | accepted |
+| 2026-10-04 | T13 | Characterisation task over production code already complete at T11, so no red step preceded the tests; the mutation check (a `Cookie` header added to `request(url)`) made 2 tests fail, then was reverted | accepted |
+| 2026-10-04 | T14 | Characterisation task over production code already complete at T11, so no red step preceded the tests; the mutation check (`initCause(cause)` in `gatewayFailure`) made the sentinel tests fail, then was reverted | accepted |
+| 2026-10-04 | T4 | Test and production code were written in the same step, so the failing run (red) was never observed before the code existed; the tests exist and pass | accepted |
+| 2026-10-04 | T5 | Test and production code were written in the same step, so the failing run (red) was never observed before the code existed; the tests exist and pass | accepted |
+| 2026-10-04 | T6 | Test and production code were written in the same step, so the failing run (red) was never observed before the code existed; the tests exist and pass | accepted |
+| 2026-10-04 | T15 | Test and production code were written in the same step, so the failing run (red) was never observed before the code existed; the tests exist and pass | accepted |
+| 2026-10-04 | T17 | Characterisation task over main sources already final at T15, so no red step preceded the tests; the mutation check (`println` added to `ExternalDataGateway.kt`) made the logging test fail, then was reverted | accepted |
 
 ## Open Questions
 
@@ -697,6 +730,7 @@
 | 1    | 2026-10-04 | 2     | 0           | 22        | 0        | 5      | tags=d0u0c0                     |
 | 2    | 2026-10-04 | 2     | 0           | 25        | 0        | 5      | tags=d0u0c0                     |
 | 3    | 2026-10-04 | 0     | 1           | 17        | 0        | 9      | converged (0 HIGH); tags=d0u0c0 |
+| 4    | 2026-10-04 | 0     | 0           | 0         | 0        | 15     | converged (0 HIGH); tags=d0u0c0; upstream-panel a3410d26; upstream-panel 2b6bf9c5 |
 
 ### Sealed dispositions
 
@@ -719,6 +753,21 @@
 - `[SEAL-17]` **Three UnknownHostException cases could use a one-line Dns…** (pass 3, accepted-as-risk) — Defense: a minor helper simplification that is not worth a structural change at the terminal phase.
 - `[SEAL-18]` **T8 NO_RESPONSE timing test is a subset of T10's** (pass 3, accepted-as-risk) — Defense: T8's test is the spec-required R6 AC1 per-attempt bound at its red time, and the duplicate I/O is bounded.
 - `[SEAL-19]` **T18 manual Success Criteria record has no automated check** (pass 3, accepted-as-risk) — Defense: a manual completion record is this phase's convention.
+- `[SEAL-20]` **T8 and T10 bodies still describe the T8/T10 cancellation…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; the as-built state is recorded in Implementation Deviations and Accepted Divergences row 2, the ticks are accurate, and a wording fix would cost a whole extra pass on an exit-capable pass.
+- `[SEAL-21]` **T11 relative-location AC still names requestUrl while the…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; Accepted Divergences row 3 records the substitution and why MockWebServer cannot show the literal host; amending the AC text would cost an extra pass.
+- `[SEAL-22]` **T13 AC and test row carry the same requestUrl limitation…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; T13 asserts path and Host and passes, the limitation is the one row 3 already records, and widening the scope text is documentation only; revisit if the ledger is next amended.
+- `[SEAL-23]` **Implementation Deviations and Accepted Divergences restate…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; the duplication is the template's own two-ledger design (a declined deviation must have a paired divergence entry) and merging would restructure a stamped closeout.
+- `[SEAL-24]` **T8 stalled-body assumption still says the 3 s fixture is a…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; the declined status and Accepted Divergences row 1 are the current record, and the stale sentence is superseded by them.
+- `[SEAL-25]` **Accepted Divergences rows 2 and 3 label the upstream change…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; label wording only, the Divergence and Rationale cells state the real facts.
+- `[SEAL-26]` **GatewayFailureMappingTest has one test, a response without…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; the test covers the DM2 null mediaType rule and passes, and an extra test beyond a task list is not a defect.
+- `[SEAL-27]` **T12 T13 T14 and T17 descriptions use future tense for the…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; tense only.
+- `[SEAL-28]` **Approval section hash predates the completion notes ledgers…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; the re-stamp of tasks.md after this loop converges is the mandated next step and closes the pending-review marker, so it is not left stale.
+- `[SEAL-29]` **T18 notes say 0 skipped but the ipv6 loopback test is…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; the note is dated and states a run result, not a task property.
+- `[SEAL-30]` **T18 notes say lintDebug passes without saying it is…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; passing is the gate and the warnings are in the lint report.
+- `[SEAL-31]` **T14 Tests list uses the plural exceptions in one test name…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; naming drift in a task list, the code name is authoritative.
+- `[SEAL-32]` **T7 says trustingTestCert returns a plain pair but the code…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; harmless description drift, the wrapper holds the same two values.
+- `[SEAL-33]` **Four TDD Exceptions rows T4 T5 T6 T15 carry identical text** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; one row per task keeps each exception auditable per task.
+- `[SEAL-34]` **T17 second AC lists every internal declaration excluded…** (pass 4, accepted-as-risk) — Defense: synthesizer-judged, not user-confirmed; the explicit list makes the exclusion reviewable and the test passes as written.
 
 ### Latest pass detail
 
@@ -728,5 +777,5 @@
 ## Approval
 
 - [x] Approved to proceed to implementation
-- **Content Hash:** `89020785804c8374`
+- **Content Hash:** `2b6bf9c523baeed9`
 - **Hash basis:** v2
