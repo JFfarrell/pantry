@@ -41,7 +41,9 @@ class SingleCallSiteTest {
 
     @Test
     fun `no main source uses another http api`() {
-        val forbidden = listOf("HttpURLConnection", "openConnection", "openStream", "java.net.http")
+        val forbidden = listOf(
+            "HttpURLConnection", "openConnection", "openStream", "java.net.http", "Jsoup.connect", "org.jsoup.helper.HttpConnection",
+        )
         val offenders = mainSources().flatMap { file ->
             val text = file.readText()
             forbidden.filter { it in text }.map { "${relative(file)}: $it" }

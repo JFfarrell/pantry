@@ -7,39 +7,39 @@
 
 | Task | Description | Requirement | Dependencies | Parallel | Status |
 |------|-------------|-------------|--------------|----------|--------|
-| T1 | Build setup: pre-F5 baselines, jsoup / kotlinx-serialization-json / lifecycle-viewmodel-compose aliases, offline resolution | R1, R2, R4 | None | No | Not Started |
-| T2 | `ImportUrl`: URL picking, validation and `ValidatedUrl` | R1 | T1 | Yes (with T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T22, T26) | Not Started |
-| T3 | Draft and result model: `ImportDraft`, `DraftValue`, `DraftImage`, `ImportResult`, `ImportException` and the CFC-4 re-wrap [CFC-2] [CFC-4] | R6, R9, R5, R2 | T1 | Yes (with T2, T8, T14, T26) | Not Started |
-| T4 | `RecipeValues`: ISO duration and yield rules [CFC-2] | R6 | T3 | Yes (with T2, T5, T6, T7, T8, T9, T14, T16, T26) | Not Started |
-| T5 | `CappedInputStream` and `openBounded`: the streaming decompressed cap and markup-density bound | R3 | T3 | Yes (with T2, T4, T8, T14, T16, T26) | Not Started |
-| T6 | `BoundedHtmlReader`: media type, header charset and bounded parse | R2, R3 | T5 | Yes (with T2, T4, T8, T14, T16, T26) | Not Started |
-| T7 | `JsonDepth`: string-aware JSON-LD depth pre-scan | R3 | T6 | Yes (with T2, T4, T8, T14, T16, T26) | Not Started |
-| T8 | `LineText` normalisation and the bounded iterative DOM walk | R4 | T1 | Yes (with T2, T3, T4, T5, T6, T7, T14, T16, T26) | Not Started |
-| T9 | JSON-LD block scan: 20-block limit, size and depth skips, `Recipe` node discovery | R3, R4 | T3, T7, T8 | Yes (with T2, T4, T14, T16, T26) | Not Started |
-| T10 | JSON-LD `Recipe` mapping: instructions forms, output caps, times, yield, image string | R4, R6, R7 | T4, T9 | Yes (with T2, T14, T16, T26) | Not Started |
-| T11 | `MicrodataExtractor`: microdata then RDFa | R4, R6 | T10 | Yes (with T2, T14, T15, T16, T26) | Not Started |
-| T12 | `HeuristicExtractor`: heading-and-list rules and heuristic title | R4, R6 | T11 | Yes (with T2, T14, T15, T16, T26) | Not Started |
-| T13 | `RecipeExtractor`: tier order, qualify rule, title carry-over, extractor-level decline | R4, R5 | T6, T12 | Yes (with T2, T14, T15, T16, T26) | Not Started |
-| T14 | Harvest snapshots, `snapshots.tsv` and candidate `F5_HARVESTED` corpus rows (user action) [CFC-1] | R10 | T1 | Yes (with T2–T13, T15–T21, T23–T31) | Not Started |
-| T15 | `ImageCandidateSelector`: three-tier candidate and URL resolution | R7 | T10 | Yes (with T2, T11, T12, T13, T14, T16, T17, T22, T23, T24, T25, T26, T27, T29, T30, T31) | Not Started |
-| T16 | `ImageValidator` and `ImageFixtures.pngHeaderOnly`: bounds-first decode | R7 | T3 | Yes (with T2, T4–T15, T22, T26) | Not Started |
-| T17 | `RecipeImporter` page path: fetch, media type, encoding, parse, extract, draft | R2, R4, R6 | T2, T13, T16 | Yes (with T14, T15, T22, T26) | Not Started |
-| T18 | `RecipeImporter` image phase: select, fetch, bounded open, validate | R7, R3 | T15, T16, T17 | Yes (with T14, T22, T23, T24, T25, T26, T27, T29, T30, T31) | Not Started |
-| T19 | Importer-level content bounds (characterisation) | R3 | T18 | Yes (with T14, T20, T22–T31) | Not Started |
-| T20 | Importer-level provenance, decline and draft-or-error (characterisation) [CFC-2] | R4, R5, R6 | T18 | Yes (with T14, T19, T22–T31) | Not Started |
-| T21 | Sentinel hygiene on every import failure path (characterisation) [CFC-4] | R9 | T19, T20 | Yes (with T14, T22–T31) | Not Started |
-| T22 | `HarvestedCorpusTest`: harvested rows bound to snapshots (characterisation) [CFC-1] | R10 | T13, T14 | Yes (with T2, T15–T21, T23–T31) | Not Started |
-| T23 | `ImportUiState` and `ImportViewModel` core: import, results, Cancel, Retry, Back, field edits | R1, R2, R5 | T2, T17 | Yes (with T14, T15, T18, T19, T20, T21, T22, T26, T29) | Not Started |
-| T24 | `ImportViewModel` share events and notices | R1, R11 | T23 | Yes (with T14, T15, T18, T19, T20, T21, T22, T25, T26, T29) | Not Started |
-| T25 | `ImportMessages`, string resources and `ImportMessagesTest` | R2, R5, R9 | T23 | Yes (with T14, T15, T18, T19, T20, T21, T22, T24, T26, T28, T29) | Not Started |
-| T26 | `ShareIntents`: shared-text read and decline chooser | R1, R8 | T1 | Yes (with T2–T25, T28, T29) | Not Started |
-| T27 | `ImportScreen` composables: states, live regions, field polish, 48dp, large font | R11, R5, R8 | T24, T25, T26 | Yes (with T14, T15, T18, T19, T20, T21, T22, T28, T29) | Not Started |
-| T28 | `ImportFlowTest`: ViewModel over the real importer (characterisation) | R1, R2, R5 | T18, T24 | Yes (with T14, T19, T20, T21, T22, T25, T26, T27, T29, T30, T31) | Not Started |
-| T29 | `AppContainer` wiring: `clock` and one `RecipeImporter` (Ask First test edit) | R2 | T17 | Yes (with T14, T15, T18–T28) | Not Started |
-| T30 | `MainActivity` shows the import screen; `singleTask` and empty `taskAffinity` (Ask First test edit) | R1, R5 | T27, T29 | Yes (with T14, T15, T18, T19, T20, T21, T22, T28) | Not Started |
-| T31 | Share intake: `SEND` intent-filter, `MainActivity` share reading, activity-level screen tests | R1, R2, R5, R8, R11 | T30 | Yes (with T14, T15, T18, T19, T20, T21, T22, T28) | Not Started |
-| T32 | Source guards: `SingleCallSiteTest` (Ask First) and `ImportSourceGuardTest` (characterisation) [CFC-1] [CFC-4] | R2, R9, R10 | T21, T22, T28, T31 | No | Not Started |
-| T33 | Feature closeout: spec Commands, release-manifest diff, protected paths, device check | R1–R11 | T1–T32 | No | Not Started |
+| T1 | Build setup: pre-F5 baselines, jsoup / kotlinx-serialization-json / lifecycle-viewmodel-compose aliases, offline resolution | R1, R2, R4 | None | No | Done |
+| T2 | `ImportUrl`: URL picking, validation and `ValidatedUrl` | R1 | T1 | Yes (with T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T22, T26) | Done |
+| T3 | Draft and result model: `ImportDraft`, `DraftValue`, `DraftImage`, `ImportResult`, `ImportException` and the CFC-4 re-wrap [CFC-2] [CFC-4] | R6, R9, R5, R2 | T1 | Yes (with T2, T8, T14, T26) | Done |
+| T4 | `RecipeValues`: ISO duration and yield rules [CFC-2] | R6 | T3 | Yes (with T2, T5, T6, T7, T8, T9, T14, T16, T26) | Done |
+| T5 | `CappedInputStream` and `openBounded`: the streaming decompressed cap and markup-density bound | R3 | T3 | Yes (with T2, T4, T8, T14, T16, T26) | Done |
+| T6 | `BoundedHtmlReader`: media type, header charset and bounded parse | R2, R3 | T5 | Yes (with T2, T4, T8, T14, T16, T26) | Done |
+| T7 | `JsonDepth`: string-aware JSON-LD depth pre-scan | R3 | T6 | Yes (with T2, T4, T8, T14, T16, T26) | Done |
+| T8 | `LineText` normalisation and the bounded iterative DOM walk | R4 | T1 | Yes (with T2, T3, T4, T5, T6, T7, T14, T16, T26) | Done |
+| T9 | JSON-LD block scan: 20-block limit, size and depth skips, `Recipe` node discovery | R3, R4 | T3, T7, T8 | Yes (with T2, T4, T14, T16, T26) | Done |
+| T10 | JSON-LD `Recipe` mapping: instructions forms, output caps, times, yield, image string | R4, R6, R7 | T4, T9 | Yes (with T2, T14, T16, T26) | Done |
+| T11 | `MicrodataExtractor`: microdata then RDFa | R4, R6 | T10 | Yes (with T2, T14, T15, T16, T26) | Done |
+| T12 | `HeuristicExtractor`: heading-and-list rules and heuristic title | R4, R6 | T11 | Yes (with T2, T14, T15, T16, T26) | Done |
+| T13 | `RecipeExtractor`: tier order, qualify rule, title carry-over, extractor-level decline | R4, R5 | T6, T12 | Yes (with T2, T14, T15, T16, T26) | Done |
+| T14 | Harvest snapshots, `snapshots.tsv` and candidate `F5_HARVESTED` corpus rows (user action) [CFC-1] | R10 | T1 | Yes (with T2–T13, T15–T21, T23–T31) | Done |
+| T15 | `ImageCandidateSelector`: three-tier candidate and URL resolution | R7 | T10 | Yes (with T2, T11, T12, T13, T14, T16, T17, T22, T23, T24, T25, T26, T27, T29, T30, T31) | Done |
+| T16 | `ImageValidator` and `ImageFixtures.pngHeaderOnly`: bounds-first decode | R7 | T3 | Yes (with T2, T4–T15, T22, T26) | Done |
+| T17 | `RecipeImporter` page path: fetch, media type, encoding, parse, extract, draft | R2, R4, R6 | T2, T13, T16 | Yes (with T14, T15, T22, T26) | Done |
+| T18 | `RecipeImporter` image phase: select, fetch, bounded open, validate | R7, R3 | T15, T16, T17 | Yes (with T14, T22, T23, T24, T25, T26, T27, T29, T30, T31) | Done |
+| T19 | Importer-level content bounds (characterisation) | R3 | T18 | Yes (with T14, T20, T22–T31) | Done |
+| T20 | Importer-level provenance, decline and draft-or-error (characterisation) [CFC-2] | R4, R5, R6 | T18 | Yes (with T14, T19, T22–T31) | Done |
+| T21 | Sentinel hygiene on every import failure path (characterisation) [CFC-4] | R9 | T19, T20 | Yes (with T14, T22–T31) | Done |
+| T22 | `HarvestedCorpusTest`: harvested rows bound to snapshots (characterisation) [CFC-1] | R10 | T13, T14 | Yes (with T2, T15–T21, T23–T31) | Done |
+| T23 | `ImportUiState` and `ImportViewModel` core: import, results, Cancel, Retry, Back, field edits | R1, R2, R5 | T2, T17 | Yes (with T14, T15, T18, T19, T20, T21, T22, T26, T29) | Done |
+| T24 | `ImportViewModel` share events and notices | R1, R11 | T23 | Yes (with T14, T15, T18, T19, T20, T21, T22, T25, T26, T29) | Done |
+| T25 | `ImportMessages`, string resources and `ImportMessagesTest` | R2, R5, R9 | T23 | Yes (with T14, T15, T18, T19, T20, T21, T22, T24, T26, T28, T29) | Done |
+| T26 | `ShareIntents`: shared-text read and decline chooser | R1, R8 | T1 | Yes (with T2–T25, T28, T29) | Done |
+| T27 | `ImportScreen` composables: states, live regions, field polish, 48dp, large font | R11, R5, R8 | T24, T25, T26 | Yes (with T14, T15, T18, T19, T20, T21, T22, T28, T29) | Done |
+| T28 | `ImportFlowTest`: ViewModel over the real importer (characterisation) | R1, R2, R5 | T18, T24 | Yes (with T14, T19, T20, T21, T22, T25, T26, T27, T29, T30, T31) | Done |
+| T29 | `AppContainer` wiring: `clock` and one `RecipeImporter` (Ask First test edit) | R2 | T17 | Yes (with T14, T15, T18–T28) | Done |
+| T30 | `MainActivity` shows the import screen; `singleTask` and empty `taskAffinity` (Ask First test edit) | R1, R5 | T27, T29 | Yes (with T14, T15, T18, T19, T20, T21, T22, T28) | Done |
+| T31 | Share intake: `SEND` intent-filter, `MainActivity` share reading, activity-level screen tests | R1, R2, R5, R8, R11 | T30 | Yes (with T14, T15, T18, T19, T20, T21, T22, T28) | Done |
+| T32 | Source guards: `SingleCallSiteTest` (Ask First) and `ImportSourceGuardTest` (characterisation) [CFC-1] [CFC-4] | R2, R9, R10 | T21, T22, T28, T31 | No | Done |
+| T33 | Feature closeout: spec Commands, release-manifest diff, protected paths, device check | R1–R11 | T1–T32 | No | Done |
 
 > **Parallel** means order-independent: `Yes (with Tn)` says the task has no dependency path to or from Tn, so either may be done first. Tasks are implemented one at a time, never concurrently, and every task must leave the test source set compiling (`./gradlew :app:compileDebugUnitTestKotlin` passes) before it is ticked. Where tasks share a file (for example `ExtractionTiersTest.kt` across T8–T13), they are on one dependency chain.
 
@@ -52,7 +52,7 @@
 
 ## Phase 1: Build Setup (FC9 build; design Implementation Sequence step 1)
 
-### - [ ] T1: Build setup: pre-F5 baselines, jsoup / kotlinx-serialization-json / lifecycle-viewmodel-compose aliases, offline resolution
+### - [x] T1: Build setup: pre-F5 baselines, jsoup / kotlinx-serialization-json / lifecycle-viewmodel-compose aliases, offline resolution
 
 - **Requirement:** R1, R2, R4
 - **Description:** Record the baselines T33 compares against, then add the catalog versions and aliases `libs.jsoup` (1.18.3), `libs.kotlinx.serialization.json` (1.6.3, design Q4) and `libs.androidx.lifecycle.viewmodel.compose` (2.8.7) with three `implementation` lines, and prove they resolve offline. No Kotlin serialization compiler plugin is added (design Dependencies).
@@ -78,7 +78,7 @@
 
 ## Phase 2: Pure Models (FC1, FC2, FC3, FC5 `RecipeValues`; step 2)
 
-### - [ ] T2: `ImportUrl`: URL picking, validation and `ValidatedUrl`
+### - [x] T2: `ImportUrl`: URL picking, validation and `ValidatedUrl`
 
 - **Requirement:** R1
 - **Description:** Create FC1 / I1 in pure Kotlin per AD11: `ImportUrl.pick`, `ImportUrl.check`, `SCAN_LIMIT = 2048`, `PickedUrl`, `UrlCheck`, `InvalidReason` and `ValidatedUrl` (internal constructor), with a single linear pass and running bracket counters (I1 contract).
@@ -121,7 +121,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ImportUrlTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ImportUrlTest'`
 
-### - [ ] T3: Draft and result model: `ImportDraft`, `DraftValue`, `DraftImage`, `ImportResult`, `ImportException` and the CFC-4 re-wrap [CFC-2] [CFC-4]
+### - [x] T3: Draft and result model: `ImportDraft`, `DraftValue`, `DraftImage`, `ImportResult`, `ImportException` and the CFC-4 re-wrap [CFC-2] [CFC-4]
 
 - **Requirement:** R6, R9, R5, R2
 - **Description:** Create FC3 (DM1–DM4, `Completeness`) and FC2 (DM5, DM6; AD1): `ImportException` with an internal `String`-free constructor and `init` invariants, `importError`, `fetchFailure`, `importFailure` (F4's five rules over cause chain and suppressed with a visited set) and the `ContentTooLargeException` marker. `ImportErrorHygieneTest` runs under Robolectric with `@GraphicsMode(NATIVE)` from the start, because T21 adds image-decode paths to it.
@@ -169,7 +169,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/DeclineTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ImportErrorHygieneTest' --tests 'ie.pantry.recipeimport.DraftProvenanceTest' --tests 'ie.pantry.recipeimport.DeclineTest'`
 
-### - [ ] T4: `RecipeValues`: ISO duration and yield rules [CFC-2]
+### - [x] T4: `RecipeValues`: ISO duration and yield rules [CFC-2]
 
 - **Requirement:** R6
 - **Description:** Create `RecipeValues.minutes(iso)`, `cookingMinutes(total: String?, cook: String?)` (`totalTime` else `cookTime`, each through `minutes`), `servings(value: JsonElement?)` and `servings(text: String?)` per AD10 (pinned regex, half-up rounding, `Int` range), returning `DraftValue`.
@@ -205,7 +205,7 @@
 
 ## Phase 3: Bounded Reader (FC4; step 3)
 
-### - [ ] T5: `CappedInputStream` and `openBounded`: the streaming decompressed cap and markup-density bound
+### - [x] T5: `CappedInputStream` and `openBounded`: the streaming decompressed cap and markup-density bound
 
 - **Requirement:** R3
 - **Description:** Create `BoundedHtmlReader.kt` with `DECOMPRESSED_CAP_BYTES = 10 MiB`, the page `maxTagBytes = 200_000` constant, `CappedInputStream` (bounded delegate reads, `<` counting, `markSupported() == false`, counted `skip`, `ensureActive()` per read, exposed `produced`) and `openBounded(bytes, encoding, cap, maxTagBytes, job)` for `IDENTITY` and `GZIP` (AD7). The gzip helper and bomb generator its bomb test needs are built inline in `CappedInputStreamTest`; T6 later creates `ImportFixtures` with the shared versions.
@@ -245,7 +245,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/CappedInputStreamTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.CappedInputStreamTest'`
 
-### - [ ] T6: `BoundedHtmlReader`: media type, header charset and bounded parse
+### - [x] T6: `BoundedHtmlReader`: media type, header charset and bounded parse
 
 - **Requirement:** R2, R3
 - **Description:** Add `BoundedHtmlReader.isHtml`, `headerCharset` (AD6: passed only when `Charset.isSupported`, `IllegalCharsetNameException` counts as false) and `parse(body, baseUri, cap, job, onStream)` with `Parser.htmlParser()` over `openBounded`; create `ImportFixtures` with `page(name)`, `gzip(bytes)` and `bomb(inflatedBytes)`, and the two Windows-1252 fixtures (each under 16 KiB).
@@ -285,7 +285,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ContentBoundsTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ContentBoundsTest'`
 
-### - [ ] T7: `JsonDepth`: string-aware JSON-LD depth pre-scan
+### - [x] T7: `JsonDepth`: string-aware JSON-LD depth pre-scan
 
 - **Requirement:** R3
 - **Description:** Create `JsonLdExtractor.kt` holding `JSON_LD_BLOCK_CAP_CHARS = 512 * 1024` and `JsonDepth.withinBound(text, bound = 64)` (AD2: containers only, outermost at depth 1, string- and escape-aware, stops at the first character reaching 65); add `ImportFixtures.deepJsonLd(depth, viaGraph)`.
@@ -315,7 +315,7 @@
 
 ## Phase 4: Extraction (FC5; step 4)
 
-### - [ ] T8: `LineText` normalisation and the bounded iterative DOM walk
+### - [x] T8: `LineText` normalisation and the bounded iterative DOM walk
 
 - **Requirement:** R4
 - **Description:** Create `LineText.normalise(raw)` and `LineText.of(element)` (AD9: U+00A0 to space, ASCII whitespace collapse, trim; `<br>` and block boundaries add a space; returns null once raw text passes 4 096 characters), plus the shared iterative walk every FC5 DOM traversal uses: skips subtrees deeper than 512 (`html` at depth 1) and calls `job.ensureActive()` every 1 024 visited nodes. **[ASSUMPTION — design FC5 states the walk's rules but not its home; it lives in `LineText.kt` as an internal `BoundedDomWalk`.]**
@@ -349,7 +349,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ExtractionTiersTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ExtractionTiersTest'`
 
-### - [ ] T9: JSON-LD block scan: 20-block limit, size and depth skips, `Recipe` node discovery
+### - [x] T9: JSON-LD block scan: 20-block limit, size and depth skips, `Recipe` node discovery
 
 - **Requirement:** R3, R4
 - **Description:** Add `JsonLdExtractor.recipes(document): JsonLdScan` per AD2 and FC5: examine the first 20 `script` elements whose `type`, trimmed and case-insensitive, is `application/ld+json`, read with `Element.data()`; skip a block over 512 KiB, over depth 64, or failing `Json.parseToJsonElement` (`SerializationException` and `IllegalArgumentException` dropped), still counting it; walk the tree depth-bounded at 64 through arrays, objects and `@graph` for nodes whose `@type` is or includes `Recipe`; map each with a minimal `toRecipe` (title from `name`, lines from `recipeIngredient`) and drop the tree before the next block. Create `RecipeExtractor.kt` holding only `ExtractedRecipe` for now. **[ASSUMPTION — `ExtractedRecipe` lives in `RecipeExtractor.kt`; FC5 does not name its file.]**
@@ -389,7 +389,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ExtractionTiersTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ExtractionTiersTest'`
 
-### - [ ] T10: JSON-LD `Recipe` mapping: instructions forms, output caps, times, yield, image string
+### - [x] T10: JSON-LD `Recipe` mapping: instructions forms, output caps, times, yield, image string
 
 - **Requirement:** R4, R6, R7
 - **Description:** Complete `toRecipe` per AD9, AD10 and AD12 tier 1: title and lines via `parseBodyFragment` only when the string holds `&` or `<`; `recipeIngredient` else `ingredients`; `recipeInstructions` as a string split on line breaks, an array of strings, `HowToStep`/`HowToDirection` (`text` else `name`), `HowToSection`/`ItemList` flattened with section names dropped (design Q2), `HowToTip` skipped; caps of 200 lines, 200 steps, 4 096 raw characters per item and 1 000 array elements; `RecipeValues.cookingMinutes(totalTime, cookTime)` and `servings` for `recipeYield`; and the raw image string kept per `Recipe` in `JsonLdScan` (string, first array element, `ImageObject` `url` else `contentUrl`, or a same-block `@id` reference followed one hop before the tree is dropped).
@@ -428,7 +428,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ExtractionTiersTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ExtractionTiersTest'`
 
-### - [ ] T11: `MicrodataExtractor`: microdata then RDFa
+### - [x] T11: `MicrodataExtractor`: microdata then RDFa
 
 - **Requirement:** R4, R6
 - **Description:** Create `MicrodataExtractor.recipe(document)` per FC5: the first `itemscope` whose `itemtype` has a token ending `schema.org/Recipe` (`http`/`https`, case-insensitive), with each `itemprop` owned by its nearest enclosing `itemscope` tracked on the walk's own scope stack; else RDFa (`typeof` `Recipe` under a `schema.org` `vocab`, or `schema:Recipe`); value rules for `meta`, `time`, `link`/`a` and others; properties `name`, `recipeIngredient` else `ingredients`, `recipeInstructions` (each `li`, else each `p`, else whole text), `totalTime`, `cookTime`, `recipeYield`; `image` never read.
@@ -463,7 +463,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ExtractionTiersTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ExtractionTiersTest'`
 
-### - [ ] T12: `HeuristicExtractor`: heading-and-list rules and heuristic title
+### - [x] T12: `HeuristicExtractor`: heading-and-list rules and heuristic title
 
 - **Requirement:** R4, R6
 - **Description:** Create `HeuristicExtractor.recipe(document)` per FC5: `h1`–`h6` headings containing `ingredient` (case-insensitive) or one of the whole words `method`, `directions`, `instructions`, `steps`; the first following `ul`/`ol` (or first list descendant) before the next same-or-higher heading, else the run of `p`/`div`/`li` siblings; at least 2 non-empty items; an ingredient list is required; title from the first `h1`, else `og:title`, else `<title>`; never a time or yield.
@@ -498,7 +498,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ExtractionTiersTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ExtractionTiersTest'`
 
-### - [ ] T13: `RecipeExtractor`: tier order, qualify rule, title carry-over, extractor-level decline
+### - [x] T13: `RecipeExtractor`: tier order, qualify rule, title carry-over, extractor-level decline
 
 - **Requirement:** R4, R5
 - **Description:** Add `Extraction` and `RecipeExtractor.extract(document, job)` per AD3: JSON-LD (first qualifying `Recipe` in walk order), then microdata/RDFa, then heuristic; a structured recipe qualifies with one line or step, a heuristic one with 2 or more items; the earliest stated structured title is carried to a lower tier; `ensureActive()` between tiers; null when nothing qualifies. Tests parse fixtures through `BoundedHtmlReader.parse`.
@@ -556,7 +556,7 @@
 
 ## Phase 5: Harvest Dry Run (FC10 harvest; step 5)
 
-### - [ ] T14: Harvest snapshots, `snapshots.tsv` and candidate `F5_HARVESTED` corpus rows (user action) [CFC-1]
+### - [x] T14: Harvest snapshots, `snapshots.tsv` and candidate `F5_HARVESTED` corpus rows (user action) [CFC-1]
 
 - **Requirement:** R10
 - **Description:** Commit trimmed third-party page snapshots from at least 3 hosts with their index, and append at least 20 candidate `F5_HARVESTED` ingredient rows to F3's corpus, so F3 parser defects surface before the screen work (DR4, DR5). Line text is taken from the snapshot's ingredient data normalised per Q8; expected key and quantity are written by the developer from the source line, never from engine output (F3 RK6). T22 later proves each line is byte-identical to F5's extraction.
@@ -580,7 +580,7 @@
 
 ## Phase 6: Image Selection and Validation (FC6; step 6)
 
-### - [ ] T15: `ImageCandidateSelector`: three-tier candidate and URL resolution
+### - [x] T15: `ImageCandidateSelector`: three-tier candidate and URL resolution
 
 - **Requirement:** R7
 - **Description:** Create `ImageCandidateSelector.select(document, scan)` per AD12: tier 1 the first JSON-LD `Recipe` image string (resolved inside one guard via `URI(raw)`, absolute used as is, relative resolved against `document.baseUri()`, catching `URISyntaxException` and `IllegalArgumentException`); tier 2 the first non-blank `og:image`; tier 3 the largest declared `width`×`height` `img`, else the first; HTML candidates via `absUrl`; non-`http(s)` gives `NotHttp`. `ImageSelectionTest` runs under Robolectric `@GraphicsMode(NATIVE)` for the whole class (T18 adds decode paths). **[ASSUMPTION — FC6's `Candidate` lists `Url`, `NotHttp` and `None`, but AD12 and DM3 require `NoImage(BAD_URL)`; this task adds `Candidate.BadUrl` (see Q3).]**
@@ -617,7 +617,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ImageSelectionTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ImageSelectionTest'`
 
-### - [ ] T16: `ImageValidator` and `ImageFixtures.pngHeaderOnly`: bounds-first decode
+### - [x] T16: `ImageValidator` and `ImageFixtures.pngHeaderOnly`: bounds-first decode
 
 - **Requirement:** R7
 - **Description:** Create `ImageValidator(maxEdgePx = 512, decodeObserver)` per FC6 / I5 (bounds first; reject non-positive bounds or over 100 000 000 pixels; one decode at `computeSampleSize`; `OutOfMemoryError` or a null bitmap gives `NOT_AN_IMAGE`; recycle; return the original bytes) and add the test-only `ImageFixtures.pngHeaderOnly(width, height)`.
@@ -652,7 +652,7 @@
 
 ## Phase 7: Importer (FC7; step 7)
 
-### - [ ] T17: `RecipeImporter` page path: fetch, media type, encoding, parse, extract, draft
+### - [x] T17: `RecipeImporter` page path: fetch, media type, encoding, parse, extract, draft
 
 - **Requirement:** R2, R4, R6
 - **Description:** Create `ImportPipeline`, `RecipeImporter` (internal constructor with `parseDispatcher`, `imageCheck`, `seams`; public `(gateway, clock)` constructor; `internal val gateway`; the public constructor passes `ImageValidator()::validate` as `imageCheck`, design I4), `ImportPhase` and `ImportSeams` (DM9), implementing FC7's pipeline up to draft assembly: `onPhase(FETCHING_PAGE)`, one `fetchPage`, `fetchedAt = clock.instant()`, media type, encoding, then on `parseDispatcher` `seams.onParse()`, `BoundedHtmlReader.parse`, `RecipeExtractor.extract` (null gives `NOT_RECOGNISED`), all inside FC7's `try`/`catch`. Until T18 the draft's image is `NoImage(NO_CANDIDATE)` and no selection runs; T17's tests do not assert the image. Add `ImportFixtures.enqueuePage` and `importer(server, clock, imageCheck, seams)`. Every branch on `GatewayResult` and `GatewayException.Category` here is an exhaustive `when` with no `else` (spec Always Do).
@@ -696,7 +696,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/RecipeImporterFetchTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.RecipeImporterFetchTest'`
 
-### - [ ] T18: `RecipeImporter` image phase: select, fetch, bounded open, validate
+### - [x] T18: `RecipeImporter` image phase: select, fetch, bounded open, validate
 
 - **Requirement:** R7, R3
 - **Description:** Replace T17's fixed `NO_CANDIDATE` with FC7's image phase: `ImageCandidateSelector.select` inside the parse block; let the `Document` go out of scope; for a `Url` candidate call `onPhase(FETCHING_PICTURE)` and `gateway.fetchImage`, then on `parseDispatcher` `openBounded(…, maxTagBytes = Long.MAX_VALUE)` with `seams.onStream` and `imageCheck`; map `Failed` to `FETCH_FAILED`, `OTHER`, a cap breach or corrupt gzip to `UNREADABLE`, `NotHttp` to `NOT_HTTP`, `BadUrl` to `BAD_URL`, `None` to `NO_CANDIDATE`. Every branch on `GatewayResult` and `GatewayException.Category` here is an exhaustive `when` with no `else` (spec Always Do).
@@ -748,7 +748,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ImageSelectionTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ImageSelectionTest' --tests 'ie.pantry.recipeimport.RecipeImporterFetchTest'`
 
-### - [ ] T19: Importer-level content bounds (characterisation)
+### - [x] T19: Importer-level content bounds (characterisation)
 
 - **Requirement:** R3
 - **Description:** Verification/characterisation task: add `ContentBoundsTest`'s importer-level cases over production code complete at T18 (design `[SEAL-13]`, `[SEAL-14]`). No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4; the mutation check under Verification shows the class can fail. A defect found here is fixed in the main sources before the task is ticked.
@@ -791,7 +791,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ContentBoundsTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ContentBoundsTest'`. Mutation check (`ContentBoundsTest`): temporarily pass `maxTagBytes = Long.MAX_VALUE` for the page in `BoundedHtmlReader.parse`; `the size and density boundaries hold through the importer` fails; revert and re-run green.
 
-### - [ ] T20: Importer-level provenance, decline and draft-or-error (characterisation) [CFC-2]
+### - [x] T20: Importer-level provenance, decline and draft-or-error (characterisation) [CFC-2]
 
 - **Requirement:** R4, R5, R6
 - **Description:** Verification/characterisation task over production code complete at T18: add `@Volatile` to `MutableClock`'s private `now` (design `[DEF-03]`), then the importer-level cases of `DraftProvenanceTest` and `DeclineTest`. No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4; the mutation check under Verification shows the classes can fail.
@@ -836,7 +836,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/DeclineTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.DraftProvenanceTest' --tests 'ie.pantry.recipeimport.DeclineTest'`. Mutation check (`DraftProvenanceTest`): temporarily read `fetchedAt` after the image fetch; `fetchedAt is the clock instant when the page fetch returned` fails; revert and re-run green. Mutation check (`DeclineTest`): temporarily return the heuristic extraction for a one-item list; `the nothing extracted page is NOT_RECOGNISED with no image request` fails; revert and re-run green.
 
-### - [ ] T21: Sentinel hygiene on every import failure path (characterisation) [CFC-4]
+### - [x] T21: Sentinel hygiene on every import failure path (characterisation) [CFC-4]
 
 - **Requirement:** R9
 - **Description:** Verification/characterisation task: add the end-to-end half of `ImportErrorHygieneTest` over production code complete at T18. No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4; the mutation check under Verification shows the class can fail. The import of `Sentinels.URL` maps its host through `RecordingDns` to an exempt `TestGateways.httpsServer()` with `trustTestCert = true`, as F4's hygiene test does. Test method names use lowercase `sentinel` only, so no stack frame carries the case-sensitive marker. The rendered-message check is in T25 (see Q5).
@@ -860,7 +860,7 @@
   - File: `app/src/test/java/ie/pantry/recipeimport/ImportErrorHygieneTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.ImportErrorHygieneTest'`. Mutation check (`ImportErrorHygieneTest`): temporarily call `initCause(cause)` on the error built in `importFailure`; `sentinel import errors have no cause and no suppressed exception` and the `assertNoSentinel()` cases fail; revert and re-run green.
 
-### - [ ] T22: `HarvestedCorpusTest`: harvested rows bound to snapshots (characterisation) [CFC-1]
+### - [x] T22: `HarvestedCorpusTest`: harvested rows bound to snapshots (characterisation) [CFC-1]
 
 - **Requirement:** R10
 - **Description:** Verification/characterisation task: create `HarvestedCorpusTest` joining each `F5_HARVESTED` row to its snapshot through `snapshots.tsv` and running `BoundedHtmlReader.parse` and `RecipeExtractor.extract` over it (no gateway, no image request). No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4; the mutation check under Verification shows the class can fail. If a row's `line` differs from the extracted line, correct the row's `line` to the extracted text only when its expected values still follow from the source line; never edit expected values from engine output (Ask First, spec Boundaries).
@@ -895,7 +895,7 @@
 
 ## Phase 8: Screen and Wiring (FC8, FC9; step 8)
 
-### - [ ] T23: `ImportUiState` and `ImportViewModel` core: import, results, Cancel, Retry, Back, field edits
+### - [x] T23: `ImportUiState` and `ImportViewModel` core: import, results, Cancel, Retry, Back, field edits
 
 - **Requirement:** R1, R2, R5
 - **Description:** Create DM8 (`ImportUiState`, `failureOf(ImportException)` — the one function producing `Failure` from kind, gateway category and HTTP status, which T25's status tests feed through `ImportMessages` **[ASSUMPTION — name]**, `Screen`, `Failure`, `Notice`, `NoticeKind`, `focusSeq`) and `ImportViewModel(pipeline)` implementing every FC8 state-table cell except the two share columns (T24): `check` on Import, one `importJob` with a generation counter, each new job first `join()`ing the previous one in `withContext(NonCancellable)`, Cancel setting Input at once, results mapped to Drafted / Declined / Failed with Retry exactly for `TIMEOUT`, `CONNECTION_FAILED` and `HTTP_STATUS` 500–599, Back via `onBack()`, Try another link, Import another and field edits. Create `FakePipeline` (records each `ValidatedUrl`, suspends on a `CompletableDeferred` per call, has a non-cancellable mode). Tests run with `Dispatchers.setMain(StandardTestDispatcher())`, one test per cell (`[SEAL-59]`).
@@ -964,7 +964,7 @@
   - File: `app/src/test/java/ie/pantry/ui/recipeimport/ImportViewModelTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ui.recipeimport.ImportViewModelTest'`
 
-### - [ ] T24: `ImportViewModel` share events and notices
+### - [x] T24: `ImportViewModel` share events and notices
 
 - **Requirement:** R1, R11
 - **Description:** Add `onShareReceived(text: String?)` per the FC8 state table's two share columns (`ImportUrl.pick` on arrival, never `check`; a link-carrying share replaces the screen with Input and cancels a running job; a no-link share only sets the notice) and the notice rules (AD14, AD15: `seq` increments on every notice; any next event clears it), one test per cell.
@@ -1010,7 +1010,7 @@
   - File: `app/src/test/java/ie/pantry/ui/recipeimport/ImportViewModelTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ui.recipeimport.ImportViewModelTest'`
 
-### - [ ] T25: `ImportMessages`, string resources and `ImportMessagesTest`
+### - [x] T25: `ImportMessages`, string resources and `ImportMessagesTest`
 
 - **Requirement:** R2, R5, R9
 - **Description:** Add every Error Handling resource to `strings.xml` verbatim (design Q3), and `ImportMessages.of(screen)`, `of(notice)` and `ALL`, which also lists the control labels of the design's Labels row (Recipe link, Import, Cancel, Retry, Try another link, Import another, Share link, the first-use hint) so they fall under the distinctness and no-`http` checks below, with an exhaustive `when` over `Failure`, `NoticeKind` and `GatewayException.Category`. The rendered-message sentinel check from the design's `ImportErrorHygieneTest` row is placed here, beside `ALL`, so T21 need not wait on the UI (see Q5).
@@ -1046,7 +1046,7 @@
   - File: `app/src/test/java/ie/pantry/ui/recipeimport/ImportMessagesTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ui.recipeimport.ImportMessagesTest'`
 
-### - [ ] T26: `ShareIntents`: shared-text read and decline chooser
+### - [x] T26: `ShareIntents`: shared-text read and decline chooser
 
 - **Requirement:** R1, R8
 - **Description:** Create `ShareIntents.sharedText(intent)` (`ACTION_SEND` only; `getCharSequenceExtra(EXTRA_TEXT)?.toString()`; a `RuntimeException` while unparcelling counts as missing) and `chooserFor(url, context)` (`Intent.createChooser` over `ACTION_SEND` `text/plain` with only `EXTRA_TEXT`, titled the literal `Share recipe link` (a constant in `ShareIntents`: the chooser is built outside Compose, so T26 does not wait on T25's resources **[ASSUMPTION — the design's Labels row lists the title beside the on-screen labels]**), excluding `MainActivity` via `EXTRA_EXCLUDE_COMPONENTS`) per AD4, AD18 and I7.
@@ -1072,7 +1072,7 @@
   - File: `app/src/test/java/ie/pantry/ui/recipeimport/ShareIntentsTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ui.recipeimport.ShareIntentsTest'`
 
-### - [ ] T27: `ImportScreen` composables: states, live regions, field polish, 48dp, large font
+### - [x] T27: `ImportScreen` composables: states, live regions, field polish, 48dp, large font
 
 - **Requirement:** R11, R5, R8
 - **Description:** Create `ImportScreen(state, actions)` per FC8 and AD15: a `Scaffold` with `app_name` once in the top bar over a `verticalScroll` column; the `OutlinedTextField` labelled "Recipe link" with `[DEF-02]`'s keyboard options and hint; polite live regions for the notice (blank for one frame via `withFrameNanos`, then the constant), status, errors, draft-produced notice, decline message and share explainer; focus requested when `focusSeq` changes; `BackHandler` enabled in In progress, Failed and Declined; Share link starts `ShareIntents.chooserFor` through `LocalContext`. Tests use `createAndroidComposeRule<ComponentActivity>()` under Robolectric with state fixtures. **[ASSUMPTION — the `BackHandler` enabled-state assertion is placed here, via the host activity's `onBackPressedDispatcher.hasEnabledCallbacks()` (design `[SEAL-07]`), rather than in `ShareTargetManifestTest` (see Q5).]**
@@ -1125,7 +1125,7 @@
   - File: `app/src/test/java/ie/pantry/ui/recipeimport/ImportScreenTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ui.recipeimport.ImportScreenTest'`
 
-### - [ ] T28: `ImportFlowTest`: ViewModel over the real importer (characterisation)
+### - [x] T28: `ImportFlowTest`: ViewModel over the real importer (characterisation)
 
 - **Requirement:** R1, R2, R5
 - **Description:** Verification/characterisation task: create `ImportFlowTest` running the real `ImportViewModel` over a real `RecipeImporter` and `MockWebServer`, with `Dispatchers.setMain(StandardTestDispatcher())`, an injected `parseDispatcher`, and an `awaitState(timeout) { predicate }` helper in the same file that takes the installed test dispatcher as a parameter and loops `runCurrent()`, a state check and a short real `delay` inside a real-time `withTimeout` (design `[SEAL-18]`). No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4; the mutation check under Verification shows the class can fail.
@@ -1157,7 +1157,7 @@
   - File: `app/src/test/java/ie/pantry/ui/recipeimport/ImportFlowTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ui.recipeimport.ImportFlowTest'`. Mutation check (`ImportFlowTest`): temporarily remove the `ensureActive()` call from `CappedInputStream.read`; `cancel during a stalled parse stops the stream and applies no failure` fails; revert and re-run green.
 
-### - [ ] T29: `AppContainer` wiring: `clock` and one `RecipeImporter` (Ask First test edit)
+### - [x] T29: `AppContainer` wiring: `clock` and one `RecipeImporter` (Ask First test edit)
 
 - **Requirement:** R2
 - **Description:** Add the last two constructor parameters `val clock: Clock = Clock.systemUTC()` and `val recipeImporter: RecipeImporter = RecipeImporter(gateway, clock)`; `production(app, clock)` passes its `clock`. Existing 3-, 4- and 5-argument call sites compile unchanged. The `AppContainerTest` edit is additive and Ask First (design Integration Points; see Q1).
@@ -1180,7 +1180,7 @@
   - File: `app/src/test/java/ie/pantry/di/AppContainerTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.di.AppContainerTest' --tests 'ie.pantry.ui.FirstPaintNotBlockedTest'`
 
-### - [ ] T30: `MainActivity` shows the import screen; `singleTask` and empty `taskAffinity` (Ask First test edit)
+### - [x] T30: `MainActivity` shows the import screen; `singleTask` and empty `taskAffinity` (Ask First test edit)
 
 - **Requirement:** R1, R5
 - **Description:** Make `ImportScreen` `MainActivity`'s content with `ImportViewModel` built by `viewModels { viewModelFactory { … container.recipeImporter … } }` inside `PantryTheme` (FC9), and add `android:launchMode="singleTask"` and `android:taskAffinity=""` to `MainActivity` (AD4; design Q7). No share reading yet (T31). `PlaceholderScreen.kt` stays, unused **[ASSUMPTION — FC9]**. Rename F2's test and update its KDoc/wording that still says "the placeholder" to name the import screen; its assertion that `Pantry` is displayed is unchanged (Ask First; see Q1).
@@ -1209,7 +1209,7 @@
   - File: `app/src/test/java/ie/pantry/ui/FirstPaintNotBlockedTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ui.recipeimport.ShareTargetManifestTest' --tests 'ie.pantry.ui.FirstPaintNotBlockedTest' --tests 'ie.pantry.ManifestPolicyTest'`
 
-### - [ ] T31: Share intake: `SEND` intent-filter, `MainActivity` share reading, activity-level screen tests
+### - [x] T31: Share intake: `SEND` intent-filter, `MainActivity` share reading, activity-level screen tests
 
 - **Requirement:** R1, R2, R5, R8, R11
 - **Description:** Add to `MainActivity` a second `<intent-filter>` written in this order: `<action android:name="android.intent.action.SEND" />`, `<category android:name="android.intent.category.DEFAULT" />`, `<data android:mimeType="text/plain" />` (T33's manifest diff relies on it). Read shares per AD4: in `onCreate` only when `savedInstanceState == null`, in `onNewIntent` after `setIntent(intent)`, only for `ACTION_SEND`, skipped for `FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY`, passing `ShareIntents.sharedText(intent)` to `onShareReceived`. Create `ImportTestApplication` (in-memory database, a gateway from `TestGateways.against(server)`, a `MutableClock`, and a `RecipeImporter` built through the internal constructor with an injected `parseDispatcher`, all from a companion `var` set before launch).
@@ -1264,7 +1264,7 @@
   - File: `app/src/test/java/ie/pantry/ui/recipeimport/ShareTargetManifestTest.kt`
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.ui.recipeimport.ImportScreenTest' --tests 'ie.pantry.ui.recipeimport.ShareTargetManifestTest' --tests 'ie.pantry.ManifestPolicyTest'`
 
-### - [ ] T32: Source guards: `SingleCallSiteTest` (Ask First) and `ImportSourceGuardTest` (characterisation) [CFC-1] [CFC-4]
+### - [x] T32: Source guards: `SingleCallSiteTest` (Ask First) and `ImportSourceGuardTest` (characterisation) [CFC-1] [CFC-4]
 
 - **Requirement:** R2, R9, R10
 - **Description:** Verification/characterisation task over main sources final at T31: add `Jsoup.connect` and `org.jsoup.helper.HttpConnection` to `SingleCallSiteTest`'s forbidden list (Ask First, additive; see Q1), and create `ImportSourceGuardTest` over both import packages via `RepoPaths.repoRoot()`, scanning source with comments and KDoc stripped and matching on word boundaries (AD16). The `$`-free message rule exempts exactly the token `ImportUrl.check(` and the declaration `fun check(` in `ImportUrl.kt` (design `[SEAL-10]`). No red step precedes these tests, so the skip is logged in `## TDD Exceptions` when this task is implemented in Phase 4; the mutation check under Verification shows the classes can fail.
@@ -1304,7 +1304,7 @@
 
 ## Phase 9: Closeout (step 9)
 
-### - [ ] T33: Feature closeout: spec Commands, release-manifest diff, protected paths, device check
+### - [x] T33: Feature closeout: spec Commands, release-manifest diff, protected paths, device check
 
 - **Requirement:** R1–R11
 - **Description:** Run the spec's Commands, compare the release merged manifest against T1's baseline, confirm no protected path changed, and record the device check.
@@ -1331,6 +1331,14 @@
 - **Tests:** none — runs the existing suites, static checks and a manual device check; see Verification
 - **Verification:** `./gradlew :app:testDebugUnitTest --tests 'ie.pantry.recipeimport.*' --tests 'ie.pantry.ui.recipeimport.*' --tests 'ie.pantry.data.gateway.SingleCallSiteTest' --tests 'ie.pantry.domain.ingredient.ParseFidelityCorpusTest' --tests 'ie.pantry.di.AppContainerTest' --tests 'ie.pantry.ui.FirstPaintNotBlockedTest' --tests 'ie.pantry.ManifestPolicyTest'`; `./gradlew :app:testDebugUnitTest`; `./gradlew lintDebug`; with `M=app/build/intermediates/merged_manifest/release/processReleaseMainManifest/AndroidManifest.xml` and `B=.toolchain/f5-baseline/release-AndroidManifest.xml`: `./gradlew :app:processReleaseMainManifest && grep -c 'uses-permission android:name="android.permission' "$M"` prints `1`; with `norm() { tr -d ' \t\r\n' < "$1" | sed -E 's#android:launchMode="singleTask"##; s#android:taskAffinity=""##; s#<intent-filter><actionandroid:name="android\.intent\.action\.SEND"/><categoryandroid:name="android\.intent\.category\.DEFAULT"/><dataandroid:mimeType="text/plain"/></intent-filter>##'; }`, `diff <(norm "$B") <(norm "$M")` prints nothing; with `P='app/src/main/java/ie/pantry/data app/src/main/java/ie/pantry/domain app/src/main/java/ie/pantry/PantryApplication.kt app/schemas app/src/main/assets'`: `git diff --quiet "$(cat .toolchain/f5-baseline/base-commit.txt)" -- $P` exits 0 and `git status --porcelain -- $P` prints nothing; `grep -rn 'Jsoup.connect\|import okhttp3\.' app/src/main/java/ie/pantry/recipeimport app/src/main/java/ie/pantry/ui/recipeimport || echo clean` and `grep -rn 'IngredientEngine' app/src/main/java/ie/pantry/recipeimport app/src/main/java/ie/pantry/ui/recipeimport || echo clean` each print `clean`. Manual, repeatable: record the device check's pass criteria and each spec Success Criteria line, ticked, with the passing test that proves it, as completion notes under T33 in `03_tasks.md`.
 
+**T33 completion notes (2026-10-05)**
+
+- Automated checks passed: F5 filter and full `:app:testDebugUnitTest`, `lintDebug`; release merged manifest equals T1's baseline apart from `launchMode`, `taskAffinity=""` and the `SEND` filter, with exactly one `android.permission`; no change under `ie.pantry.data`, `ie.pantry.domain`, `PantryApplication.kt`, `app/schemas` or `app/src/main/assets` since the baseline commit; no `Jsoup.connect`, `okhttp3` import or `IngredientEngine` in the import packages.
+- F2 spec wording (Q4): R6's "placeholder screen" wording in `specs/F2-.../01_spec.md` edited to "import screen" in the working tree; F2's spec hash re-approval and the commit are the developer's and are outstanding.
+- Device check (TalkBack): **not performed.** The developer instructed that TalkBack behaviour be assumed to work and T33 be closed. This is an assumption, not a test result; DR2/DR3 (cold and warm share task count, spoken announcements, rotation) remain unverified on a device.
+- Manual smoke check by the developer: importing a link by share and by paste both reach "Recipe found." This is the designed F5 behaviour (the draft is announced, not rendered; F6 shows it).
+- Harvest: 12 snapshots from 8 hosts, 21 `F5_HARVESTED` rows from 3 hosts; expected values were written by the assistant from the line text against the existing corpus conventions and are pending the developer's review. No parser or alias-table change was made.
+
 ## Implementation Order
 
 1. T1 — the developer confirms `app` and `gradle` are committed; T1 records the baselines and adds the three dependencies everything else needs (design step 1).
@@ -1356,6 +1364,22 @@
 
 | Date | Task | Skip Reason | Resolution |
 |------|------|-------------|------------|
+| 2026-10-05 | T2 | Tests were written before the production code, but the red run was not executed on its own: test and production files were written in the same step and first run together (green). The tests exist and pass. | accepted |
+| 2026-10-05 | T3 | Tests were written before the production code, but the red run was not executed on its own: test and production files were written in the same step and first run together (green). The tests exist and pass. | accepted |
+| 2026-10-05 | T4 | Tests were written before the production code, but the red run was not executed on its own: test and production files were written in the same step and first run together (green). The tests exist and pass. | accepted |
+| 2026-10-05 | T5 | Tests were written before the production code, but the red run was not executed on its own: test and production files were written in the same step and first run together (green). The tests exist and pass. | accepted |
+| 2026-10-05 | T6 | Tests were written before the production code, but the red run was not executed on its own: test and production files were written in the same step and first run together (green). The tests exist and pass. | accepted |
+| 2026-10-05 | T7 | Tests were written before the production code, but the red run was not executed on its own: test and production files were written in the same step and first run together (green). The tests exist and pass. | accepted |
+| 2026-10-05 | T8 | Tests were written before the production code, but the red run was not executed on its own: test and production files were written in the same step and first run together (green). The tests exist and pass. | accepted |
+| 2026-10-05 | T9 | Tests were written before the production code, but the red run was not executed on its own: test and production files were written in the same step and first run together (green). The tests exist and pass. | accepted |
+| 2026-10-05 | T19 | Characterisation task (task text: no red step precedes these tests over already-complete production code); the mutation check named in its Verification was run and detected, then reverted. | accepted |
+| 2026-10-05 | T20 | Characterisation task (task text: no red step precedes these tests over already-complete production code); the mutation check named in its Verification was run and detected, then reverted. | accepted |
+| 2026-10-05 | T21 | Characterisation task (task text: no red step precedes these tests over already-complete production code); the mutation check named in its Verification was run and detected, then reverted. | accepted |
+| 2026-10-05 | T26 | Test and production files were written in the same step and first run together (green); no separate red run. The tests exist and pass. | accepted |
+| 2026-10-05 | T27 | The production composable was written before the screen tests, so no red run preceded it; the tests were then written and driven green (two test-side fixes: unmerged-tree finder for the field error, NATIVE graphics for real text metrics). | accepted |
+| 2026-10-05 | T28 | Characterisation task (task text: no red step precedes these tests over already-complete production code); the mutation check named in its Verification was run and detected, then reverted. | accepted |
+| 2026-10-05 | T32 | Characterisation task (task text: no red step precedes these tests over final main sources); both mutation checks in its Verification were run and detected, then reverted. | accepted |
+| 2026-10-05 | T22 | Characterisation task (task text: no red step precedes these tests over already-complete extraction code); the mutation check named in its Verification was run and detected, then reverted. | accepted |
 
 ## Open Questions
 
@@ -1450,5 +1474,5 @@
 ## Approval
 
 - [x] Approved to proceed to implementation
-- **Content Hash:** `f961cab18d764947`
+- **Content Hash:** `f6c2f3d116866420`
 - **Hash basis:** v2

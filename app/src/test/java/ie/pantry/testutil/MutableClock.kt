@@ -12,6 +12,7 @@ class MutableClock(
     private val zone: ZoneId = ZoneOffset.UTC,
 ) : Clock() {
 
+    @Volatile
     private var now: Instant = start
 
     fun advanceBy(duration: Duration) {

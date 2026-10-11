@@ -28,7 +28,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.shadows.ShadowLooper
 
-/** R6 AC1, AC5: nothing at app start touches the datasets, and the placeholder shows while a read is blocked. */
+/** R6 AC1, AC5: nothing at app start touches the datasets, and the import screen shows while a read is blocked. */
 @RunWith(RobolectricTestRunner::class)
 class FirstPaintNotBlockedTest {
 
@@ -58,7 +58,7 @@ class FirstPaintNotBlockedTest {
 
     @Test
     @Config(application = BlockingReadPantryApplication::class)
-    fun `placeholder is displayed while a dataset read is blocked`() {
+    fun `import screen is displayed while a dataset read is blocked`() {
         runBlocking {
             val app = ApplicationProvider.getApplicationContext<BlockingReadPantryApplication>()
             val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)

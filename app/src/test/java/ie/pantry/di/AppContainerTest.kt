@@ -152,4 +152,20 @@ class AppContainerTest {
             server.shutdown()
         }
     }
+
+    // ---- F5 T29: the recipe importer ----
+
+    @Test
+    fun `container recipe importer is the same instance across reads`() {
+        val app = ApplicationProvider.getApplicationContext<PantryApplication>()
+
+        assertSame(app.container.recipeImporter, app.container.recipeImporter)
+    }
+
+    @Test
+    fun `recipe importer uses the container gateway`() {
+        val app = ApplicationProvider.getApplicationContext<PantryApplication>()
+
+        assertSame(app.container.gateway, app.container.recipeImporter.gateway)
+    }
 }

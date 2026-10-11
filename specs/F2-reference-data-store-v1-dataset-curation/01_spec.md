@@ -178,7 +178,7 @@ As a Pantry user opening the app on a low-end phone, I want the first screen dra
 
 - GIVEN an asset source that blocks and never completes a dataset read, injected through the `AppContainer` constructor by an overridable container-creation hook on `PantryApplication` (the production default reads the real assets; Q8)
   WHEN a Compose UI test under Robolectric starts `MainActivity` with that container and issues a dataset lookup from a background coroutine
-  THEN the placeholder screen's content is displayed while that read is still blocked, and the test asserts the blocked read was actually started, so the test cannot pass without exercising the seam. Nothing at app start touches the datasets (Q8). This is a seam-exercise test: it fails if an eager read is added to the Application or Activity startup path (the first criterion covers container construction), and it needs `PantryApplication` and its container-creation hook to be `open`, a test subclass registered with `@Config(application = …)`, and the blocked read released in `@After` so no thread leaks.
+  THEN the import screen's content is displayed while that read is still blocked, and the test asserts the blocked read was actually started, so the test cannot pass without exercising the seam. Nothing at app start touches the datasets (Q8). This is a seam-exercise test: it fails if an eager read is added to the Application or Activity startup path (the first criterion covers container construction), and it needs `PantryApplication` and its container-creation hook to be `open`, a test subclass registered with `@Config(application = …)`, and the blocked read released in `@After` so no thread leaks.
 
 ### R7: Read-only at runtime
 
@@ -380,7 +380,7 @@ grep -c 'uses-permission android:name="android.permission' "$M"                 
 - [ ] The seasonality seed and the alias seed each load with at least one valid entry and no fixed count target.
 - [ ] The developer has reviewed the seasonality seed (keys, months from the developer-named Republic-of-Ireland seasonal calendar, substitutions) and the alias seed, and the review is recorded in `docs/reference-data-provenance.md` (Q10).
 - [ ] Container construction opens no asset; the first load runs off the main thread, happens once under concurrent lookups and is never repeated.
-- [ ] A Compose UI test shows the placeholder screen on cold start while a dataset read is still blocked.
+- [ ] A Compose UI test shows the import screen on cold start while a dataset read is still blocked.
 - [ ] The public surface of `ie.pantry.data.reference` exposes no way to mutate loaded data, confirmed by inspection.
 - [ ] `PantryDatabase` stays at version 1 with `app/schemas/` unchanged.
 - [ ] The Network Exposure Triage branch-(a) declaration holds: no permission, no HTTP client, no new exported component, no network call at load time.
@@ -452,5 +452,5 @@ grep -c 'uses-permission android:name="android.permission' "$M"                 
 ## Approval
 
 - [x] Approved to proceed to next phase
-- **Content Hash:** `ab2ce3a2a5d90764`
+- **Content Hash:** `17d9b65682c9fabc`
 - **Hash basis:** v2

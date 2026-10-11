@@ -62,6 +62,32 @@ object ImageFixtures {
         return png.toByteArray()
     }
 
+    /**
+     * A PNG that declares [width] x [height] in a valid signature and IHDR but carries only a stub IDAT (one row of
+     * zeros), so `inJustDecodeBounds` reads the declared size while a full decode would fail.
+     */
+    fun pngHeaderOnly(width: Int, height: Int): ByteArray {
+        val stub = ByteArrayOutputStream().also {
+            DeflaterOutputStream(it).use { deflate -> deflate.write(ByteArray(width + 1)) }
+        }.toByteArray()
+        val png = ByteArrayOutputStream()
+        png.write(byteArrayOf(0x89.toByte(), 'P'.code.toByte(), 'N'.code.toByte(), 'G'.code.toByte(), 0x0D, 0x0A, 0x1A, 0x0A))
+        val header = ByteArrayOutputStream().also {
+            DataOutputStream(it).apply {
+                writeInt(width)
+                writeInt(height)
+                writeByte(8)
+                writeByte(0)
+                writeByte(0)
+                writeByte(0)
+                writeByte(0)
+            }
+        }.toByteArray()
+        chunk(png, "IHDR", header)
+        chunk(png, "IDAT", stub)
+        return png.toByteArray()
+    }
+
     /** Deterministic random bytes that are not an image. */
     fun garbage(): ByteArray = ByteArray(2048).also { Random(42).nextBytes(it) }
 

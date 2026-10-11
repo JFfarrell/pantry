@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pantry</string>
+
+    <!-- Import screen: labels and the first-use hint. -->
+    <string name="import_label_link">Recipe link</string>
+    <string name="import_hint">Paste a recipe link, or share one to Pantry from your browser.</string>
+    <string name="import_action_import">Import</string>
+    <string name="import_action_cancel">Cancel</string>
+    <string name="import_action_retry">Retry</string>
+    <string name="import_action_try_another">Try another link</string>
+    <string name="import_action_import_another">Import another</string>
+    <string name="import_action_share">Share link</string>
+
+    <!-- Import screen: input errors, notices and status lines. -->
+    <string name="import_error_invalid_url">That isn\'t a web link Pantry can use. A link must start with http:// or https://.</string>
+    <string name="import_notice_no_link">No link found in what you shared.</string>
+    <string name="import_notice_link_received">Link received. Tap Import to import it.</string>
+    <string name="import_notice_link_received_cancelled">Import cancelled. New link received. Tap Import to import it.</string>
+    <string name="import_notice_cancelled">Import cancelled.</string>
+    <string name="import_status_page">Importing the recipe…</string>
+    <string name="import_status_picture">Fetching the picture…</string>
+
+    <!-- Import screen: one message per failure. -->
+    <string name="import_error_not_html">This link isn\'t a web page Pantry can read.</string>
+    <string name="import_error_unsupported_encoding">This page uses a compression Pantry can\'t read.</string>
+    <string name="import_error_unreadable">This page\'s content is damaged, so Pantry couldn\'t read it.</string>
+    <string name="import_error_too_large">This page is too large for Pantry to read.</string>
+    <string name="import_error_not_recognised">Pantry didn\'t recognise this page as a recipe.</string>
+    <string name="import_decline_share_explainer">Sharing the link is how you can tell whoever you choose that Pantry didn\'t recognise this page. Pantry itself sends nothing.</string>
+    <string name="import_error_timeout">The site took too long to respond.</string>
+    <string name="import_error_connection">Pantry couldn\'t reach the site. Check your connection.</string>
+    <string name="import_error_http_5xx">The site is having a problem right now.</string>
+    <string name="import_error_http_404">The site says this page doesn\'t exist.</string>
+    <string name="import_error_http_denied">The site won\'t let Pantry see this page.</string>
+    <string name="import_error_http_other">The site returned an error.</string>
+    <string name="import_error_address_refused">This link, or a redirect it follows, points to a private or local network address. Pantry doesn\'t fetch those.</string>
+    <string name="import_error_redirect_refused">This link redirects somewhere Pantry won\'t open.</string>
+    <string name="import_error_too_many_redirects">This link redirects too many times.</string>
+    <string name="import_error_bad_link">Pantry couldn\'t use this link.</string>
+    <string name="import_error_unexpected">Something went wrong fetching this page.</string>
+
+    <!-- Import screen: what the draft found. -->
+    <string name="import_notice_recipe_found">Recipe found.</string>
+    <string name="import_notice_partly_ingredients">Recipe partly found: only the ingredients.</string>
+    <string name="import_notice_partly_ingredients_title">Recipe partly found: only the title and ingredients.</string>
+    <string name="import_notice_partly_ingredients_method">Recipe partly found: only the ingredients and method.</string>
+    <string name="import_notice_partly_method">Recipe partly found: only the method.</string>
+    <string name="import_notice_partly_method_title">Recipe partly found: only the title and method.</string>
 </resources>

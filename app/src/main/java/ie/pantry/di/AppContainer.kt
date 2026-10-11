@@ -14,6 +14,7 @@ import ie.pantry.data.reference.AssetSource
 import ie.pantry.data.reference.ReferenceDataStore
 import ie.pantry.data.thumbnail.ThumbnailProcessor
 import ie.pantry.data.thumbnail.ThumbnailStore
+import ie.pantry.recipeimport.RecipeImporter
 import java.time.Clock
 
 /**
@@ -27,6 +28,8 @@ class AppContainer(
     thumbnailProcessor: ThumbnailProcessor,
     referenceAssets: AssetSource = AssetSource.UNAVAILABLE,
     val gateway: ExternalDataGateway = ExternalDataGateway.create(),
+    val clock: Clock = Clock.systemUTC(),
+    val recipeImporter: RecipeImporter = RecipeImporter(gateway, clock),
 ) {
     val referenceData: ReferenceDataStore = ReferenceDataStore(referenceAssets)
 
@@ -46,6 +49,7 @@ class AppContainer(
                 thumbnailProcessor = ThumbnailProcessor(),
                 referenceAssets = AndroidAssetSource(app.assets),
                 gateway = ExternalDataGateway.create(),
+                clock = clock,
             )
     }
 }

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html><head>
+<script src="/page-script.js"></script>
+<link rel="stylesheet" href="/page-style.css">
+<script type="application/ld+json">{"@type":"Recipe","name":"Linked","recipeIngredient":["1 egg"],"image":"/pic.jpg"}</script>
+</head><body onload="fetch('/onload')">
+<img src="/inline-handler.jpg" onerror="fetch('/onerror')">
+<iframe src="/frame.html"></iframe>
+<script>fetch('/inline-script');</script>
+</body></html>

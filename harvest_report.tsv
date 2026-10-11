@@ -1,0 +1,15 @@
+source_url	status	path	jsonld_ingredient_lines	note
+https://www.bbcgoodfood.com/recipes/quick-easy-chickpea-coconut-dhal	OK	bbcgoodfood.com/quick-easy-chickpea-coconut-dhal.html	15	
+https://www.bbcgoodfood.com/recipes/halloumi-traybake	OK	bbcgoodfood.com/halloumi-traybake.html	10	
+https://thefirstmess.com/2013/09/26/moroccan-style-vegan-vegetable-chickpea-stew-recipe/	OK	thefirstmess.com/moroccan-style-vegan-vegetable-chickpea-stew-recipe.html	19	
+https://thefirstmess.com/2018/04/04/quick-smoky-red-lentil-stew-vegan-recipe/	OK	thefirstmess.com/quick-smoky-red-lentil-stew-vegan-recipe.html	14	
+https://pinchofyum.com/miso-peanut-ramen-bowls	FAILED			HTTP Error 403: Forbidden
+https://pinchofyum.com/roasted-corn-and-fried-egg-tacos	FAILED			HTTP Error 403: Forbidden
+https://www.bbc.co.uk/food/recipes/vegetarianchilli_6544	OK	bbc.co.uk/vegetarianchilli_6544.html	16	
+https://www.bbc.co.uk/food/recipes/vegetarian_shepherds_pie_73637	OK	bbc.co.uk/vegetarian_shepherds_pie_73637.html	22	
+https://www.bbc.co.uk/food/recipes/marry_me_chickpeas_69231	OK	bbc.co.uk/marry_me_chickpeas_69231.html	13	
+https://www.bbc.co.uk/food/recipes/falafel_wraps_59124	OK	bbc.co.uk/falafel_wraps_59124.html	18	
+https://www.bbc.co.uk/food/recipes/veggie_meatball_biryani_21364	OK	bbc.co.uk/veggie_meatball_biryani_21364.html	22	
+https://www.bonappetit.com/recipe/greek-salad-recipe	OK	bonappetit.com/greek-salad-recipe.html	11	
+https://www.allrecipes.com/marry-me-chickpeas-recipe-11688105	OK	allrecipes.com/marry-me-chickpeas-recipe-11688105.html	13	
+https://www.seriouseats.com/roasted-sweet-potato-soup-recipe-8735317	OK	seriouseats.com/roasted-sweet-potato-soup-recipe-8735317.html	14	
